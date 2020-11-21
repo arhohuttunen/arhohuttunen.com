@@ -1,0 +1,14 @@
+# Font style metadata
+name = "Coding Revolution"
+
+# Optional Google font URL
+google_fonts = "Nunito|Ubuntu|Roboto|Roboto+Mono"
+
+# Font families
+heading_font = "Nunito"
+body_font = "Nunito"
+nav_font = "Nunito"
+mono_font = "Roboto Mono"
+
+# "Nunito,Ubuntu,Roboto,sans-serif"
+# "Roboto Mono,Courier New,Monospace"

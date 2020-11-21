@@ -1,0 +1,418 @@
+---
+title: "JUnit 5 Assertions: Verifying Test Results"
+url: /junit-5-assertions/
+type: docs
+toc: true
+date: 2019-04-19
+author: Arho Huttunen
+menu:
+  junit5:
+    name: Assertions
+    parent: Getting Started
+    weight: 20
+weight: 20
+---
+
+In this article, we will learn how to verify test results using JUnit 5 assertions. We will learn the basic methods for assertions, how to customize our error messages, and how to run multiple assertions as a group.
+
+This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
+
+## Overview
+
+JUnit 5 assertions make it easier to verify that the expected test results match the actual results. If any assertion of a test will fail, the test will fail. Similarly, if all assertions of a test pass, the test will pass.
+
+The JUnit 5 assertions are static methods in the `org.junit.jupiter.api.Assertions` class. Let's take a closer look at the use cases of these methods.
+
+## Values
+
+When verifying results, one of the most common scenarios is that we want to ensure that an expected value is equal to the actual value. JUnit 5 has `assertEquals()` and `assertNotEquals()` methods to compare the equality and inequality of values.
+
+In this example we have a simple `Calculator` class that adds two numbers together. We want to make sure the result is correct:
+
+```java
+@Test
+void addNumbers() {
+    Calculator calculator = new Calculator();
+    assertEquals(3, calculator.add(1, 2));
+}
+```
+
+If the assertion would fail, we would see both the expected and actual values in the error message:
+
+```bash
+org.opentest4j.AssertionFailedError:
+Expected :3
+Actual   :2
+```
+
+## Boolean Values
+
+It is very common that we want to make sure if a returned value is true or false. We could use the `assertEquals()` method but JUnit 5 has `assertTrue()` and `assertFalse()` convenience methods to do this.
+
+In this example we make sure the first name of a person starts with a certain letter:
+
+```java
+@Test
+void firstNameStartsWithJ() {
+    Person person = new Person("John", "Doe");
+    assertTrue(person.getFirstName().startsWith("J"));
+}
+```
+
+To assert that something is not true, we would use `assertFalse()` in similar fashion.
+
+## Null Values
+
+Sometimes we need to ensure that an object is null or not null. To do this we can use the JUnit 5 assertion methods `assertNull()` and `assertNotNull()`.
+
+In this example we are making sure that a field in the `Person` class has a non-null value:
+
+```java
+@Test
+void personHasFirstName() {
+    Person person = new Person("John", "Doe");
+    assertNotNull(person.getFirstName());
+}
+```
+
+If the assertion would fail, we would see an error message:
+
+```bash
+org.opentest4j.AssertionFailedError: expected: not <null>
+```
+
+While we sometimes might need to assert `null` values, we should generally try to avoid passing and returning `null` values.
+
+{{% callout note %}}
+**Additional reading:**
+
+[Avoiding Unnecessary Null Checks](/avoiding-unnecessary-null-checks/)
+{{% /callout %}}
+
+## Iterables
+
+Sometimes we need to make sure a collection has the items that we expect. We might for example want to verify that our sorting algorithm works.
+
+The `assertIterableEquals()` method in JUnit 5 makes sure that an iterable object has the items we expect. Any classes that implement the `Iterable` interface can be compared.
+
+In this example we are asserting a list has its items in correct order after sorting:
+
+```java
+@Test
+void iterablesEqual() {
+    final List<String> list = Arrays.asList("orange", "mango", "banana");
+    final List<String> expected = Arrays.asList("banana", "mango", "orange");
+
+    Collections.sort(list);
+
+    assertIterableEquals(expected, list);
+}
+```
+
+Let's say that our sorting algorithm fails, and it doesn't sort the array. The assertion would fail with an error message:
+
+```bash
+org.opentest4j.AssertionFailedError: iterable contents differ at index [0],
+Expected :<banana>
+Actual   :<orange>
+```
+
+The `assertIterableEquals()` method also checks that the array lengths match. If we were to add another element to the `array` the assertion would fail with another error message:
+
+```bash
+org.opentest4j.AssertionFailedError: iterable lengths differ,
+Expected :<3>
+Actual   :<4>
+```
+
+{{% callout note %}}
+Two iterables are considered equal if they both are `null` or empty, or contain the same values.
+{{% /callout %}}
+
+## Arrays
+
+Asserting arrays is very similar to asserting iterables. We can use the `assertArrayEquals()` method from JUnit 5:
+
+```java
+@Test
+void arraysEqual() {
+    final int[] array = { 3, 2, 1 };
+    final int[] expected = { 1, 2, 3 };
+
+    Arrays.sort(array);
+
+    assertArrayEquals(expected, array);
+}
+```
+
+{{% callout note %}}
+Two arrays are equal if they both are `null` or empty, or contain the same values.
+{{% /callout %}}
+
+## Objects by Value
+
+There are a couple of things we need to take into consideration when asserting that two objects are equal.
+
+In this example we have a `Person` class with a first and last name. We want to assert the two instances of `Person` are equal:
+
+```java
+@Test
+void personsAreSame() {
+    Person john = new Person("John", "Doe");
+    Person doe = new Person("John", "Doe");
+
+    assertEquals(john, doe);
+}
+```
+
+Running the test we can see that it fails with a rather cryptic error message:
+
+```bash
+org.opentest4j.AssertionFailedError:
+Expected :com.codingrevolution.junit5.assertions.Person@eec5a4a
+Actual   :com.codingrevolution.junit5.assertions.Person@2b2948e2
+```
+
+The Java compiler internally calls the `toString()` method to get a string representation of the object. The problem is that the default implementation displays the hashcode value of the object.
+
+We can make this more readable by overriding the `toString()` method in the `Person` class:
+
+```java
+@Override
+public String toString() {
+    return "Person{" +
+            "firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            '}';
+}
+```
+
+Re-running the test we can now see the actual fields of the class:
+
+```bash
+org.opentest4j.AssertionFailedError: expected: com.codingrevolution.junit5.assertions.Person@4b4523f8<Person{firstName='John', lastName='Doe'}> but was: com.codingrevolution.junit5.assertions.Person@731a74c<Person{firstName='John', lastName='Doe'}>
+Expected :Person{firstName='John', lastName='Doe'}
+Actual   :Person{firstName='John', lastName='Doe'}
+```
+
+The expected and actual objects have the exact same field values but `assertEquals()` still fails. What is going on?
+
+The reason is that Java object equality is compared using the `equals()` method. The default implementation of the `equals()` method checks if two object references refer to the same object. This is why the assertion fails.
+
+{{% callout note %}}
+**Additional reading:**
+
+[Java hashCode() and equals()](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
+{{% /callout %}}
+
+To solve this problem we need to add our own implementation of `equals()` that compares the fields of the class. If we override the `equals()` method we also have to override `hashCode()`:
+
+```java
+public class Person {
+
+    // ...
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return firstName.equals(person.firstName) &&
+                lastName.equals(person.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName);
+    }
+}
+```
+
+Re-running the test we can see that it now passes. The objects are now compared by their fields for equality using the overridden `equals()` method.
+
+## Objects by Reference
+
+Sometimes we need to make sure if two objects are referring to the same instance or not. For example, we might need to make sure that a method does not return some object but a copy of the object. JUnit 5 has the methods `assertSame()` and `assertNotSame()` for this:
+
+```java
+@Test
+void personsAreNotSameInstance() {
+    Person john = new Person("John", "Doe");
+    Person doe = new Person("John", "Doe");
+
+    assertNotSame(john, doe);
+}
+```
+
+As we would expect, the example will pass even though the two objects have same values because they are two separate instances. If the assertion were to fail we would get an error message:
+
+```bash
+org.opentest4j.AssertionFailedError: expected: not same but was: <Person{firstName='John', lastName='Doe'}>
+Expected :not same
+Actual   :<Person{firstName='John', lastName='Doe'}>
+```
+
+## Exceptions
+
+In order to make sure our error handling works correctly, it can be useful to verify that a piece of code throws a specific exception under certain conditions. This can be done with the `assertThrows()` method in JUnit 5:
+
+```java
+@Test
+void divideByZeroThrowsIllegalArgumentException() {
+    Calculator calculator = new Calculator();
+    assertThrows(IllegalArgumentException.class, () -> calculator.divide(1, 0));
+}
+```
+
+In this example the implementation will throw `IllegalArgumentException` if we try to divide by zero.
+
+If it doesn't throw an exception, the test will fail with an error message:
+
+```bash
+org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
+```
+
+Also, if it throws an unexpected exception, the test will fail with a different error message:
+
+```bash
+org.opentest4j.AssertionFailedError: Unexpected exception type thrown ==>
+Expected :<java.lang.IllegalArgumentException>
+Actual   :<java.lang.ArithmeticException>
+```
+
+In addition, there might be cases where we want to verify some information about the exception, such as the error message or the cause. In such cases we can capture the thrown exception:
+
+```java
+@Test
+void divideByZeroThrowsIllegalArgumentException() {
+    Calculator calculator = new Calculator();
+    Throwable thrown = assertThrows(IllegalArgumentException.class, () -> calculator.divide(1, 0));
+    assertEquals("Cannot divide by zero", thrown.getMessage());
+}
+```
+
+## Timeouts
+
+Sometimes we might want to make sure the execution time does not exceed a limit. We can use either the `assertTimeout()` or the `assertTimeoutPreemptively()` method to do this.
+
+The difference between these two methods is that `assertTimeout()` runs in the same thread as the code that calls it and it won't abort if it exceeds the timeout. On the other hand, the `assertTimeoutPreemptively()` method executes in a different thread and will abort if it exceeds the timeout.
+
+Let's take a look at an example:
+
+```java
+@Test
+void returnValueBeforeTimeoutExceeded() {
+    final String message = assertTimeout(Duration.ofMillis(100), () -> {
+        Thread.sleep(50);
+        return "a message";
+    });
+    assertEquals("a message", message);
+}
+```
+
+If the execution time would exceed the timeout, we would see an error message:
+
+```bash
+org.opentest4j.AssertionFailedError: execution exceeded timeout of 100 ms by 50 ms
+```
+
+If we want to abort the execution, we need to call the `assertTimeoutPreemptively()` method instead:
+
+```java
+@Test
+void abortWhenTimeoutExceeded() {
+    final String message = assertTimeoutPreemptively(Duration.ofMillis(50), () -> {
+        Thread.sleep(100);
+        return "another message";
+    });
+    assertEquals("another message", message);
+}
+```
+
+If the execution time was to exceed the timeout, we would see a slightly different error message:
+
+```bash
+org.opentest4j.AssertionFailedError: execution timed out after 50 ms
+```
+
+## Custom Error Messages
+
+Providing custom error messages for JUnit 5 assertions is easy. All the assertions have an optional error message as the last parameter:
+
+```java
+@Test
+void addNumbers() {
+    Calculator calculator = new Calculator();
+    assertEquals(3, calculator.add(1, 2), "1 + 2 should equal 3");
+}
+```
+
+The custom error message does not replace the default error message. When the assertions fail, the custom message is rather prepended to the error message:
+
+```bash
+org.opentest4j.AssertionFailedError: 1 + 2 should equal 3 ==>
+Expected :3
+Actual   :-1
+```
+
+In some cases we might need to construct a little more complex error message. In such case we can pass the error message as the last parameter in a lambda expression:
+
+```java
+@Test
+void addingEmployeesToPersonnel() {
+    Person employee = new Person("John", "Doe");
+
+    Set<Person> personnel = new HashSet<>();
+    personnel.add(employee);
+
+    assertTrue(personnel.contains(employee),
+            () -> String.format("Personnel file for %s was not found", employee));
+}
+```
+
+To be fair, the error message in the example is not that complex. However, using this approach JUnit 5 will only construct the error message when the assertion fails. This way you only pay the cost if failure happens. This can have an impact on the build speed of very large projects.
+
+## Grouped Assertions
+
+Normally, test execution will stop at the first assertion failure. Using JUnit 5 grouped assertions we can run all the assertions before reporting a failure. This can be done using the `assertAll()` method and providing the different assertions as parameters to the method.
+
+Let's say we want to verify that a person has a correct name. This means that we need to assert that both the first and last name are correct:
+
+```java
+@Test
+void firstAndLastNameMatches() {
+    Person person = new Person("John", "Doe");
+
+    assertAll("person"
+            () -> assertEquals("John", person.getFirstName()),
+            () -> assertEquals("Doe", person.getLastName())
+    );
+}
+```
+
+The first parameter of the `assertAll()` method is an optional title message that identifies the asserted state.
+
+If this example was to fail, both assertions would be executed before failing the test and reporting the failures together:
+
+```bash
+org.opentest4j.MultipleFailuresError: person (2 failures)
+	expected: <John> but was: <Jane>
+	expected: <Doe> but was: <Woodlawn>
+```
+
+As we can see, it's reporting both the failures, making it easier to fix the error.
+
+{{% callout note %}}
+A test should have only one reason to fail. We should not try to reduce the number of tests by verifying several conditions in a single test. However, in some cases we might want to have more than one assertion in a test when the assertions are closely and semantically related.
+{{% /callout %}}
+
+## Summary
+
+JUnit 5 assertions make it easier to verify that the expected test results match the actual results.
+
+- The JUnit 5 assertions are static methods in the `org.junit.jupiter.api.Assertions` class.
+- Failing assertions display the expected and actual values in their error messages.
+- To provide more information about a failure, each of the assertion methods can be passed a custom error message as the last parameter.
+- Assertions that are grouped together with the `assertAll()` method are all executed and failures will be reported together.
+
+The example code for this guide can be found on [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-assertions).
