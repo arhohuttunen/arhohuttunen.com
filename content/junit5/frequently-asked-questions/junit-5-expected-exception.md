@@ -1,15 +1,10 @@
 ---
 title: "JUnit 5 Expected Exception: How to assert an exception is thrown?"
+linktitle: How to assert an exception is thrown?
 url: /junit-5-expected-exception/
-type: docs
-toc: true
+type: book
 date: 2019-10-01
 author: Arho Huttunen
-menu:
-  junit5:
-    name: How to assert an exception is thrown?
-    parent: Frequently Asked JUnit 5 Questions
-    weight: 80
 weight: 80
 ---
 

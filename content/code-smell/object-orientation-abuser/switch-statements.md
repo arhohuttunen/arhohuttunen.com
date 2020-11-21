@@ -1,17 +1,11 @@
 ---
 title: Switch Statements
 url: /switch-statements/
-type: docs
-toc: true
+type: book
 date: 2015-04-07
 author: Arho Huttunen
 weight: 50
 sections_weight: 50
-menu:
-  smells:
-    name: Switch Statements
-    parent: Object-Orientation Abusers
-    weight: 50
 ---
 
 Switch statements are a code smell. Complex conditionals can be hard to read. The same pattern of `switch` statements might be repeating in several locations.

@@ -1,15 +1,10 @@
 ---
 title: "JUnit 5 Assertions: Verifying Test Results"
+linktitle: Assertions
 url: /junit-5-assertions/
-type: docs
-toc: true
+type: book
 date: 2019-04-19
 author: Arho Huttunen
-menu:
-  junit5:
-    name: Assertions
-    parent: Getting Started
-    weight: 20
 weight: 20
 ---
 

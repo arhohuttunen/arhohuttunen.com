@@ -2,9 +2,9 @@
 summary: Learn how to detect code smells and how to refactor the code to be better.
 
 title: Code Smells
-url: /smells/
+url: /code-smell/
 toc: false
-type: docs
+type: book
 ---
 
 This is a tutorial series for code smells.

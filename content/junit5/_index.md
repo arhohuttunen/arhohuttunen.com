@@ -7,8 +7,7 @@ weight: 1
 title: JUnit 5 Tutorial
 date: 2019-03-24
 draft: false
-toc: false
-type: docs
+type: book
 ---
 
 This JUnit 5 tutorial teaches us how to write and run tests for our Java and Kotlin code. Eventually, we will learn to write unit, integration and end-to-end tests. In the future, we will also learn how to test Spring applications and how to use the Mockito mocking framework.

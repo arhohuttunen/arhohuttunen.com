@@ -1,17 +1,11 @@
 ---
 title: "Long Parameter List"
 url: /long-parameter-list/
-type: docs
-toc: true
+type: book
 date: 2015-03-23 
 author: Arho Huttunen
 weight: 40
 sections_weight: 40
-menu:
-  smells:
-    name: Long Parameter List
-    parent: Bloaters
-    weight: 40
 ---
 
 Long parameter list in a method call is a code smell. It indicates that there might be something wrong with the implementation.

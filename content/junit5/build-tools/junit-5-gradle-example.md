@@ -1,15 +1,10 @@
 ---
 title: "JUnit 5 Gradle Example: Running Tests with Gradle"
+linktitle: Gradle Example
 url: /junit-5-gradle-example/
-type: docs
-toc: true
+type: book
 date: 2018-01-01
 author: Arho Huttunen
-menu:
-  junit5:
-    name: Gradle Example
-    parent: Build Tools
-    weight: 50
 weight: 50
 ---
 

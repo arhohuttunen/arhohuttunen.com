@@ -1,17 +1,11 @@
 ---
 title: Code comments
 url: /code-comments/
-type: docs
-toc: true
+type: book
 date: 2015-05-11
 author: Arho Huttunen
 weight: 60
 sections_weight: 60
-menu:
-  smells:
-    name: Code Comments
-    parent: Dispensables
-    weight: 60
 ---
 
 Code comments are a code smell. This statement might feel contrary to reason when you have been taught to always comment your code. Having comments might however tell you that the implementation is too complex.

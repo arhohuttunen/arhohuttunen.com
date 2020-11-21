@@ -1,17 +1,11 @@
 ---
 title: Large Class
 url: /large-class/
-type: docs
-toc: true
+type: book
 date: 2015-12-08
 author: Arho Huttunen
 weight: 30
 sections_weight: 30
-menu:
-  smells:
-    name: Large Class
-    parent: Bloaters
-    weight: 30
 ---
 
 A large class is a code smell very similar to a [long method](/long-method). Some might argue that a lot of small classes make the code harder to follow. However, the exact opposite happens with proper splitting of responsibilities between the classes and naming them accordingly.

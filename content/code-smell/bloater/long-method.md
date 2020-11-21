@@ -1,17 +1,11 @@
 ---
 title: Long method
 url: /long-method/
-type: docs
-toc: true
+type: book
 date: 2015-03-30
 author: Arho Huttunen
 weight: 10
 sections_weight: 10
-menu:
-  smells:
-    name: Long Method
-    parent: Bloaters
-    weight: 10
 ---
 
 A long method is a code smell. It is a well known fact that the longer a method is, the harder it is to understand. Smaller methods might be harder to follow because there are deep sequences of delegation. The key to make it easy to understand is not the method length but naming.

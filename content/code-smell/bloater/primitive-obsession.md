@@ -1,17 +1,11 @@
 ---
 title: Primitive Obsession
 url: /primitive-obsession/
-type: docs
-toc: true
+type: book
 date: 2015-04-20
 author: Arho Huttunen
 weight: 20
 sections_weight: 20
-menu:
-  smells:
-    name: Primitive Obsession
-    parent: Bloaters
-    weight: 20
 ---
 
 Primitive obsession is a code smell. Primitive in this context refers to programming language primitive data types. Obsession refers to always using these data types to represent domain ideas.

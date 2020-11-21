@@ -1,17 +1,11 @@
 ---
 title: Dead code
 url: /dead-code/
-type: docs
-toc: true
+type: book
 date: 2016-01-08
 author: Arho Huttunen
 weight: 70
 sections_weight: 70
-menu:
-  smells:
-    name: Dead Code
-    parent: Dispensables
-    weight: 70
 ---
 
 Dead code is a code smell. Dead code is code that has remained around but is never reached or called. It is very common to have dead code in older projects that have not been cleaned up. While being a very common code smell it is also very easy to fix.

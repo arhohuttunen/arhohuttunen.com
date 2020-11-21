@@ -1,15 +1,10 @@
 ---
 title: JUnit 5 with Kotlin
+linktitle: JUnit 5 with Kotlin
 url: /junit-5-kotlin/
-type: docs
-toc: true
+type: book
 date: 2019-04-14
 author: Arho Huttunen
-menu:
-  junit5:
-    name: JUnit 5 with Kotlin
-    parent: Kotlin
-    weight: 60
 weight: 60
 ---
 

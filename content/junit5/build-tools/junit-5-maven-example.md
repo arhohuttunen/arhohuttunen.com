@@ -1,15 +1,10 @@
 ---
 title: "JUnit 5 Maven Example: Running Tests with Surefire"
+linktitle: Maven Example
 url: /junit-5-maven-example/
-type: docs
-toc: true
+type: book
 date: 2018-01-03
 author: Arho Huttunen
-menu:
-  junit5:
-    name: Maven Example
-    parent: Build Tools
-    weight: 40
 weight: 40
 ---
 

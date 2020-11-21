@@ -1,15 +1,10 @@
 ---
 title: "Getting Started with JUnit 5: Writing Your First Test"
+linktitle: Writing Your First Test
 url: /junit-5-getting-started/
-type: docs
-toc: true
+type: book
 date: 2019-04-19
 author: Arho Huttunen
-menu:
-  junit5:
-    name: Writing Your First Test
-    parent: Getting Started
-    weight: 10
 weight: 10
 ---
 

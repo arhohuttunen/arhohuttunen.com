@@ -9,9 +9,14 @@
   weight = 20
 
 [[main]]
-  name = "Tutorials"
-  url = "/tutorial/"
+  name = "JUnit 5"
+  url = "/junit-5-tutorial/"
   weight = 30
+
+[[main]]
+  name = "Code Smells"
+  url = "/code-smell/"
+  weight = 40
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/media/cv.pdf` and uncomment the lines below.
@@ -19,45 +24,3 @@
 #    name = "CV"
 #    url = "media/cv.pdf"
 #    weight = 70
-
-[[junit5]]
-  name = "JUnit 5 Tutorial"
-  weight = 10
-  url = "/junit-5-tutorial/"
-
-[[junit5]]
-  name = "Getting Started"
-  weight = 20
-
-[[junit5]]
-  name = "Build Tools"
-  weight = 30
-
-[[junit5]]
-  name = "Kotlin"
-  weight = 40
-
-[[junit5]]
-  name = "Migration"
-  weight = 50
-
-[[junit5]]
-  name = "Frequently Asked JUnit 5 Questions"
-  weight = 60
-
-[[smells]]
-  name = "Code Smells"
-  weight = 10
-  url = "/smells/"
-
-[[smells]]
-  name = "Bloaters"
-  weight = 20
-
-[[smells]]
-  name = "Object-Orientation Abusers"
-  weight = 30
-
-[[smells]]
-  name = "Dispensables"
-  weight = 40

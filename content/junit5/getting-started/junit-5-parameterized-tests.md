@@ -1,15 +1,10 @@
 ---
 title: "JUnit 5 Parameterized Tests: Using Different Input"
+linktitle: Parameterized Tests
 url: /junit-5-parameterized-tests/
-type: docs
-toc: true
+type: book
 date: 2019-05-25
 author: Arho Huttunen
-menu:
-  junit5:
-    name: Parameterized Tests
-    parent: Getting Started
-    weight: 30
 weight: 30
 ---
 
