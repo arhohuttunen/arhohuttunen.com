@@ -2,12 +2,9 @@
 summary: Learn how to detect code smells and how to refactor the code to be better.
 
 title: Code Smells
-url: /code-smell/
 toc: false
 type: book
 ---
-
-This is a tutorial series for code smells.
 
 A code smell is a noticeable indication that there might be something wrong with the code. Code smells should be quick and easy to spot. They do not always indicate a problem but they point you to a direction to look deeper.
 

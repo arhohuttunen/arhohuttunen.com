@@ -14,8 +14,8 @@
   weight = 30
 
 [[main]]
-  name = "Code Smells"
-  url = "/code-smell/"
+  name = "Refactoring"
+  url = "/refactoring/"
   weight = 40
 
 # Link to a PDF of your resume/CV from the menu.
