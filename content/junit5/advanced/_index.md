@@ -1,5 +1,6 @@
 ---
 title: Advanced Topics
+url: /junit-5-advanced/
 type: book
 weight: 40
 ---
