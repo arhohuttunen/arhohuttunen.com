@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with JUnit 5: Writing Your First Test"
 linktitle: Writing Your First Test
-url: /junit-5-getting-started/
+url: /junit-5-starter/
 type: book
 date: 2019-04-19
 author: Arho Huttunen
@@ -131,4 +131,4 @@ BUILD SUCCESSFUL in 0s
 
 In this JUnit 5 getting started example we have learned how to write and run a simple JUnit 5 test.
 
-The example code for this guide can be found on [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-getting-started).
+The example code for this guide can be found on [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-starter).
