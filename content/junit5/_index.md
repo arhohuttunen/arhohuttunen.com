@@ -14,6 +14,6 @@ This JUnit 5 tutorial teaches us how to write and run tests for our Java and Kot
 
 The articles in the tutorial have been broken down to the following sections:
 
-- [Getting Started](/junit5/getting-started/) - Learn the basics of JUnit 5.
-- [Advanced](/junit5/advanced/) - Advanced topics like how to use different testing libraries with JUnit 5.
-- [Frequently Asked Questions](/junit5/frequently-asked-questions/) - Answers to some of the most asked questions about JUnit 5.
+- [Getting Started](/junit-5-getting-started/) - Learn the basics of JUnit 5.
+- [Advanced](/junit-5-advanced/) - Advanced topics like how to use different testing libraries with JUnit 5.
+- [Frequently Asked Questions](/junit-5-frequently-asked-questions/) - Answers to some of the most asked questions about JUnit 5.
