@@ -5,6 +5,7 @@ url: /junit-5-kotlin/
 type: book
 date: 2019-04-14
 author: Arho Huttunen
+summary: Learn the differences between writing JUnit 5 tests in Kotlin and Java. Learn to configure JUnit 5 in the build script using Gradle Kotlin DSL.
 weight: 60
 ---
 
