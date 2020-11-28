@@ -3,7 +3,7 @@ title: "Using Mockito with JUnit 5"
 linktitle: Using Mockito with JUnit 5
 url: /junit-5-mockito/
 type: book
-date: 2020-03-15
+date: 2020-11-28
 author: Arho Huttunen
 summary: Learn how to use the Mockito mocking framework with JUnit 5. Learn both the test framework independent way, and using the Mockito JUnit 5 extension.
 weight: 50
