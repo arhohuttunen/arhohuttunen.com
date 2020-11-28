@@ -7,6 +7,7 @@ weight: 40
 
 This section consists of advanced topics like how to use different testing libraries with JUnit 5. The section consists of the following articles:
 
+- [Using Mockito with JUnit 5](/junit-5-mockito/) - Learn how to use Mockito with JUnit 5.
 - [JUnit 5 with Kotlin](/junit-5-kotlin/) - Learn how to write JUnit 5 tests in the Kotlin language.
 
 Also, if you are already familiar with JUnit 4, you might be interested in:
