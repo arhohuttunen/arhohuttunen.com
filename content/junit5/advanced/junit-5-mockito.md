@@ -15,6 +15,14 @@ This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 ## Manual Initialization
 
+Before doing anything else, we have to add the Mockito dependency.
+
+```groovy
+dependencies {
+    testImplementation('org.mockito:mockito-core:3.6.28')
+}
+```
+
 If we just want to create a mock to be injected into another object, the simplest way is to call the `Mockito.mock()` method. The method takes the class of the object to be instantiated as a parameter.
 
 ```java
@@ -158,6 +166,16 @@ It is not recommended to use field or setter injection. Using constructor inject
 ## Mockito JUnit 5 Extension
 
 There is also a Mockito extension for JUnit 5 that will make the initialization even simpler.
+
+To be able to use the extension we have to first add the dependency to it.
+
+```groovy
+dependencies {
+    testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
+}
+```
+
+Now we can apply the extension and get rid of the `MockitoAnnotations.openMocks()` method call.
 
 ```java
 @ExtendWith(MockitoExtension.class)
