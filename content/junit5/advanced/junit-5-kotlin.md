@@ -22,7 +22,7 @@ To be able to write JUnit 5 tests in Kotlin we first need the `junit-jupiter` ar
 
 ```groovy
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 }
 
 tasks.withType<Test> {

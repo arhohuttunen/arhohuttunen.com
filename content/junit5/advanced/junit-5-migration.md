@@ -50,13 +50,13 @@ In addition to this, to run the tests with Maven we also need the Surefire plugi
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>5.6.0</version>
+        <version>5.7.0</version>
         <scope>test</scope>
     </dependency>
     <dependency>
         <groupId>org.junit.vintage</groupId>
         <artifactId>junit-vintage-engine</artifactId>
-        <version>5.6.0</version>
+        <version>5.7.0</version>
         <scope>test</scope>
     </dependency>
 </dependencies>
@@ -70,8 +70,8 @@ test {
 }
 
 dependencies {
-    testCompile('org.junit.jupiter:junit-jupiter:5.6.0')
-    testRuntime('org.junit.vintage:junit-vintage-engine:5.6.0')
+    testImplementation('org.junit.jupiter:junit-jupiter:5.7.0')
+    testRuntime('org.junit.vintage:junit-vintage-engine:5.7.0')
 }
 ```
 
@@ -318,7 +318,7 @@ repositories {
 }
 
 dependencies {
-    testCompile('com.github.sbrannen:spring-test-junit5:1.5.0')
+    testImplementation('com.github.sbrannen:spring-test-junit5:1.5.0')
 }
 ```
 
@@ -332,7 +332,7 @@ In order to use the Mockito extension we have to add the `mockito-junit-jupiter`
 <dependency>
     <groupId>org.mockito</groupId>
     <artifactId>mockito-junit-jupiter</artifactId>
-    <version>2.28.2</version>
+    <version>3.6.28</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -340,7 +340,7 @@ In order to use the Mockito extension we have to add the `mockito-junit-jupiter`
 Respectively, when using Gradle we have to add the dependency in `build.gradle`:
 
 ```groovy
-testCompile('org.mockito:mockito-junit-jupiter:2.28.2')
+testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
 ```
 
 Now we can simply replace the `MockitoJUnitRunner` with the `MockitoExtension`:
@@ -400,7 +400,7 @@ To enable the support in Maven we have to add the dependency in `pom.xml`:
     <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-migrationsupport</artifactId>
-        <version>5.6.0</version>
+        <version>5.7.0</version>
     </dependency>
 </dependencies>
 ```
@@ -409,7 +409,7 @@ To enable the support in Gradle we have to add the dependency in `build.gradle`:
 
 ```groovy
 dependencies {
-    testCompile('org.junit.jupiter:junit-jupiter-migrationsupport:5.6.0')
+    testImplementation('org.junit.jupiter:junit-jupiter-migrationsupport:5.7.0')
 }
 ```
 

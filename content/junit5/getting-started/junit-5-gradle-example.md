@@ -22,7 +22,7 @@ First, to be able to write JUnit 5 tests we need the `junit-jupiter` artifact as
 
 ```groovy
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 }
 ```
 
@@ -42,7 +42,7 @@ To be able to write JUnit 5 tests we need the `junit-jupiter-api` artifact as a 
 
 ```groovy
 dependencies {
-    testCompile("org.junit.jupiter:junit-jupiter-api:5.3.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
 }
 ```
 
