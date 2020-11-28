@@ -5,6 +5,7 @@ url: /junit-5-expected-exception/
 type: book
 date: 2019-10-01
 author: Arho Huttunen
+featured: true
 weight: 80
 ---
 

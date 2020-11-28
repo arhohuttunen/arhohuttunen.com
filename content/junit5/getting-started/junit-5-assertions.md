@@ -5,6 +5,7 @@ url: /junit-5-assertions/
 type: book
 date: 2019-04-19
 author: Arho Huttunen
+featured: true
 weight: 20
 ---
 

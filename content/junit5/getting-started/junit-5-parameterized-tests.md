@@ -5,6 +5,7 @@ url: /junit-5-parameterized-tests/
 type: book
 date: 2019-05-25
 author: Arho Huttunen
+featured: true
 weight: 30
 ---
 
