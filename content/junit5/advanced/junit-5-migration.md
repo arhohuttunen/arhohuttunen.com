@@ -340,7 +340,9 @@ In order to use the Mockito extension we have to add the `mockito-junit-jupiter`
 Respectively, when using Gradle we have to add the dependency in `build.gradle`:
 
 ```gradle
-testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
+dependencies {
+    testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
+}
 ```
 
 Now we can simply replace the `MockitoJUnitRunner` with the `MockitoExtension`:
