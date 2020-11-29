@@ -5,13 +5,13 @@ name = "Coding Revolution"
 light = true
 
 # Primary
-primary = "#0594cb"
+primary = "rgb(129, 161, 193)"
 
 # Menu
 menu_primary = "#fff"
-menu_text = "#0594cb"
-menu_text_active = "#0594cb"
-menu_title = "#2b2b2b"
+menu_text = "rgb(129, 161, 193)"
+menu_text_active = "rgb(129, 161, 193)"
+menu_title = "rgb(46, 52, 64)"
 
 # Home sections
 home_section_odd = "rgb(255, 255, 255)"
