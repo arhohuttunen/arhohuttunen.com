@@ -8,7 +8,6 @@ categories:
 tags:
   - agile
 image:
-  placement: 1
   focal_point: top
 ---
 
