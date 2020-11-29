@@ -20,7 +20,7 @@ We write traditional Gradle build scripts as `build.gradle` files using the Groo
 
 To be able to write JUnit 5 tests in Kotlin we first need the `junit-jupiter` artifact as a dependency in `build.gradle.kts` file and need to tell to use JUnit platform in the tests:
 
-```groovy
+```gradle
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 }

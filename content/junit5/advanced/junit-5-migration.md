@@ -64,7 +64,7 @@ In addition to this, to run the tests with Maven we also need the Surefire plugi
 
 Likewise, to run the tests with Gradle we also need to enable JUnit Platform in tests. Again, we have to add all the dependencies to `build.gradle`:
 
-```groovy
+```gradle
 test {
     useJUnitPlatform {
 }
@@ -252,7 +252,7 @@ We can configure filtering of tests by tags in Maven `pom.xml`:
 
 Correspondingly, we can configure filtering in Gradle `build.gradle`:
 
-```groovy
+```gradle
 test {
     useJUnitPlatform {
         includeTags 'acceptance'
@@ -311,7 +311,7 @@ To use `SpringExtension` with Spring 4 we have to add the dependency in Maven `p
 
 Same way, we have to add the dependency in `build.gradle` when using Gradle:
 
-```groovy
+```gradle
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -339,7 +339,7 @@ In order to use the Mockito extension we have to add the `mockito-junit-jupiter`
 
 Respectively, when using Gradle we have to add the dependency in `build.gradle`:
 
-```groovy
+```gradle
 testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
 ```
 
@@ -407,7 +407,7 @@ To enable the support in Maven we have to add the dependency in `pom.xml`:
 
 To enable the support in Gradle we have to add the dependency in `build.gradle`:
 
-```groovy
+```gradle
 dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter-migrationsupport:5.7.0')
 }

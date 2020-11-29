@@ -17,7 +17,7 @@ This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 Before doing anything else, we have to add the Mockito dependency.
 
-```groovy
+```gradle
 dependencies {
     testImplementation('org.mockito:mockito-core:3.6.28')
 }
@@ -169,7 +169,7 @@ There is also a Mockito extension for JUnit 5 that will make the initialization 
 
 To be able to use the extension we have to first add the dependency to it.
 
-```groovy
+```gradle
 dependencies {
     testImplementation('org.mockito:mockito-junit-jupiter:3.6.28')
 }

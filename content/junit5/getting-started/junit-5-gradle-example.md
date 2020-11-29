@@ -20,7 +20,7 @@ This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 First, to be able to write JUnit 5 tests we need the `junit-jupiter` artifact as a dependency in `build.gradle`:
 
-```groovy
+```gradle
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 }
@@ -28,7 +28,7 @@ dependencies {
 
 Now all we need is to tell to use the JUnit platform in the tests:
 
-```groovy
+```gradle
 test {
     useJUnitPlatform()
 }
@@ -40,7 +40,7 @@ Now we have the most basic setup for writing and running JUnit 5 tests with Grad
 
 To be able to write JUnit 5 tests we need the `junit-jupiter-api` artifact as a dependency:
 
-```groovy
+```gradle
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
 }
@@ -48,7 +48,7 @@ dependencies {
 
 In addition, when using Gradle 4.5 or older, to be able to run JUnit 5 tests we have to configure the JUnit Gradle plugin:
 
-```groovy
+```gradle
 buildscript {
     repositories {
         mavenCentral()
