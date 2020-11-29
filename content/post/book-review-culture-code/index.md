@@ -8,7 +8,8 @@ categories:
 tags:
   - agile
 image:
-  placement: 3
+  placement: 1
+  focal_point: top
 ---
 
 The Culture Code: The Secrets of Highly Successful Groups by Daniel Coyle is a mixture of stories about successful organizations backed up with cutting-edge science and complemented with practical ideas for action. It identifies the critical factors behind team cohesion and determines strategies that encourage collaboration and build trust.
