@@ -1,3 +1,3 @@
-# Coding Revollution
+# Coding Revolution
 
 https://www.codingrevolution.com/
