@@ -4,6 +4,7 @@ linktitle: Assertions
 url: /junit-5-assertions/
 type: book
 date: 2019-04-19
+lastmod: 2020-12-01
 author: Arho Huttunen
 summary: Learn how to verify test results using JUnit 5 assertions. Learn the basic assertion methods, error message customization and assertion grouping.
 featured: true
@@ -403,6 +404,92 @@ As we can see, it's reporting both the failures, making it easier to fix the err
 A test should have only one reason to fail. We should not try to reduce the number of tests by verifying several conditions in a single test. However, in some cases we might want to have more than one assertion in a test when the assertions are closely and semantically related.
 {{% /callout %}}
 
+## Advanced Matching
+
+While the JUnit 5 assertions are sufficient for many testing scenarios, sometimes we need more powerful options. For example, maybe we want to make sure a list has certain size. Or maybe we need to know if the list contains an item with specific field value. Or maybe we would like to verify that a list has exact items in order. We could write some logic ourselves, but it would be better if the assertion library would do this for us. 
+
+This is where JUnit 5 assertions fall short. Therefore, the JUnit 5 documentation recommends to use third-party assertion libraries in such cases. The most popular ones are Hamcrest, AssertJ and Truth.
+
+We are not going to all details about these libraries in this tutorial. However, let's take a quick look at how some assertions might look like with each of them.
+
+### Hamcrest
+
+Hamcrest is the oldest one of the bunch. 
+We would like to make sure a list has just one item. We could write this with JUnit 5 assertions:
+
+```java
+    @Test
+    void listHasOneItem() {
+        List<String> list = new ArrayList();
+        list.add("Hello");
+        assertEquals(list.size(), 1);
+    }
+```
+
+It's not that bad. Let's look at the Hamcrest alternative. We can write assertions by passing the assertion method a matcher method as an argument:
+
+```java
+    @Test
+    void listHasOneItem() {
+        List<String> list = new ArrayList();
+        list.add("Hello");
+        assertThat(list, hasSize(1));
+    }
+```
+
+Reading out the assertion, this is more fluent and closer to natural language. However, we could argue that the first example is readable enough, so maybe we are not convinced yet.
+
+### AssertJ
+
+Next, let's take a quick peek at AssertJ. The main difference between Hamcrest and AssertJ is that Hacmrest relies on matcher methods, while in AssertJ we can chain the method calls.
+
+What if we want to know if a list contains an item with a specific field value? Let's write a test using JUnit 5 only:
+
+```java
+    @Test
+    void listHasPerson() {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("John", "Doe"));
+        people.add(new Person("Jane", "Doe"));
+        assertTrue(people.stream().anyMatch(p -> p.getFirstName().equals("John")));
+    }
+```
+
+Ugh, that does not look pretty. Also, what if we made an error in our logic?
+
+Let's see how this would look like with AssertJ assertions:
+
+```java
+    @Test
+    void listHasPerson() {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("John", "Doe"));
+        people.add(new Person("Jane", "Doe"));
+        assertThat(people).extracting("firstName").contains("John");
+    }
+```
+
+It's quite easy to see that this is much more readable now. We also removed logic from the test code, which can be prone to errors.
+
+### Truth
+
+Finally, let's check out Truth. Truth is very similar to AssertJ. The biggest difference is that Truth tries to provide a simpler API, while AssertJ has a more comprehensive set of assertions. 
+
+Let's take a look at our third example. We would like to verify that a list has exact items in order. This is how it would look like using Truth:
+
+```java
+    @Test
+    void listHasItemsInOrder() {
+        List<String> fruits = new ArrayList<>();
+        fruits.add("Citron");
+        fruits.add("Orange");
+        fruits.add("Grapefruit");
+        assertThat(fruits).containsExactly("Citron", "Grapefruit", "Orange").inOrder();
+    }
+``` 
+
+Once again, this is very concise and readable.
+
 ## Summary
 
 JUnit 5 assertions make it easier to verify that the expected test results match the actual results.
@@ -411,5 +498,6 @@ JUnit 5 assertions make it easier to verify that the expected test results match
 - Failing assertions display the expected and actual values in their error messages.
 - To provide more information about a failure, each of the assertion methods can be passed a custom error message as the last parameter.
 - Assertions that are grouped together with the `assertAll()` method are all executed and failures will be reported together.
+- For more complex assertions, the JUnit 5 documentation recommends using third-party assertion libraries, such as Hamcrest, AssertJ or Truth.
 
 The example code for this guide can be found on [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-assertions).
