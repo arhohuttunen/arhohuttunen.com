@@ -295,20 +295,22 @@ Sometimes we might want to make sure the execution time does not exceed a limit.
 
 The difference between these two methods is that `assertTimeout()` runs in the same thread as the code that calls it and it won't abort if it exceeds the timeout. On the other hand, the `assertTimeoutPreemptively()` method executes in a different thread and will abort if it exceeds the timeout.
 
+Basically this means that the first one will keep executing as long as it takes, while the second one will stop if it exceeds the timeout value. 
+
 Let's take a look at an example:
 
 ```java
 @Test
 void returnValueBeforeTimeoutExceeded() {
-    final String message = assertTimeout(Duration.ofMillis(100), () -> {
-        Thread.sleep(50);
+    final String message = assertTimeout(Duration.ofMillis(50), () -> {
+        Thread.sleep(100);
         return "a message";
     });
     assertEquals("a message", message);
 }
 ```
 
-If the execution time would exceed the timeout, we would see an error message:
+Since the execution time will exceed the timeout, we will see an error message:
 
 ```bash
 org.opentest4j.AssertionFailedError: execution exceeded timeout of 100 ms by 50 ms
@@ -332,6 +334,8 @@ If the execution time was to exceed the timeout, we would see a slightly differe
 ```bash
 org.opentest4j.AssertionFailedError: execution timed out after 50 ms
 ```
+
+The difference here is that the execution stopped at the timeout value.
 
 ## Custom Error Messages
 
