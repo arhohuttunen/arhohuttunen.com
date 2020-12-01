@@ -14,13 +14,13 @@ In this article, we will learn how to verify test results using JUnit 5 assertio
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
-## Overview
+## Assertions
 
 JUnit 5 assertions make it easier to verify that the expected test results match the actual results. If any assertion of a test will fail, the test will fail. Similarly, if all assertions of a test pass, the test will pass.
 
 The JUnit 5 assertions are static methods in the `org.junit.jupiter.api.Assertions` class. Let's take a closer look at the use cases of these methods.
 
-## Values
+### Values
 
 When verifying results, one of the most common scenarios is that we want to ensure that an expected value is equal to the actual value. JUnit 5 has `assertEquals()` and `assertNotEquals()` methods to compare the equality and inequality of values.
 
@@ -42,7 +42,7 @@ Expected :3
 Actual   :2
 ```
 
-## Boolean Values
+### Boolean Values
 
 It is very common that we want to make sure if a returned value is true or false. We could use the `assertEquals()` method but JUnit 5 has `assertTrue()` and `assertFalse()` convenience methods to do this.
 
@@ -58,7 +58,7 @@ void firstNameStartsWithJ() {
 
 To assert that something is not true, we would use `assertFalse()` in similar fashion.
 
-## Null Values
+### Null Values
 
 Sometimes we need to ensure that an object is null or not null. To do this we can use the JUnit 5 assertion methods `assertNull()` and `assertNotNull()`.
 
@@ -86,7 +86,7 @@ While we sometimes might need to assert `null` values, we should generally try t
 [Avoiding Unnecessary Null Checks](/avoiding-unnecessary-null-checks/)
 {{% /callout %}}
 
-## Iterables
+### Iterables
 
 Sometimes we need to make sure a collection has the items that we expect. We might for example want to verify that our sorting algorithm works.
 
@@ -126,7 +126,7 @@ Actual   :<4>
 Two iterables are considered equal if they both are `null` or empty, or contain the same values.
 {{% /callout %}}
 
-## Arrays
+### Arrays
 
 Asserting arrays is very similar to asserting iterables. We can use the `assertArrayEquals()` method from JUnit 5:
 
@@ -146,7 +146,7 @@ void arraysEqual() {
 Two arrays are equal if they both are `null` or empty, or contain the same values.
 {{% /callout %}}
 
-## Objects by Value
+### Objects by Value
 
 There are a couple of things we need to take into consideration when asserting that two objects are equal.
 
@@ -227,7 +227,7 @@ public class Person {
 
 Re-running the test we can see that it now passes. The objects are now compared by their fields for equality using the overridden `equals()` method.
 
-## Objects by Reference
+### Objects by Reference
 
 Sometimes we need to make sure if two objects are referring to the same instance or not. For example, we might need to make sure that a method does not return some object but a copy of the object. JUnit 5 has the methods `assertSame()` and `assertNotSame()` for this:
 
@@ -249,7 +249,7 @@ Expected :not same
 Actual   :<Person{firstName='John', lastName='Doe'}>
 ```
 
-## Exceptions
+### Exceptions
 
 In order to make sure our error handling works correctly, it can be useful to verify that a piece of code throws a specific exception under certain conditions. This can be done with the `assertThrows()` method in JUnit 5:
 
@@ -288,7 +288,7 @@ void divideByZeroThrowsIllegalArgumentException() {
 }
 ```
 
-## Timeouts
+### Timeouts
 
 Sometimes we might want to make sure the execution time does not exceed a limit. We can use either the `assertTimeout()` or the `assertTimeoutPreemptively()` method to do this.
 
