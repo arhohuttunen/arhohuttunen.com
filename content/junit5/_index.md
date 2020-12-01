@@ -11,10 +11,12 @@ type: book
 toc: false
 ---
 
-This JUnit 5 tutorial teaches us how to write and run tests for our Java and Kotlin code. Eventually, we will learn to write unit, integration and end-to-end tests.
+This JUnit 5 tutorial teaches us how to write and run tests for our Java and Kotlin code. The tutorial targets both beginners and people already familiar with some version of JUnit.
 
-The articles in the tutorial have been broken down to the following sections:
+The articles in the tutorial have been broken down to different sections.
 
-- [Getting Started](/junit-5-getting-started/) - Learn the basics of JUnit 5.
-- [Advanced](/junit-5-advanced/) - Advanced topics like how to use different testing libraries with JUnit 5.
-- [Frequently Asked Questions](/junit-5-frequently-asked-questions/) - Answers to some of the most asked questions about JUnit 5.
+First section, [Getting Started](/junit-5-getting-started/), teaches all the basics of JUnit 5, from the setup to making assertions, and how the test lifecycle works.
+
+The [Advanced](/junit-5-advanced/) section focuses on things like utilizing other testing libraries with JUnit 5, or how to migrate from JUnit 4 to JUnit 5.
+
+Finally, the [Frequently Asked Questions](/junit-5-frequently-asked-questions/) answers to some of the most asked questions about JUnit 5.
