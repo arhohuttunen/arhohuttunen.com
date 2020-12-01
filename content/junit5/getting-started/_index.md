@@ -2,6 +2,7 @@
 title: Getting Started
 url: /junit-5-getting-started/
 type: book
+toc: false
 weight: 10
 ---
 

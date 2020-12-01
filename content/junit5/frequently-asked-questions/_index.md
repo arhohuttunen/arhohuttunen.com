@@ -2,6 +2,7 @@
 title: Frequently Asked Questions
 url: /junit-5-frequently-asked-questions/
 type: book
+toc: false
 weight: 50
 ---
 
