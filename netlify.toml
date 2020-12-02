@@ -4,6 +4,7 @@
 
 [build.environment]
   HUGO_VERSION = "0.78.2"
+  HUGO_ENABLEGITINFO = "true"
 
 [context.production.environment]
   HUGO_ENV = "production"
