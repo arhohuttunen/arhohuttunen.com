@@ -7,6 +7,8 @@ categories:
   - Book Review
 tags:
   - agile
+  - culture
+  - leadership
 image:
   focal_point: top
 ---
