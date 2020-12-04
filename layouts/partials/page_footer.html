@@ -1,0 +1,16 @@
+{{ partial "page_edit" . }}
+{{ partial "tags" . }}
+<p>
+  <script async data-uid="710f90d6cb" src="https://witty-producer-1745.ck.page/710f90d6cb/index.js"></script>
+</p>
+{{ partial "share" . }}
+{{ partial "page_author" . }}
+{{ partial "comments" . }}
+
+{{ if site.Params.section_pager }}
+<div class="article-widget">
+  {{ partial "section_pager" . }}
+</div>
+{{ end }}
+
+{{ partial "page_related" . }}
