@@ -1,13 +1,15 @@
 ---
 title: "Migrating from JUnit 4 to JUnit 5: A Definitive Guide"
-linktitle: Migrating From JUnit 4
-url: /junit-5-migration/
-type: book
-date: 2020-11-29
+date: 2017-11-20
 author: Arho Huttunen
 summary: Learn how to migrate from JUnit 4 to JUnit 5. See how to run existing tests along with the new version, and what changes are needed to migrate the code.
+categories:
+  - Testing
+tags:
+  - junit 5
+  - junit 4
+  - migration guide
 featured: true
-weight: 70
 ---
 
 In this article, we will take a look at the steps required for migrating from JUnit 4 to JUnit 5. We will see how to run existing tests along with the new version, and what changes we have to do to migrate the code.

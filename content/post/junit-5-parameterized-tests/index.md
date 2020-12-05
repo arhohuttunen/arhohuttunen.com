@@ -1,15 +1,15 @@
 ---
 title: "JUnit 5 Parameterized Tests: Using Different Inputs"
-linktitle: Parameterized Tests
-url: /junit-5-parameterized-tests/
-type: book
 date: 2019-05-25
 author: Arho Huttunen
+categories:
+  - Testing
+tags:
+  - junit 5
 featured: true
-weight: 30
+image:
+  focal_point: center
 ---
-
-## Overview
 
 This article teaches us how to remove duplication from test code by writing JUnit 5 parameterized tests.
 We will see how parameterized tests work and look at ways of providing different parameters to test methods.

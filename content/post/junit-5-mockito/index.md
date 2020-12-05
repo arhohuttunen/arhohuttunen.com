@@ -1,12 +1,15 @@
 ---
-title: "Using Mockito with JUnit 5"
-linktitle: Using Mockito with JUnit 5
-url: /junit-5-mockito/
-type: book
+title: Using Mockito with JUnit 5
 date: 2020-11-28
 author: Arho Huttunen
 summary: Learn how to use the Mockito mocking framework with JUnit 5. Learn both the test framework independent way, and using the Mockito JUnit 5 extension.
-weight: 50
+categories:
+  - Testing
+tags:
+  - junit 5
+featured: true
+image:
+  focal_point: top
 ---
 
 In this article, we will learn how to use the Mockito mocking framework with JUnit 5. We will learn a test framework independent way, and how to use the Mockito JUnit 5 extension.
@@ -257,7 +260,7 @@ Injecting mocks to method parameters works both on the lifecycle methods and on 
 
 ## Summary
 
-There are three different ways of using Mockito with JUnit5. First two approaches work independently of the used framework, while the third one utilizes the Mockit JUnit 5 extension.
+There are three different ways of using Mockito with JUnit 5. First two approaches work independently of the used framework, while the third one utilizes the Mockit JUnit 5 extension.
 
 Mocks can be created and initialized by:
 

@@ -1,13 +1,13 @@
 ---
 title: "JUnit 5 Assertions: Verifying Test Results"
-linktitle: Assertions
-url: /junit-5-assertions/
-type: book
 date: 2019-04-19
 author: Arho Huttunen
 summary: Learn how to verify test results using JUnit 5 assertions. Learn the basic assertion methods, error message customization and assertion grouping.
+categories:
+  - Testing
+tags:
+  - junit 5
 featured: true
-weight: 20
 ---
 
 ## Overview

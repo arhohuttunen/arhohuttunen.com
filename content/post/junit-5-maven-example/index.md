@@ -1,11 +1,11 @@
 ---
 title: "JUnit 5 Maven Example: Running Tests with Surefire"
-linktitle: Maven Example
-url: /junit-5-maven-example/
-type: book
 date: 2018-01-03
 author: Arho Huttunen
-weight: 40
+categories:
+  - Testing
+tags:
+  - junit 5
 ---
 
 In this JUnit 5 Maven example, we will learn how to get the required dependencies for writing JUnit 5 tests with Maven. Also, we will learn how to configure the Maven Surefire plugin to run the tests.
