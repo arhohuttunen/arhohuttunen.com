@@ -1,3 +1,21 @@
 a.navbar-brand {
   text-transform: uppercase;
 }
+.navbar-nav a.nav-link {
+  text-transform: uppercase;
+}
+.home-section h1 {
+  color: #2c3e50;
+}
+.home-section:nth-of-type(even) h1 {
+  color: #fff;
+}
+.page-footer {
+  background-color: #2c3e50;
+}
+.site-footer {
+  color: #fff;
+}
+.site-footer a {
+  color: #1abc9c;
+}
