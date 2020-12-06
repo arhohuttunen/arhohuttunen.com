@@ -6,9 +6,9 @@ authors:
 categories:
   - Programming
 tags:
-  - clean code
-  - code review
-  - static analysis
+  - Clean code
+  - Code review
+  - Static analysis
 ---
 
 Code quality is a weak spot in nearly every software project. This is especially true for legacy projects. What once was elegant, over time became rougher and finally incomprehensible.

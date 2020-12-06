@@ -5,7 +5,8 @@ author: Arho Huttunen
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
+  - Maven
 ---
 
 In this JUnit 5 Maven example, we will learn how to get the required dependencies for writing JUnit 5 tests with Maven. Also, we will learn how to configure the Maven Surefire plugin to run the tests.

@@ -6,7 +6,8 @@ author: Arho Huttunen
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
+  - Gradle
 ---
 
 In this JUnit 5 Gradle example, we will learn how to get the required dependencies for writing JUnit 5 tests with Gradle. Also, we will learn how to configure the JUnit Gradle plugin to run the tests.

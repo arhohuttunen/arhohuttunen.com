@@ -5,7 +5,7 @@ author: Arho Huttunen
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
 ---
 
 In this article, we will learn how to write and run a simple JUnit 5 test. We will learn how setup preconditions, interact with the object we want to test, and verify that it behaves like we expect.

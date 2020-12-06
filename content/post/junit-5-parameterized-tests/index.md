@@ -5,7 +5,7 @@ author: Arho Huttunen
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
 featured: true
 image:
   focal_point: center

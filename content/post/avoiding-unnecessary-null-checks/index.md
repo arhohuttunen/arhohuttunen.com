@@ -6,9 +6,9 @@ authors:
 categories:
   - Programming
 tags:
-  - refactoring
-  - clean code
-  - anti-pattern
+  - Refactoring
+  - Clean code
+  - Anti pattern
 ---
 
 The most common reason for writing null checks is that you run into a null pointer exception. The second most common reason is that you happened to think about it at some certain case.

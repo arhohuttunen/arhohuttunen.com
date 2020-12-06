@@ -6,9 +6,9 @@ summary: Learn how to migrate from JUnit 4 to JUnit 5. See how to run existing t
 categories:
   - Testing
 tags:
-  - junit 5
-  - junit 4
-  - migration guide
+  - JUnit 5
+  - JUnit 4
+  - Migration guide
 featured: true
 ---
 

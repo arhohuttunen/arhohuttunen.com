@@ -6,8 +6,8 @@ authors:
 categories:
   - Programming
 tags:
-  - clean code
-  - anti-pattern
+  - Clean code
+  - Anti pattern
 ---
 
 We all have been taught that reusable code is good. We all know why we should do it but there are some misconceptions about how to do it.

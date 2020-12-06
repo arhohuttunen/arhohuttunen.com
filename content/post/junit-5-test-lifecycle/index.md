@@ -6,7 +6,7 @@ summary: Learn how to run code before and after each test or all tests in the te
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
 ---
 
 In this article, we will learn how to run code before and after each test or all tests in the test class. We will also see what is the execution order when using nested tests or extensions.

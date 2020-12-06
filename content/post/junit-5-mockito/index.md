@@ -6,7 +6,8 @@ summary: Learn how to use the Mockito mocking framework with JUnit 5. Learn both
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
+  - Mockito
 featured: true
 image:
   focal_point: top

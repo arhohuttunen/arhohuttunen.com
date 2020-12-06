@@ -6,7 +6,8 @@ summary: Learn the differences between writing JUnit 5 tests in Kotlin and Java.
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
+  - Kotlin
 featured: true
 image:
   focal_point: center

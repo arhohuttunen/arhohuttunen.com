@@ -4,9 +4,9 @@ date: 2016-01-18
 authors:
   - arhohuttunen
 categories:
-  - Programming
+  - Testing
 tags:
-  - clean code
+  - Clean code
 ---
 
 Let's assume we have decided to increase the stability of our software. So we decide to write tests for our code. The problem is that the customer is requesting new features and deadlines are approaching. Testing will slow us down. We can skip them now and write them later, right?

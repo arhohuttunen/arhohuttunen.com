@@ -6,7 +6,7 @@ authors:
 categories:
   - Programming
 tags:
-  - git
+  - Git
 ---
 
 Version control systems provide a way to track changes between source code versions. Git is most likely the most commonly used one nowadays. Git can be used in different ways and there is no one correct way to do it. However, there are some pitfalls that might make tracking of changes harder than it should be.

@@ -6,8 +6,8 @@ authors:
 categories:
   - Programming
 tags:
-  - refactoring
-  - clean code
+  - Refactoring
+  - Clean code
 ---
 
 Every software developer has faced the situation. You have been assigned a task to add or change a feature. You know nothing about the particular feature but it does not sound too complex.

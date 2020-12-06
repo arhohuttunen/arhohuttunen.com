@@ -6,7 +6,7 @@ summary: Learn how to verify test results using JUnit 5 assertions. Learn the ba
 categories:
   - Testing
 tags:
-  - junit 5
+  - JUnit 5
 featured: true
 ---
 

@@ -4,9 +4,9 @@ date: 2016-02-01
 authors:
   - arhohuttunen
 categories:
-  - Programming
+  - Testing
 tags:
-  - clean code
+  - Clean code
 ---
 
 There are a lot of developers and managers who think that writing unit tests is just extra work. Suggesting that we should write more unit tests seems to receive ill responses. I think there are many people out there who still don't understand the purpose of unit testing.
