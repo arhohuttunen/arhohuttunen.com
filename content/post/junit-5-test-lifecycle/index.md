@@ -69,6 +69,10 @@ class PerMethodLifecycleTest {
 
 Notice how the methods annotated with `@BeforeAll` and `@AfterAll` are static methods. This is because when creating a new test instance per test method, there is no shared state otherwise. 
 
+The following illustration makes it easier to understand.
+
+{{< figure src="junit-5-per-method-lifecycle.png" caption="Per method lifecycle" >}}
+
 Executing the tests in the test class gives us the following output (actually, the output has been formatted to make it more obvious):
 
 ```text
@@ -109,6 +113,10 @@ public class PerClassLifecycleTest {
 }
 ```
 
+Again, the following illustration helps to understand what is happening.
+
+{{< figure src="junit-5-per-class-lifecycle.png" caption="Per class lifecycle" >}}
+
 Consequently, the output of the test execution is now a little different:
 
 ```text
@@ -123,7 +131,11 @@ Constructor
   After the entire test fixture
 ```
 
-From the results, we can see that the execution order of the lifecycle methods has not changed. However, the difference is that JUnit constructs the test class only once.
+From the results, we can see that the execution order of the lifecycle methods has not changed
+However, the difference is that JUnit constructs the test class only once.
+
+The fundamental difference is that in the default lifecycle method constructing a new test class instance resets the state stored in instance variables.
+When the per class lifecycle method constructs the instance only once, state stored in instance variables is shared between tests.
 
 {{% callout warning %}}
 If your test methods rely on state stored in instance variables, you may need to reset the state in `@BeforeEach` or `@AfterEach` lifecycle methods.
