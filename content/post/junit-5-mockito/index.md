@@ -8,7 +8,6 @@ categories:
 tags:
   - JUnit 5
   - Mockito
-featured: true
 image:
   focal_point: top
 ---
