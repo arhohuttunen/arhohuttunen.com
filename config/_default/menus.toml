@@ -18,6 +18,11 @@
   url = "/refactoring/"
   weight = 40
 
+[[main]]
+  name = "About"
+  url = "/about/"
+  weight = 50
+
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/media/cv.pdf` and uncomment the lines below.
 # [[main]]
