@@ -1,3 +1,3 @@
-# Coding Revolution
+# Arho Huttunen
 
-https://www.codingrevolution.com/
+https://www.arhohuttunen.com/
