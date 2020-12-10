@@ -37,15 +37,11 @@ hero_media = "home.png"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://www.youtube.com/channel/UCYxW02yOkWqV3nZTUBMfYzg"
-  label = "Visit YouTube"
-  icon_pack = "fab"
-  icon = "youtube"
-  
-[cta_alt]
   url = "/post"
   label = "Read the blog"
-
+  icon_pack = "fas"
+  icon = "book"
+  
 # Note. An optional note to show underneath the links.
 [cta_note]
   label = "Join me on the journey to become a better developer!"
