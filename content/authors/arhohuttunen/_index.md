@@ -29,6 +29,9 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
+- icon: youtube
+  icon_pack: fab
+  link: https://www.youtube.com/channel/UCYxW02yOkWqV3nZTUBMfYzg
 - icon: github
   icon_pack: fab
   link: https://github.com/arhohuttunen
@@ -55,4 +58,8 @@ user_groups:
 - Visitors
 ---
 
-A software professional seeking for continuous improvement. Obsessed with test automation and sustainable development.
+Hi! My name is Arho Huttunen, and I live in Finland. I am a software engineer with over 20 years of experience.
+During my career I have trained and mentored a lot of people, and I feel really passionate about it.
+
+I believe that becoming a better software engineer is a life long journey. I want to keep doing what I enjoy and
+teach people how to succeed in that journey.
