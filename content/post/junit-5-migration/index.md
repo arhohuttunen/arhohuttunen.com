@@ -95,7 +95,7 @@ Likewise, to run the tests with Gradle we also need to enable JUnit Platform in 
 
 ```gradle
 test {
-    useJUnitPlatform {
+    useJUnitPlatform()
 }
 
 dependencies {
