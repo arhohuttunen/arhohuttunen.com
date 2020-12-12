@@ -28,13 +28,36 @@ JUnit has been split into three different sub-projects:
 - **JUnit Jupiter** is the new API for writing tests and extensions in JUnit 5
 - Finally, **JUnit Vintage** allows us to run JUnit 4 tests with JUnit 5
 
+Here are some advantages of JUnit 5 over JUnit 4:
+
 One of the biggest flaws of JUnit 4 is that it does not support multiple runners (so you cannot use e.g. `SpringJUnit4ClassRunner` and `Parameterized` at the same time). In JUnit 5 this is finally possible by registering multiple extensions.
 
 Furthermore, JUnit 5 utilizes Java 8 features like lambdas for lazy evaluation. JUnit 4 never advanced beyond Java 7 missing out on Java 8 features.
 
-Also, JUnit 4 has shortcomings in parameterized tests and lacks nested tests. This has inspired third-party developers to create specialized runners for these situations. JUnit 5 adds better support for parameterized tests and native support for nested tests along with some other new features.
+Also, JUnit 4 has shortcomings in parameterized tests and lacks nested tests. This has inspired third-party developers to create specialized runners for these situations.
 
-## Running Tests
+JUnit 5 adds better support for parameterized tests and native support for nested tests along with some other new features.
+
+## Key Migration Steps
+
+JUnit provides a gradual migration path with the help of JUnit Vintage test engine. We can use the JUnit Vintage test engine to run JUnit 4 tests with JUnit 5. 
+
+All classes specific to JUnit 4 are located in `org.junit` package. All classes specific to JUnit 5 are located in the `org.junit.jupiter` package. If both JUnit 4 and JUnit 5 are in the classpath, there will be no conflicts.
+
+As a result, we can keep our previously implemented JUnit 4 tests together with the JUnit 5 tests until we finalize the migration. Because of this, we can plan the migration gradually.
+
+The following table summarizes the key migration steps in migrating from JUnit 4 to JUnit 5.
+
+| Step                                      | Explanation                                                                                                            |
+|-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Replace dependencies                      | JUnit 4 uses a single dependency. JUnit 5 has additional dependencies for migration support and JUnit Vintage engine.  |
+| Replace annotations                       | Some JUnit 5 annotations are the same as JUnit 4. Some new ones replace the old ones, and function a little different. |
+| Replace testing classes and methods       | Assertions and assumptions have been moved to new classes. Method argument order is different in some cases.           |
+| Replace runners and rules with extensions | JUnit 5 replaces runners and rules with a single extension model. This step could take more time than the others.      |
+
+Next we will take a deeper dive into each of these steps.
+
+## Dependencies
 
 Let's see what we need to do to run existing test on the new platform. In order to run both JUnit 4 and JUnit 5 tests we need:
 
@@ -83,21 +106,25 @@ dependencies {
 
 Annotations reside in the `org.junit.jupiter.api` package instead of `org.junit` package.
 
-Some annotations are also different:
+Most of the annotation names are also different:
 
 | JUnit 4        | JUnit 5       |
 |----------------|---------------|
+| `@Test`        | `@Test`       |
 | `@Before`      | `@BeforeEach` |
 | `@After`       | `@AfterEach`  |
 | `@BeforeClass` | `@BeforeAll`  |
 | `@AfterClass`  | `@AfterAll`   |
 | `@Ignore`      | `@Disable`    |
+| `@Category`    | `@Tag`        |
 
 In most cases, we can just find and replace the package and class names.
 
-## Exceptions
+However, the `@Test` annotation does not have the `expected` or `timeout` attribute anymore. 
 
-We can not use `expected` attribute with the `@Test` annotation anymore.
+### Exceptions
+
+We cannot use `expected` attribute with the `@Test` annotation anymore.
 
 The `expected` attribute in JUnit 4 can be replaced with the `assertThrows()` method in Junit 5:
 
@@ -121,7 +148,7 @@ class JUnit5ExceptionTest {
 }
 ```
 
-## Timeouts
+### Timeouts
 
 We cannot use `timeout` attribute with the `@Test` annotation anymore.
 
@@ -147,7 +174,25 @@ class JUnit5TimeoutTest {
 
 We can also see that neither test classes nor test methods need to be public in JUnit 5. We might actually get an IDE warning that they can be made package-private.
 
-## Assertions
+## Testing Classes and Methods
+
+As already previously mentioned, assertions and assumptions have been moved to new classes. Also, method argument order is different in some cases.
+
+The following table summarizes the key differences between JUnit 4 and JUnit 5 testing classes and methods.
+
+|                                 | JUnit 4                | JUnit 5                      |
+|---------------------------------|------------------------|------------------------------|
+| **Testing class package**       | `org.junit`            | `org.junit.jupiter.api`      | 
+| **Assertions class**            | `Assert`               | `Assertions`                 |
+|                                 | `assertThat()`         | `MatcherAssert.assertThat()` |
+| **Optional assertions message** | First method parameter | Last method parameter        |
+| **Assumptions class**           | `Assume`               | `Assumptions`                |
+|                                 | `assumeNotNull()`      | Removed                      |
+|                                 | `assumeNoException()`  | Removed                      |
+
+Next, let's take a closer look at the changes in the testing classes and methods.
+
+### Assertions
 
 Methods for asserting reside in the `org.junit.jupiter.api.Assertions` class instead of `org.junit.Assert` class.
 
@@ -175,7 +220,11 @@ class JUnit5AssertionTest {
 
 It is also possible to lazily evaluate assertion messages like in the example. This avoids constructing complex messages unnecessarily.
 
-There is also another issue when asserting `String` objects with a custom assertion message. The order of the parameters is different, but we won't get a compiler error because all the parameters are `String` type. We can easily spot these cases because the tests will fail when we run them.
+{{% callout warning %}}
+There is also another issue when asserting `String` objects with a custom assertion message.
+The order of the parameters is different, but we won't get a compiler error because all the parameters are `String` type.
+We can easily spot these cases because the tests will fail when we run them.
+{{% /callout %}}
 
 Furthermore, we might also have legacy tests that use Hamcrest assertions provided via JUnit 4 `Assert.assertThat()` method. JUnit 5 does not provide `Assertions.assertThat()` method like JUnit 4 does. Instead, we have to import the method from Hamcrest `MatcherAssert`:
 
@@ -197,7 +246,7 @@ class JUnit5HamcrestTest {
 }
 ```
 
-## Assumptions
+### Assumptions
 
 Assumption methods reside in `org.junit.jupiter.Assumptions` class instead of `org.junit.Assume` class.
 
@@ -222,6 +271,8 @@ class JUnit5AssumptionTest {
     }
 }
 ```
+
+It is also noteworthy that there is no `Assume.assumeNotNUll()` nor `Assume.assumeNoException()` anymore.
 
 ## Categories
 
