@@ -18,6 +18,8 @@ In this article, we will take a look at the steps required for migrating from JU
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
+{{% toc %}} 
+
 ## Overview
 
 JUnit 5 has a modular design unlike the previous versions. The key point of the new architecture is to separate concerns between writing tests, extensions and tools.
