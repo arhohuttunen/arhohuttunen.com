@@ -223,9 +223,9 @@ class JUnit5AssertionTest {
 It is also possible to lazily evaluate assertion messages like in the example. This avoids constructing complex messages unnecessarily.
 
 {{% callout warning %}}
-There is also another issue when asserting `String` objects with a custom assertion message.
-The order of the parameters is different, but we won't get a compiler error because all the parameters are `String` type.
-We can easily spot these cases because the tests will fail when we run them.
+When asserting `String` objects with a custom assertion message, we won't get a compiler error because all the parameters are `String` type.
+
+However, We can easily spot these cases because the tests will fail when we run them.
 {{% /callout %}}
 
 Furthermore, we might also have legacy tests that use Hamcrest assertions provided via JUnit 4 `Assert.assertThat()` method. JUnit 5 does not provide `Assertions.assertThat()` method like JUnit 4 does. Instead, we have to import the method from Hamcrest `MatcherAssert`:
