@@ -280,7 +280,7 @@ It is also noteworthy that there is no `Assume.assumeNotNUll()` nor `Assume.assu
 
 The `@Category` annotation from JUnit 4 has been replaced with a `@Tag` annotation in JUnit 5. Also, we no longer use marker interfaces but instead pass the annotation a string parameter.
 
-In JUnit 4 we use categories whereas in JUnit 5 we use tags:
+In JUnit 4 we use categories with a marker interface:
 
 ```java
 public interface IntegrationTest {}
@@ -289,12 +289,38 @@ public interface IntegrationTest {}
 public class JUnit4CategoryTest {}
 ```
 
+We could then configure filtering of tests by tags in Maven `pom.xml`:
+
+```xml
+<plugin>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.22.2</version>
+    <configuration>
+        <groups>com.example.AcceptanceTest</groups>
+        <excludedGroups>com.example.IntegrationTest</excludedGroups>
+    </configuration>
+</plugin>
+```
+
+Or, if using Gradle, configure categories in `build.gradle`:
+
+```gradle
+test {
+    useJUnit {
+        includeCategories 'com.example.AcceptanceTest'
+        excludeCategories 'com.example.IntegrationTest'
+    }
+}
+```
+
+In JUnit 5, however, we use tags instead:
+
 ```java
 @Tag("integration")
 class JUnit5TagTest {}
 ```
 
-We can configure filtering of tests by tags in Maven `pom.xml`:
+The configuration in Maven `pom.xml` is a little simpler:
 
 ```xml
 <plugin>
@@ -307,7 +333,7 @@ We can configure filtering of tests by tags in Maven `pom.xml`:
 </plugin>
 ```
 
-Correspondingly, we can configure filtering in Gradle `build.gradle`:
+Correspondingly, the configuration in `build.gradle` becomes a bit easier:
 
 ```gradle
 test {
