@@ -55,7 +55,7 @@ The following table summarizes the key migration steps in migrating from JUnit 4
 | Replace dependencies                      | JUnit 4 uses a single dependency. JUnit 5 has additional dependencies for migration support and JUnit Vintage engine.  |
 | Replace annotations                       | Some JUnit 5 annotations are the same as JUnit 4. Some new ones replace the old ones, and function a little different. |
 | Replace testing classes and methods       | Assertions and assumptions have been moved to new classes. Method argument order is different in some cases.           |
-| Replace runners and rules with extensions | JUnit 5 replaces runners and rules with a single extension model. This step could take more time than the others.      |
+| Replace runners and rules with extensions | JUnit 5 has a single extension model instead of runners and rules. This step could take more time than the others.     |
 
 Next we will take a deeper dive into each of these steps.
 
