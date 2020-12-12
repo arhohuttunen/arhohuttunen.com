@@ -174,8 +174,6 @@ class JUnit5TimeoutTest {
 }
 ```
 
-We can also see that neither test classes nor test methods need to be public in JUnit 5. We might actually get an IDE warning that they can be made package-private.
-
 ## Testing Classes and Methods
 
 As already previously mentioned, assertions and assumptions have been moved to new classes. Also, method argument order is different in some cases.
@@ -192,6 +190,10 @@ The following table summarizes the key differences between JUnit 4 and JUnit 5 t
 |                                 | `assumeNotNull()`      | Removed                      |
 |                                 | `assumeNoException()`  | Removed                      |
 
+One more noteworthy thing is that the test classes and methods we write ourselves in JUnit 4 have to be `public`.
+
+JUnit 5 removes this restriction, and test classes and methods can be _package-private_. We can see this difference in all the examples provided.
+
 Next, let's take a closer look at the changes in the testing classes and methods.
 
 ### Assertions
@@ -203,7 +205,7 @@ In most cases, we can just find and replace the package names.
 However, if we have provided the assertion with a custom message we will get compiler errors. The optional assertion message is now the last parameter. This order of parameters feels more natural:
 
 ```java
-class JUnit4AssertionTest {
+public class JUnit4AssertionTest {
     @Test
     public void shouldFailWithMessage() {
         Assert.assertEquals("numbers " + 1 + " and " + 2 + " are not equal", 1, 2);
@@ -675,11 +677,9 @@ class JUnit5ParameterizedTest {
 ```
 
 {{% callout note %}}
-In JUnit 5, the closest thing to JUnit 4 parameterized tests is using `@ParameterizedTest` with a `@MethodSource` data source. However, there are several improvements to parameterized tests in JUnit 5.
-  
-**Additional reading:**
+In JUnit 5, the closest thing to JUnit 4 parameterized tests is using `@ParameterizedTest` with a `@MethodSource` data source.
 
-[JUnit 5 Parameterized Tests: Using Different Input](/junit-5-parameterized-tests/)
+However, there are several improvements to parameterized tests in JUnit 5. You can read more about the improvements in my [JUnit 5 Parameterized Tests](/junit-5-parameterized-tests/) tutorial.
 {{% /callout %}}
 
 ## Summary
