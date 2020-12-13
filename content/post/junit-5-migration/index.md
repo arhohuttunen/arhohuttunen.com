@@ -500,6 +500,97 @@ dependencies {
 }
 ```
 
+### Expected Exception
+
+In JUnit 4, using the `@Test(expected = SomeException.class)` didn't allow us to check details of the exception.
+To check e.g. the message of the exception we had to use the `ExpectedException` rule. 
+
+The JUnit 5 migration support allows us still use the rule by applying the `@EnableRuleMigrationSupport` annotation to our test:
+
+```java
+@EnableRuleMigrationSupport
+class JUnit5ExpectedExceptionTest {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
+    @Test
+    void catchThrownExceptionAndMessage() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Wrong argument");
+
+        throw new IllegalArgumentException("Wrong argument!");
+    }
+}
+```
+
+If we have a lot of tests depending on the rule, enabling the rule migration support could be a valid gradual step.
+
+However, a full migration to JUnit 5 requires us to get rid of the rule, and replace it with the `assertThrows()` method:
+
+```java
+class JUnit5ExpectedExceptionTest {
+
+    @Test
+    void catchThrownExceptionAndMessage() {
+        Throwable thrown = assertThrows(IllegalArgumentException.class, () -> {
+            throw new IllegalArgumentException("Wrong argument!");
+        });
+
+        assertEquals("Wrong argument!", thrown.getMessage());
+    }
+}
+```
+
+The result is much more readable, as we have everything in one place.
+
+### Temporary Folder
+
+In JUnit 4, we can use the `TemporaryFolder` rule to create and clean up a temporary folder.
+Again, the JUnit 5 migration supports allows us to just add the `@EnableRuleMigrationSupport` annotation:
+
+```java
+@EnableRuleMigrationSupport
+class JUnit5TemporaryFolderTest {
+
+    @Rule
+    public TemporaryFolder temporaryFolder = new TemporaryFolder();
+
+    @Test
+    void shouldCreateNewFile() throws IOException {
+        File textFile = temporaryFolder.newFile("test.txt");
+        Assertions.assertNotNull(textFile);
+    }
+}
+```
+
+To get completely rid of the rule in JUnit 5 we have to replace that with the `TempDirectory` extension.
+We can use the extension by annotating a `Path` or `File` field with the `@TempDir` annotation:
+
+```java
+class JUnit5TemporaryFolderTest {
+
+    @TempDir
+    Path temporaryDirectory;
+
+    @Test
+    public void shouldCreateNewFile() {
+        Path textFile = temporaryDirectory.resolve("test.txt");
+        Assertions.assertNotNull(textFile);
+    }
+}
+```
+
+The extension is very similar to the previous rule. One difference that you we can add the annotation to a method parameter as well:
+
+```java
+    @Test
+    public void shouldCreateNewFile(@TempDir Path anotherDirectory) {
+        Path textFile = anotherDirectory.resolve("test.txt");
+        Assertions.assertNotNull(textFile);
+    }
+```
+
 ### Custom Rules
 
 Migrating custom JUnit 4 rules requires re-writing the code as a JUnit 5 extension.
