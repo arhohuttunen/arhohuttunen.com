@@ -11,35 +11,20 @@ image:
   focal_point: center
 ---
 
-This article teaches us how to remove duplication from test code by writing JUnit 5 parameterized tests.
+This tutorial teaches us how to run same test code with different inputs and outputs by writing JUnit 5 parameterized tests.
 We will see how parameterized tests work and look at ways of providing different parameters to test methods.
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 ## When and why?
 
-While testing, it is common to run a series of tests which **differ only by input values and expected results**.
-We could write separate tests for separate cases, but that would result in a lot of code duplication.
+Parameterized tests can be used for data driven testing.
 
-We can **execute the same test several times using different input** using a parameterized test.
-To do that, we add some parameters to a test method and run it with different variations of parameter values.
+You can think of it as a table of inputs and outputs.
+Each row in the table means a different precondition and expectation.
 
-Usually, we first make sure the code handles the happy path.
-We can use parameterized tests to **ensure the edge cases also work**.
-Parameterization helps to make sure that empty, null, zero, and other kinds of boundary conditions work as well.
-
-It is worth mentioning that we shouldn't necessarily start with parameterized tests in mind when writing tests.
-Instead, we can think of parameterization as a way to refactor the test code to remove duplication.
-
-Now, we know the basic idea behind parameterized tests, so let's look at what we need to get started with JUnit 5 parameterized tests.
-
-## Dependencies
-
-**Update 18th of June 2018**: Beginning from Maven Surefire 2.22.0 there is native support for JUnit Jupiter.
-The configuration is now more straightforward.
-
-**Update 1st of March 2019**: Beginning from JUnit Jupiter 5.4.0 there is now an aggregator artifact `junit-jupiter` that transitively pulls in dependencies on `junit-jupiter-api`, `junit-jupiter-params`, and `junit-jupiter-engine` for simplified dependency management.
-Writing parameterized tests does not require additional dependencies.
+The parameterized test will take these inputs and outputs, and run the same test again and again with these values.
+This way you can quickly verify multiple conditions without having to manually write a test for each case.
 
 ## First parameterized test
 
