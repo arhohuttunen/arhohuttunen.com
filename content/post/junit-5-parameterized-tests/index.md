@@ -1,7 +1,8 @@
 ---
-title: "JUnit 5 Parameterized Tests: Using Different Inputs"
+title: "A More Practical Guide for JUnit 5 Parameterized Tests"
 date: 2019-05-25
 author: Arho Huttunen
+summary: This tutorial teaches you how write JUnit 5 parameterized tests. It is structured so that it also answers to most asked questions about parameterized tests.
 categories:
   - Testing
 tags:
@@ -11,28 +12,22 @@ image:
   focal_point: center
 ---
 
-This tutorial teaches us how to run same test code with different inputs and outputs by writing JUnit 5 parameterized tests.
-We will see how parameterized tests work and look at ways of providing different parameters to test methods.
+This tutorial teaches you how write JUnit 5 parameterized tests. It is structured so that it also answers to most asked questions about parameterized tests.
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
-## When and why?
+{{% toc %}}
 
-Parameterized tests can be used for data driven testing.
+Parameterized tests make it possible to run same test multiple times with different arguments. This way you can quickly verify multiple conditions without having to manually write a test for each case.
 
-You can think of it as a table of inputs and outputs.
-Each row in the table means a different precondition and expectation.
+We can write JUnit 5 parameterized tests just like regular JUnit 5 tests but have to use the `@ParameterizedTest` annotation instead. We will also have to declare an argument source for the test. These argument sources are declared with different argument source annotations.
 
-The parameterized test will take these inputs and outputs, and run the same test again and again with these values.
-This way you can quickly verify multiple conditions without having to manually write a test for each case.
+## Do you only need one argument?
 
-## First parameterized test
+The simplest argument source is the `@ValueSource` argument source.
+It lets you specify an array of literals of primitive types (either `short`, `byte`, `int`, `long`, `float`, `double`, `char`, `boolean`, `String`, or `Class`).
 
-To run JUnit 5 parameterized tests, we have to annotate our test with the `@ParameterizedTest` annotation instead of the `@Test` annotation.
-To variate data, we also add some parameters to a test method.
-Furthermore, we provide different values of parameters to the test method.
-
-This example uses `@ValueSource`. For now, it's enough to know that it will provide different values for the test.
+Here is an example of using different strings as the test argument.
 
 ```java
 @ParameterizedTest
@@ -42,28 +37,16 @@ void palindromeReadsSameBackward(String string) {
 }
 ```
 
-When we run the test, we can see from the output that the test method executed three times with different values of string:
+When we run the test, we can see from the output that the test method executed three times with different values of the string:
 
-```
+```sh
 palindromeReadsSameBackward(String)
 ├─ [1] racecar
 ├─ [2] radar
 └─ [3] able was I ere I saw elba
 ```
 
-Next, let's take a look at different parameter sources JUnit 5 provides.
-
-## Argument sources
-
-JUnit 5 provides several source annotations that provide parameters to test methods.
-Let's take a look at how we can use those.
-
-### Single parameter
-
-`@ValueSource` can only be used to provide a single parameter per test method.
-It lets you specify an array of literals of primitive types (either `String`, `int`, `long`, or `double`).
-
-For example, to provide `int`s to our parameterized test we can do:
+Here is another example, where we provide `int`s to our parameterized test.
 
 ```java
 @ParameterizedTest
@@ -73,7 +56,7 @@ void divisibleByThree(int number) {
 }
 ```
 
-Another source of a single parameter is the @EnumSource annotation.
+Another source of a single argument is the `@EnumSource` annotation.
 The annotation takes an enum type as an argument and provides the test with the enum constants.
 For example:
 
@@ -89,14 +72,30 @@ void postRequestWithDifferentProtocols(Protocol protocol) {
 }
 ```
 
-The `@ValueSource` and `@EnumSource` annotations work when our test method only takes one parameter.
+## What about null values?
+
+The `@ValueSource` annotation doesn't accept null values.
+There is one special annotation called `@NullSource` that will provide a null argument for the test.
+
+```java
+@ParameterizedTest
+@NullSource
+@EmptySource
+@ValueSource(strings = { " " })
+void nullEmptyAndBlankStrings(String text) {
+    assertTrue(text == null || text.trim().isEmpty());
+}
+```
+
+Another special annotation is `@EmptySource` which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
+
+## Do you need more than one argument?
+
+The `@ValueSource` and `@EnumSource` annotations only work when our test method takes one argument.
 However, we often need more than that.
-Let's take a look at the other parameter sources to find out how to provide multiple parameters.
 
-### Parameters from factory methods
-
-`@MethodSource` allows us to refer to one or more factory methods of the test class.
-Such methods must return a `Stream`, `Iterable`, `Iterator`, or an array of parameters.
+`@MethodSource` allows you to refer to a method that returns the arguments.
+Such methods must return a `Stream`, `Iterable`, `Iterator`, or an array of arguments.
 
 Let's assume that we have a class `RomanNumeral` that converts arabic to roman numerals.
 We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments`:
@@ -119,14 +118,27 @@ private static Stream arabicToRomanProvider() {
 
 Now we provide the test with different values of `arabic` and `roman` parameters.
 
-If we only need a single parameter for the test method, we can also return a `Stream` containing primitive types.
+If we don't provide a method name to the `@MethodSource` annotation, JUnit 5 will find a method with the same name instead.
 
-Providing multiple parameters via a factory method is nice but can be a bit laborious.
-Let's take a look at a more compact way of providing simple parameters.
+```java
+@ParameterizedTest
+@MethodSource
+void convertArabicToRomanNumeral(int arabic, String roman) {
+    assertEquals(roman, new RomanNumeral(arabic).toString());
+}
 
-### Parameters in CSV format
+private static Stream convertArabicToRomanNumeral() {
+    return Stream.of(
+            Arguments.of(1, "I"),
+            Arguments.of(3, "III"),
+            Arguments.of(4, "IV")
+    );
+}
+```
 
-The `@CsvSource` annotation allows us to use a list of comma- separated string values.
+## Do you have a lot of data for the arguments?
+
+The `@CsvSource` annotation allows you to use a list of comma-separated string values.
 Using the annotation makes it possible to provide multiple parameters to the test method in quite a compact way:
 
 ```java
@@ -141,14 +153,8 @@ void convertArabicToRomanNumeral(int arabic, String roman) {
 }
 ```
 
-The test looks relatively clean, but sometimes we need a lot of test data.
 If we write a lot of test data in the test code, the test quickly becomes unreadable.
-Next, we will see how to externalize that data in a CSV file.
-
-### Parameters from CSV file
-
-If we have to write a lot of test data in the test code, it can make the test less readable.
-One solution to this is to provide the data in an external CSV file.
+One solution to this is to provide the data in an external CSV file using the `@CsvFileSource` annotation.
 
 Using the previous roman numeral example, we start by creating a comma-separated list of parameters in `roman-numeral.csv` file that we will put in `src/test/resources`.
 Each line from the file works as a list of parameters:
@@ -169,13 +175,9 @@ void convertArabicToRomanNumeral(int arabic, String roman) {
 }
 ```
 
-To better support use cases like this, JUnit 5 does automatic argument conversion from strings to certain target types.
-For cases where we want a conversion to custom types, we have to write the argument conversion ourselves.
-Next, let's find out how argument conversion works.
+### How to convert strings into different types?
 
-## Argument conversion
-
-To better support use cases like `@CsvSource`, JUnit 5 does automatic argument conversion for primitive types, enums, and the date and time types from the java.time package.
+To better support use cases like `@CsvSource`, JUnit 5 does automatic argument conversion for primitive types, enums, and the date and time types from the `java.time` package.
 The conversion depends on the type of each method parameter.
 
 This means, for example, that it automatically converts the following date strings to `LocalDate` instances:
@@ -188,18 +190,60 @@ void convertStringToLocalDate(LocalDate localDate) {
 }
 ```
 
+JUnit 5 parameterized tests support many more types by default.
+Instead of going through all of them here, we can check the [JUnit 5 implicit conversion](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-argument-conversion-implicit) documentation for a list of target types.
+
+If JUnit 5 is not able to convert the argument, it will try to call either of the two in the target type:
+
+1. A constructor with single `String` argument
+2. A `static` method accepting a single `String` argument, which returns an instance of the target type 
+
+In the following example, JUnit 5 will call the constructor of `Task` to do the type conversion from `String`.
+
+```java
+public class Task {
+    private final String name;
+
+    private Task(String name) {
+        this.name = name;
+    }
+}
+
+@ParameterizedTest
+@ValueSource(strings = "Brush teeth")
+void convertWithConstructor(Task task) {
+    assertEquals("Brush teeth", task.getName());
+}
+```
+
+Consequently, the implementation of that `Task` class in the next example would work as well.
+
+```java
+public class Task {
+    private final String name;
+
+    public static fromName(String name) {
+        return new Task(name);
+    }
+}
+```
+
+### Do you want to do you own type conversion?
+
 If we need to write a custom argument converter, we need to implement the `ArgumentConverter` interface.
 We can then annotate any parameters needing custom conversion with the `@ConvertWith` annotation.
 
 For example's sake, let's write an argument converter that converts hex values into decimal values.
-First we need to create a class that implements the `ArgumentConverter` interface and throws an `ArgumentConversionException` if the conversion fails:
+Instead of implementing `ArgumentConverter`, we can also extend `TypedArgumentConverter` if the converter only handles one type.
 
 ```java
-class HexConverter implements ArgumentConverter {
+class HexConverter extends TypedArgumentConverter<String, Integer> {
+    protected HexConverter() {
+        super(String.class, Integer.class);
+    }
 
     @Override
-    public Object convert(Object source, ParameterContext context)
-            throws ArgumentConversionException {
+    public Integer convert(String source) throws ArgumentConversionException {
         try {
             return Integer.parseInt((String) source, 16);
         } catch (NumberFormatException e) {
@@ -218,9 +262,8 @@ Next, in our test, we need to annotate the parameter that needs custom conversio
         "16, 10",
         "233, E9"
 })
-void convertWithCustomHexConverter(int expected,
-        @ConvertWith(HexConverter.class) int actual) {
-    assertEquals(expected, actual);
+void convertWithCustomHexConverter(int decimal, @ConvertWith(HexConverter.class) int hex) {
+    assertEquals(decimal, hex);
 }
 ```
 
@@ -243,12 +286,44 @@ Now we can use our new composed annotation to make the test more readable:
         "16, 10",
         "233, E9"
 })
-void convertWithCustomHexConverter(int expected, @HexValue int actual) {
-    assertEquals(expected, actual);
+void convertWithCustomHexConverter(int decimal, @HexValue int hex) {
+    assertEquals(decimal, hex);
 }
 ```
 
-## Customizing display names
+### How to provide empty string arguments?
+
+If `@CsvSource` has an empty value, it will always be treated as `null`.
+
+```java
+@ParameterizedTest
+@CsvSource(value = {"John, "})
+void nullArgument(String name, String address) {
+    assertNull(address);
+}
+```
+
+To provide an actual empty string, the string needs to be quoted with a single quote.
+
+```java
+@ParameterizedTest
+@CsvSource({"John, ''"})
+void emptyArgument(String name, String address) {
+    assertTrue(address.isEmpty());
+}
+```
+
+If we would like to use replace some specific string with null values, we can use the `nullValues` argument of `@CsvSource`.
+
+```java
+@ParameterizedTest
+@CsvSource(value = {"Jane, NULL"}, nullValues = "NULL")
+void customNullArgument(String name, String address) {
+    assertNull(address);
+}
+```
+
+## How to customize display names
 
 By default, JUnit 5 parameterized tests' display names include the invocation index and String representation of all the parameters.
 However, we can customize the display name via the name attribute of the `@ParameterizedTest` annotation.
@@ -276,16 +351,28 @@ Now when we run the test we get output similar to this:
 
 ## Summary
 
-Parameterized tests allow us to remove duplication from test code.
+JUnit 5 parameterized tests allow you to remove duplication from test code.
 They make it possible to execute the same test several times using different inputs.
 
-We can provide JUnit 5 parameterized tests with arguments from:
+Here is a summary of the annotations for single argument.
 
-- `@ValueSource` or `@EnumSource` for single parameters
-- Factory methods via `@MethodSource`
-- In CSV format either inline with `@CsvSource` or in a file via `@CsvFileSource`
+| Annotation            | Type / Value                                                                            |
+| --------------------- | --------------------------------------------------------------------------------------- |
+| `@ValueSource`        | `short`, `byte`, `int`, `long`, `float`, `double`, `char`, `boolean`, `String`, `Class` |
+| `@EnumSource`         | `enum`                                                                                  |
+| `@NullSource`         | `null` value                                                                            |
+| `@EmptySource`        | *empty* value for `String`, `List`, `Set`, `Map`, or primitive arrays                   |
+| `@NullAndEmptySource` | both `null` and *empty* values                                                          |
 
-We can also write argument converters for our custom types.
-Furthermore, it's possible to customize the display names of parameterized tests.
+Second, here is a summary of the annotations for multiple arguments.
+
+| Annotation            | Provision Style                                        |
+| --------------------- | ------------------------------------------------------ |
+| `@MethodSource`       | a method returning a stream of arguments               |
+| `@CsvSource`          | a string of comma separated values                     |
+| `@CsvFileSource`      | comma separated values in a file                       |
+| `@ArgumentsSource`    | a class implementing the `ArgumentsProvider` interface |
+
+JUnit 5 also allows us to write argument converters and aggregators for our custom types.
 
 The example code for this guide can be found in [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-parameterized-tests).
