@@ -2,7 +2,7 @@
 title: "A More Practical Guide for JUnit 5 Parameterized Tests"
 date: 2019-05-25
 author: Arho Huttunen
-summary: This tutorial teaches you how write JUnit 5 parameterized tests. It is structured so that it also answers to most asked questions about parameterized tests.
+summary: This tutorial teaches you how to write JUnit 5 parameterized tests. It is structured so that it also answers most asked questions about parameterized tests.
 categories:
   - Testing
 tags:
@@ -12,7 +12,7 @@ image:
   focal_point: center
 ---
 
-This tutorial teaches you how write JUnit 5 parameterized tests. It is structured so that it also answers to most asked questions about parameterized tests.
+This tutorial teaches you how to write JUnit 5 parameterized tests. It is structured so that it also answers most asked questions about parameterized tests.
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
@@ -20,9 +20,12 @@ This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 ## Overview
 
-Parameterized tests make it possible to run same test multiple times with different arguments. This way you can quickly verify multiple conditions without having to manually write a test for each case.
+Parameterized tests make it possible to run the same test multiple times with different arguments.
+This way, you can quickly verify various conditions without writing a test for each case.
 
-We can write JUnit 5 parameterized tests just like regular JUnit 5 tests but have to use the `@ParameterizedTest` annotation instead. We will also have to declare an argument source for the test. These argument sources are declared with different argument source annotations.
+We can write JUnit 5 parameterized tests just like regular JUnit 5 tests but have to use the `@ParameterizedTest` annotation instead.
+We will also have to declare an argument source for the test.
+We declare these argument sources with different argument source annotations.
 
 ## Do you only need one argument?
 
@@ -89,7 +92,7 @@ void nullEmptyAndBlankStrings(String text) {
 }
 ```
 
-Another special annotation is `@EmptySource` which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
+Another special annotation is `@EmptySource`, which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
 
 ## Do you need multiple arguments?
 
@@ -156,7 +159,7 @@ void convertArabicToRomanNumeral(int arabic, String roman) {
 ```
 
 If we write a lot of test data in the test code, the test quickly becomes unreadable.
-One solution to this is to provide the data in an external CSV file using the `@CsvFileSource` annotation.
+One solution is to provide the data in an external CSV file using the `@CsvFileSource` annotation.
 
 Using the previous roman numeral example, we start by creating a comma-separated list of parameters in `roman-numeral.csv` file that we will put in `src/test/resources`.
 Each line from the file works as a list of parameters:
@@ -197,7 +200,7 @@ Instead of going through all of them here, we can check the [JUnit 5 implicit co
 
 If JUnit 5 is not able to convert the argument, it will try to call either of the two in the target type:
 
-1. A constructor with single `String` argument
+1. A constructor with a single `String` argument
 2. A `static` method accepting a single `String` argument, which returns an instance of the target type 
 
 In the following example, JUnit 5 will call the constructor of `Task` to do the type conversion from `String`.
@@ -230,7 +233,7 @@ public class Task {
 }
 ```
 
-### How to convert your own types?
+### How to convert your custom types?
 
 If we need to write a custom argument converter, we need to implement the `ArgumentConverter` interface.
 We can then annotate any parameters needing custom conversion with the `@ConvertWith` annotation.
@@ -295,7 +298,7 @@ void convertWithCustomHexConverter(int decimal, @HexValue int hex) {
 
 ### How to provide empty CSV arguments?
 
-If `@CsvSource` has an empty value, it will always be treated as `null`.
+If `@CsvSource` has an empty value, JUnit 5 will always treat it as `null`.
 
 ```java
 @ParameterizedTest
@@ -305,7 +308,7 @@ void nullArgument(String name, String address) {
 }
 ```
 
-To provide an actual empty string, the string needs to be quoted with a single quote.
+The string needs to be quoted with single quotes, so that it becomes an empty string.
 
 ```java
 @ParameterizedTest
@@ -315,7 +318,7 @@ void emptyArgument(String name, String address) {
 }
 ```
 
-If we would like to use replace some specific string with null values, we can use the `nullValues` argument of `@CsvSource`.
+If we would like to replace some specific string with null values, we can use the `nullValues` argument of `@CsvSource`.
 
 ```java
 @ParameterizedTest
@@ -356,7 +359,7 @@ Now when we run the test we get output similar to this:
 JUnit 5 parameterized tests allow you to remove duplication from test code.
 They make it possible to execute the same test several times using different inputs.
 
-Here is a summary of the annotations for single argument.
+Here is a summary of the annotations for a single argument.
 
 | Annotation            | Type / Value Accepted                                                                   |
 | --------------------- | --------------------------------------------------------------------------------------- |
