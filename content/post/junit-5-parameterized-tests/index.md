@@ -18,6 +18,8 @@ This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
 {{% toc %}}
 
+## Overview
+
 Parameterized tests make it possible to run same test multiple times with different arguments. This way you can quickly verify multiple conditions without having to manually write a test for each case.
 
 We can write JUnit 5 parameterized tests just like regular JUnit 5 tests but have to use the `@ParameterizedTest` annotation instead. We will also have to declare an argument source for the test. These argument sources are declared with different argument source annotations.
@@ -89,7 +91,7 @@ void nullEmptyAndBlankStrings(String text) {
 
 Another special annotation is `@EmptySource` which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
 
-## Do you need more than one argument?
+## Do you need multiple arguments?
 
 The `@ValueSource` and `@EnumSource` annotations only work when our test method takes one argument.
 However, we often need more than that.
@@ -136,7 +138,7 @@ private static Stream convertArabicToRomanNumeral() {
 }
 ```
 
-## Do you have a lot of data for the arguments?
+## Do you have a lot of data?
 
 The `@CsvSource` annotation allows you to use a list of comma-separated string values.
 Using the annotation makes it possible to provide multiple parameters to the test method in quite a compact way:
@@ -228,7 +230,7 @@ public class Task {
 }
 ```
 
-### Do you want to do you own type conversion?
+### How to convert your own types?
 
 If we need to write a custom argument converter, we need to implement the `ArgumentConverter` interface.
 We can then annotate any parameters needing custom conversion with the `@ConvertWith` annotation.
@@ -291,7 +293,7 @@ void convertWithCustomHexConverter(int decimal, @HexValue int hex) {
 }
 ```
 
-### How to provide empty string arguments?
+### How to provide empty CSV arguments?
 
 If `@CsvSource` has an empty value, it will always be treated as `null`.
 
@@ -323,7 +325,7 @@ void customNullArgument(String name, String address) {
 }
 ```
 
-## How to customize display names
+## How to customize display names?
 
 By default, JUnit 5 parameterized tests' display names include the invocation index and String representation of all the parameters.
 However, we can customize the display name via the name attribute of the `@ParameterizedTest` annotation.
@@ -356,7 +358,7 @@ They make it possible to execute the same test several times using different inp
 
 Here is a summary of the annotations for single argument.
 
-| Annotation            | Type / Value                                                                            |
+| Annotation            | Type / Value Accepted                                                                   |
 | --------------------- | --------------------------------------------------------------------------------------- |
 | `@ValueSource`        | `short`, `byte`, `int`, `long`, `float`, `double`, `char`, `boolean`, `String`, `Class` |
 | `@EnumSource`         | `enum`                                                                                  |
