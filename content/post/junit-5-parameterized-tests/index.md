@@ -296,6 +296,64 @@ void convertWithCustomHexConverter(int decimal, @HexValue int hex) {
 }
 ```
 
+### How to convert multiple arguments into a single object?
+
+By default, arguments provided to a parameterized test correspond to a single method parameter.
+It is possible to aggregate these arguments into a single test method argument using a `ArgumentsAccessor`.
+
+To create a more readable and reusable arguments aggregator, we can write our own.
+
+```java
+public class TaskAggregator implements ArgumentsAggregator {
+    @Override
+    public Object aggregateArguments(
+            ArgumentsAccessor accessor,
+            ParameterContext context
+    ) throws ArgumentsAggregationException {
+
+        return new Task(
+                accessor.getString(0),
+                accessor.get(1, Status.class),
+                accessor.get(2, LocalDate.class)
+        );
+    }
+}
+```
+
+```java
+@ParameterizedTest
+@CsvSource({
+        "Write a blog post, IN_PROGRESS, 2020-12-20",
+        "Wash the car, OPENED, 2020-12-15"
+})
+void aggregateArgumentsWithAggregator(@AggregateWith(TaskAggregator.class) Task task) {
+    System.out.println(task);
+}
+```
+
+Just like with the custom argument converter, we can also create a shorthand annotation for the aggregator.
+
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.PARAMETER)
+@AggregateWith(TaskAggregator.class)
+public @interface CsvToTask {
+}
+```
+
+```java
+@ParameterizedTest
+@CsvSource({
+        "Write a blog post, IN_PROGRESS, 2020-12-20",
+        "Wash the car, OPENED, 2020-12-15"
+})
+void aggregateArgumentsWithAnnotation(@CsvToTask Task task) {
+    System.out.println(task);
+}
+```
+
+Now we can use the aggregator annotation anywhere we want to.
+
 ### How to provide empty CSV arguments?
 
 If `@CsvSource` has an empty value, JUnit 5 will always treat it as `null`.
