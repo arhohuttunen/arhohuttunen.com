@@ -36,19 +36,21 @@ Here is an example of using different strings as the test argument.
 
 ```java
 @ParameterizedTest
-@ValueSource(strings = { "racecar", "radar", "able was I ere I saw elba" })
+@ValueSource(strings = { "level", "madam", "saippuakivikauppias" })
 void palindromeReadsSameBackward(String string) {
-    assertEquals(palindrome, isPalindrome(string));
+    assertTrue(StringUtils.isPalindrome(string));
 }
 ```
+
+By the way, *saippuakivikauppias* means *soapstone vendor* in Finnish.
 
 When we run the test, we can see from the output that the test method executed three times with different values of the string.
 
 ```sh
 palindromeReadsSameBackward(String)
-├─ [1] racecar
-├─ [2] radar
-└─ [3] able was I ere I saw elba
+├─ [1] level
+├─ [2] madam
+└─ [3] saippuakivikauppias
 ```
 
 Here is another example, where we provide `int`s to our parameterized test.
