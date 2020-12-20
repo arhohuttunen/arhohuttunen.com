@@ -42,7 +42,7 @@ void palindromeReadsSameBackward(String string) {
 }
 ```
 
-When we run the test, we can see from the output that the test method executed three times with different values of the string:
+When we run the test, we can see from the output that the test method executed three times with different values of the string.
 
 ```sh
 palindromeReadsSameBackward(String)
@@ -63,13 +63,16 @@ void divisibleByThree(int number) {
 
 Another source of a single argument is the `@EnumSource` annotation.
 The annotation takes an enum type as an argument and provides the test with the enum constants.
+
 For example:
 
 ```java
 enum Protocol {
     HTTP_1_0, HTTP_1_1, HTTP_2
 }
+```
 
+```java
 @ParameterizedTest
 @EnumSource(Protocol.class)
 void postRequestWithDifferentProtocols(Protocol protocol) {
@@ -103,7 +106,7 @@ However, we often need more than that.
 Such methods must return a `Stream`, `Iterable`, `Iterator`, or an array of arguments.
 
 Let's assume that we have a class `RomanNumeral` that converts arabic to roman numerals.
-We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments`:
+We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments`.
 
 ```java
 @ParameterizedTest
@@ -144,7 +147,7 @@ private static Stream convertArabicToRomanNumeral() {
 ## Do you have a lot of data?
 
 The `@CsvSource` annotation allows you to use a list of comma-separated string values.
-Using the annotation makes it possible to provide multiple parameters to the test method in quite a compact way:
+Using the annotation makes it possible to provide multiple parameters to the test method in quite a compact way.
 
 ```java
 @ParameterizedTest
@@ -162,7 +165,7 @@ If we write a lot of test data in the test code, the test quickly becomes unread
 One solution is to provide the data in an external CSV file using the `@CsvFileSource` annotation.
 
 Using the previous roman numeral example, we start by creating a comma-separated list of parameters in `roman-numeral.csv` file that we will put in `src/test/resources`.
-Each line from the file works as a list of parameters:
+Each line from the file works as a list of parameters.
 
 ```
 1, I
@@ -170,7 +173,7 @@ Each line from the file works as a list of parameters:
 4, IV
 ```
 
-Next, we use the `@CsvFileSource` annotation to provide the test method with the data:
+Next, we use the `@CsvFileSource` annotation to provide the test method with the data.
 
 ```java
 @ParameterizedTest
@@ -185,7 +188,7 @@ void convertArabicToRomanNumeral(int arabic, String roman) {
 To better support use cases like `@CsvSource`, JUnit 5 does automatic argument conversion for primitive types, enums, and the date and time types from the `java.time` package.
 The conversion depends on the type of each method parameter.
 
-This means, for example, that it automatically converts the following date strings to `LocalDate` instances:
+This means, for example, that it automatically converts the following date strings to `LocalDate` instances.
 
 ```java
 @ParameterizedTest
@@ -258,7 +261,7 @@ class HexConverter extends TypedArgumentConverter<String, Integer> {
 }
 ```
 
-Next, in our test, we need to annotate the parameter that needs custom conversion with `@ConvertWith`:
+Next, in our test, we need to annotate the parameter that needs custom conversion with `@ConvertWith`.
 
 ```java
 @ParameterizedTest
@@ -272,7 +275,7 @@ void convertWithCustomHexConverter(int decimal, @ConvertWith(HexConverter.class)
 }
 ```
 
-To make the test itself a little less technical and more readable, we can further create a meta-annotation that wraps the conversion:
+To make the test itself a little less technical and more readable, we can further create a meta-annotation that wraps the conversion.
 
 ```java
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.PARAMETER })
@@ -282,7 +285,7 @@ public @interface HexValue {
 }
 ```
 
-Now we can use our new composed annotation to make the test more readable:
+Now we can use our new composed annotation to make the test more readable.
 
 ```java
 @ParameterizedTest
@@ -391,7 +394,7 @@ void customNullArgument(String name, String address) {
 By default, JUnit 5 parameterized tests' display names include the invocation index and String representation of all the parameters.
 However, we can customize the display name via the name attribute of the `@ParameterizedTest` annotation.
 
-Taking the roman numeral example again:
+Let's take a look at the roman numeral example again.
 
 ```java
 @ParameterizedTest(name = "{index} => arabic={0}, roman={1}")
