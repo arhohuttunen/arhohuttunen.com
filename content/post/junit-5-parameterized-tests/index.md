@@ -427,25 +427,10 @@ Now when we run the test we get output similar to this:
 JUnit 5 parameterized tests allow you to remove duplication from test code.
 They make it possible to execute the same test several times using different inputs.
 
-Here is a summary of the annotations for a single argument.
-
-| Annotation            | Type / Value Accepted                                                                   |
-| --------------------- | --------------------------------------------------------------------------------------- |
-| `@ValueSource`        | `short`, `byte`, `int`, `long`, `float`, `double`, `char`, `boolean`, `String`, `Class` |
-| `@EnumSource`         | `enum`                                                                                  |
-| `@NullSource`         | `null` value                                                                            |
-| `@EmptySource`        | *empty* value for `String`, `List`, `Set`, `Map`, or primitive arrays                   |
-| `@NullAndEmptySource` | both `null` and *empty* values                                                          |
-
-Second, here is a summary of the annotations for multiple arguments.
-
-| Annotation            | Provision Style                                        |
-| --------------------- | ------------------------------------------------------ |
-| `@MethodSource`       | a method returning a stream of arguments               |
-| `@CsvSource`          | a string of comma separated values                     |
-| `@CsvFileSource`      | comma separated values in a file                       |
-| `@ArgumentsSource`    | a class implementing the `ArgumentsProvider` interface |
-
-JUnit 5 also allows us to write argument converters and aggregators for our custom types.
-
+- Using `@ValueSource` is enough in most cases when you have just one argument, but you can also use `@EnumSource`, `@NullSource` and `@EmptySource`
+- If there are multiple arguments `@MethodSource` is the right choice in most cases, and you can reuse providers with `@ArgumentsSource` 
+- For data-driven tests you can use `@CsvFileSource`
+- You can write your custom argument conversions with `ArgumentConverter`
+- To customize arguments aggregation you can use `ArgumentsAggregator`
+  
 The example code for this guide can be found in [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-parameterized-tests).
