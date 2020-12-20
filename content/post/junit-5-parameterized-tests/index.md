@@ -105,41 +105,41 @@ However, we often need more than that.
 `@MethodSource` allows you to refer to a method that returns the arguments.
 Such methods must return a `Stream`, `Iterable`, `Iterator`, or an array of arguments.
 
-Let's assume that we have a class `RomanNumeral` that converts arabic to roman numerals.
+Let's assume that we have a `DateUtils` class that gets the name of the month for a number.
 We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments`.
 
 ```java
 @ParameterizedTest
-@MethodSource("arabicToRomanProvider")
-void convertArabicToRomanNumeral(int arabic, String roman) {
-    assertEquals(roman, new RomanNumeral(arabic).toString());
+@MethodSource("numberToMonth")
+void monthNames(int month, String name) {
+    assertEquals(name, DateUtils.getMonthName(month));
 }
 
-private static Stream arabicToRomanProvider() {
+private static Stream<Arguments> numberToMonth() {
     return Stream.of(
-            Arguments.of(1, "I"),
-            Arguments.of(3, "III"),
-            Arguments.of(4, "IV")
+            arguments(1, "January"),
+            arguments(2, "February"),
+            arguments(12, "December")
     );
 }
 ```
 
-Now we provide the test with different values of `arabic` and `roman` parameters.
+Now we provide the test with different values of `month` and `name` parameters.
 
 If we don't provide a method name to the `@MethodSource` annotation, JUnit 5 will find a method with the same name instead.
 
 ```java
 @ParameterizedTest
 @MethodSource
-void convertArabicToRomanNumeral(int arabic, String roman) {
-    assertEquals(roman, new RomanNumeral(arabic).toString());
+void monthNames(int month, String name) {
+    assertEquals(name, DateUtils.getMonthName(month));
 }
 
-private static Stream convertArabicToRomanNumeral() {
+private static Stream<Arguments> monthNames() {
     return Stream.of(
-            Arguments.of(1, "I"),
-            Arguments.of(3, "III"),
-            Arguments.of(4, "IV")
+            arguments(1, "January"),
+            arguments(2, "February"),
+            arguments(12, "December")
     );
 }
 ```
@@ -150,36 +150,65 @@ The `@CsvSource` annotation allows you to use a list of comma-separated string v
 Using the annotation makes it possible to provide multiple parameters to the test method in quite a compact way.
 
 ```java
-@ParameterizedTest
 @CsvSource({
-        "1, I",
-        "3, III",
-        "4, IV"
+        "Write a blog post, IN_PROGRESS, 2020-12-20",
+        "Wash the car, OPENED, 2020-12-15"
 })
-void convertArabicToRomanNumeral(int arabic, String roman) {
-    assertEquals(roman, new RomanNumeral(arabic).toString());
+void readTasks(String title, Status status, LocalDate date) {
+    System.out.printf("%s, %s, %s", title, status, date);
 }
 ```
 
 If we write a lot of test data in the test code, the test quickly becomes unreadable.
 One solution is to provide the data in an external CSV file using the `@CsvFileSource` annotation.
 
-Using the previous roman numeral example, we start by creating a comma-separated list of parameters in `roman-numeral.csv` file that we will put in `src/test/resources`.
+Using the previous example, we start by creating a comma-separated list of parameters in `tasks.csv` file that we will put in `src/test/resources`.
 Each line from the file works as a list of parameters.
 
 ```
-1, I
-3, III
-4, IV
+Write a blog post, IN_PROGRESS, 2020-12-20
+Wash the car, OPENED, 2020-12-15
 ```
 
 Next, we use the `@CsvFileSource` annotation to provide the test method with the data.
 
 ```java
 @ParameterizedTest
-@CsvFileSource(resources = "/roman-numeral.csv")
-void convertArabicToRomanNumeral(int arabic, String roman) {
-    assertEquals(roman, new RomanNumeral(arabic).toString());
+@CsvFileSource(resources = "/tasks.csv")
+void readTasks(String title, Status status, LocalDate date) {
+    System.out.printf("%s, %s, %s", title, status, date);
+}
+```
+
+### How to provide empty CSV arguments?
+
+If `@CsvSource` has an empty value, JUnit 5 will always treat it as `null`.
+
+```java
+@ParameterizedTest
+@CsvSource(", IN_PROGRESS, 2020-12-20")
+void nullArgument(String title, Status status, LocalDate date) {
+    assertNull(title);
+}
+```
+
+The string needs to be quoted with single quotes, so that it becomes an empty string.
+
+```java
+@ParameterizedTest
+@CsvSource("'', IN_PROGRESS, 2020-12-20")
+void emptyArgument(String title, Status status, LocalDate date) {
+    assertTrue(title.isEmpty());
+}
+```
+
+If we would like to replace some specific string with null values, we can use the `nullValues` argument of `@CsvSource`.
+
+```java
+@ParameterizedTest
+@CsvSource(value = "NULL, IN_PROGRESS, 2020-12-20", nullValues = "NULL")
+void customNullArgument(String title, Status status, LocalDate date) {
+    assertNull(title);
 }
 ```
 
@@ -359,50 +388,26 @@ void aggregateArgumentsWithAnnotation(@CsvToTask Task task) {
 
 Now we can use the aggregator annotation anywhere we want to.
 
-### How to provide empty CSV arguments?
-
-If `@CsvSource` has an empty value, JUnit 5 will always treat it as `null`.
-
-```java
-@ParameterizedTest
-@CsvSource(value = {"John, "})
-void nullArgument(String name, String address) {
-    assertNull(address);
-}
-```
-
-The string needs to be quoted with single quotes, so that it becomes an empty string.
-
-```java
-@ParameterizedTest
-@CsvSource({"John, ''"})
-void emptyArgument(String name, String address) {
-    assertTrue(address.isEmpty());
-}
-```
-
-If we would like to replace some specific string with null values, we can use the `nullValues` argument of `@CsvSource`.
-
-```java
-@ParameterizedTest
-@CsvSource(value = {"Jane, NULL"}, nullValues = "NULL")
-void customNullArgument(String name, String address) {
-    assertNull(address);
-}
-```
-
 ## How to customize display names?
 
 By default, JUnit 5 parameterized tests' display names include the invocation index and String representation of all the parameters.
 However, we can customize the display name via the name attribute of the `@ParameterizedTest` annotation.
 
-Let's take a look at the roman numeral example again.
+Let's take a look at the previous month names example again.
 
 ```java
-@ParameterizedTest(name = "{index} => arabic={0}, roman={1}")
-@CsvFileSource(resources = "/roman-numeral.csv")
-void convertArabicToRomanNumeral(int arabic, String roman) {
-    assertEquals(roman, new RomanNumeral(arabic).toString());
+@ParameterizedTest(name = "{index} => number={0}, month={1}")
+@MethodSource
+void monthNames(int month, String name) {
+    assertEquals(name, DateUtils.getMonthName(month));
+}
+
+private static Stream<Arguments> monthNames() {
+    return Stream.of(
+            arguments(1, "January"),
+            arguments(2, "February"),
+            arguments(12, "December")
+    );
 }
 ```
 
@@ -411,10 +416,10 @@ The name attribute holds placeholders for `{index}` that is the index of the cur
 Now when we run the test we get output similar to this:
 
 ```
- convertArabicToRomanNumeral(int, String)
-├─ 1 => arabic=1, roman=I
-├─ 2 => arabic=3, roman=III
-└─ 3 => arabic=4, roman=IV
+ monthNames(int, String)
+├─ 1 => number=1, month=January
+├─ 2 => number=2, month=February
+└─ 3 => number=12, month=December
 ```
 
 ## Summary
