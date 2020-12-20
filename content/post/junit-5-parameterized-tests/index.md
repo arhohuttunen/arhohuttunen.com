@@ -87,7 +87,11 @@ If we run the test, we can see that the test has been executed once per every va
 ## What about null values?
 
 The `@ValueSource` annotation doesn't accept null values.
+
 There is one special annotation called `@NullSource` that will provide a null argument for the test.
+Another special annotation is `@EmptySource`, which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
+
+In this example, we are passing the values of null, an empty string, and a blank string to the test method.
 
 ```java
 @ParameterizedTest
@@ -99,7 +103,7 @@ void nullEmptyAndBlankStrings(String text) {
 }
 ```
 
-Another special annotation is `@EmptySource`, which provides an empty value for either a `String`, `List`, `Set`, `Map`, or an array.
+It is also possible to use `@NullAndEmptySource` which combines the two.
 
 ## Do you need multiple arguments?
 
