@@ -148,6 +148,54 @@ private static Stream<Arguments> monthNames() {
 }
 ```
 
+## Do you want to share your argument providers between tests?
+
+It is possible to refer to a method in another class in `@MethodSource`.
+We have to use the fully qualified name of the method name to do so.
+
+```java
+package com.arhohuttunen;
+
+import java.util.stream.Stream;
+
+public class StringsProvider {
+    private static Stream<String> palindromes() {
+        return Stream.of("level", "madam", "saippuakivikauppias");
+    }
+}
+```
+
+The fully qualified name is a combination of the package name, class name, and the method name.
+
+```java
+@ParameterizedTest
+@MethodSource("com.arhohuttunen.StringsProvider#palindromes")
+void externalPalindromeMethodSource(String string) {
+    assertTrue(StringUtils.isPalindrome(string));
+}
+```
+
+Another option for sharing is to write a custom class that implements the `ArgumentsProvider` interface.
+
+```java
+public class PalindromesProvider implements ArgumentsProvider {
+    @Override
+    public Stream<? extends Arguments> provideArguments(ExtensionContext context) {
+        return Stream.of("level", "madam", "saippuakivikauppias").map(Arguments::of);
+    }
+}
+```
+
+This can be then specified in the test with the `@ArgumentsSource` annotation.
+
+```java
+@ParameterizedTest
+@ArgumentsSource(PalindromesProvider.class)
+void externalPalindromeMethodSource(String string) {
+    assertTrue(StringUtils.isPalindrome(string));
+}
+```
+
 ## Do you have a lot of data?
 
 The `@CsvSource` annotation allows you to use a list of comma-separated string values.
