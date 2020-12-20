@@ -82,6 +82,8 @@ void postRequestWithDifferentProtocols(Protocol protocol) {
 }
 ```
 
+If we run the test, we can see that the test has been executed once per every value of the `Protocol` enumeration.
+
 ## What about null values?
 
 The `@ValueSource` annotation doesn't accept null values.
@@ -104,11 +106,11 @@ Another special annotation is `@EmptySource`, which provides an empty value for 
 The `@ValueSource` and `@EnumSource` annotations only work when our test method takes one argument.
 However, we often need more than that.
 
-`@MethodSource` allows you to refer to a method that returns the arguments.
+`@MethodSource` allows you to refer to a factory method that returns the arguments.
 Such methods must return a `Stream`, `Iterable`, `Iterator`, or an array of arguments.
 
 Let's assume that we have a `DateUtils` class that gets the name of the month for a number.
-We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments`.
+We need to pass multiple parameters in our parameterized test, so we can use a `Stream` of `Arguments` in our factory method.
 
 ```java
 @ParameterizedTest
@@ -126,9 +128,9 @@ private static Stream<Arguments> numberToMonth() {
 }
 ```
 
-Now we provide the test with different values of `month` and `name` parameters.
+When we refer the factory method in `@MethodSource`, it will then provide the test with different values of `month` and `name` parameters.
 
-If we don't provide a method name to the `@MethodSource` annotation, JUnit 5 will find a method with the same name instead.
+If we don't provide a method name to the `@MethodSource` annotation, JUnit 5 will try to find a method with the same name instead.
 
 ```java
 @ParameterizedTest
