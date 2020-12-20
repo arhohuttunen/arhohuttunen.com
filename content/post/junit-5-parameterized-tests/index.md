@@ -206,32 +206,34 @@ If JUnit 5 is not able to convert the argument, it will try to call either of th
 1. A constructor with a single `String` argument
 2. A `static` method accepting a single `String` argument, which returns an instance of the target type 
 
-In the following example, JUnit 5 will call the constructor of `Task` to do the type conversion from `String`.
+In the following example, JUnit 5 will call the constructor of `Person` to do the type conversion from `String`.
 
 ```java
-public class Task {
-    private final String name;
+public class Person {
+    private String name;
 
-    private Task(String name) {
+    public Person(String name) {
         this.name = name;
     }
 }
+```
 
+```java
 @ParameterizedTest
-@ValueSource(strings = "Brush teeth")
-void convertWithConstructor(Task task) {
-    assertEquals("Brush teeth", task.getName());
+@CsvSource("John Doe")
+void fallbackStringConversion(Person person) {
+    assertEquals("John Doe", person.getName());
 }
 ```
 
-Consequently, the implementation of that `Task` class in the next example would work as well.
+Consequently, the implementation of that `Person` class in the next example would work as well.
 
 ```java
-public class Task {
+public class Person {
     private final String name;
 
     public static fromName(String name) {
-        return new Task(name);
+        return new Person(name);
     }
 }
 ```
