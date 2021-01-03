@@ -340,7 +340,7 @@ class HexConverter extends TypedArgumentConverter<String, Integer> {
     @Override
     public Integer convert(String source) throws ArgumentConversionException {
         try {
-            return Integer.parseInt((String) source, 16);
+            return Integer.parseInt(source, 16);
         } catch (NumberFormatException e) {
             throw new ArgumentConversionException("Cannot convert hex value", e);
         }
