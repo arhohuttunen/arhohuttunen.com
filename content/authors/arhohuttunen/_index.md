@@ -32,6 +32,9 @@ social:
 - icon: youtube
   icon_pack: fab
   link: https://www.youtube.com/channel/UCYxW02yOkWqV3nZTUBMfYzg
+- icon: twitter
+  icon_pack: fab
+  link: https://www.twitter.com/ArhoHuttunen
 - icon: github
   icon_pack: fab
   link: https://github.com/arhohuttunen
