@@ -9,6 +9,7 @@ categories:
   - Productivity
 image:
   caption: Photo by [krisna iv](https://unsplash.com/@finesite) on Unsplash
+  focal_point: bottom
 ---
 
 If you often feel like there’s too much to do and too little time to do it, you are definitely not alone. We are constantly interrupted, and we get distracted from our productive work.
