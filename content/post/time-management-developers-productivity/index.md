@@ -130,29 +130,21 @@ It's really essential to have breaks, as it will **renew your mental capacity**.
 
 Considering that we work 40 hours a week, spending a couple of hours planning and reflecting is not a huge investment. Self-reflection is something we are seldom taught but can help us to see progress and evaluate if we are improving or not.
 
-Starting your day with a **morning review** is a great way to be prepared for what's ahead. Doing an **end-of-day review** allows your brain to relax. Finally, doing a **weekly review** will enable you to reflect on your progress.
+Doing an **end-of-day review** allows your brain to relax. There will be no loose ends; you can just trust your system. Also, doing a **weekly review** will enable you to reflect on your progress.
 
-Starting with an elementary **morning review**, all you have to do is:
+During your **end-of-day review**:
 
-- Look through all the calendar items to be prepared
-- Prioritize your tasks and decide what you really want to get done today
-
-During the **end-of-day review**:
-
-- Check your calendar for tomorrow so that there are no surprises
-- Write down any unfinished or new tasks
-- Process your inboxes, and get them empty
+- **Check your calendar** for tomorrow so that there are no surprises
+- **Write down** any unfinished or new tasks
+- **Process your inboxes**, and get them empty
 
 Now you should have a pretty good idea if you could accomplish what you planned for today.
 
-For **weekly reviews**, allocate one hour slot either on Friday evening or on Monday morning. This will allow you to either close your week or start the next week from fresh.
+For **weekly reviews**, allocate one hour slot either on Friday evening or on Monday morning. This will allow you to either close your week or start the next week from fresh. For reflection, write down some bullet points, e.g., in a notebook.
 
-- Process all your inboxes, review deferred items, and review all the ideas
-- Check the past week's calendar to see if there is anything you need to follow up on
-- Review the next week's calendar so that you are aware of any deadlines
-
-To see how you are progressing, you should also do a short self-reflection. Just write a couple of bullet points in some notebook.
-
+- **Process all your inboxes**, review deferred items, and review all the ideas
+- **Check the past week's calendar** to see if there is anything you need to follow up on
+- **Review the next week's calendar** so that you are aware of any deadlines
 - Are you on the right track?
 - Is there something that prevented you from doing what you needed to do?
 - What can you do to improve next week?
