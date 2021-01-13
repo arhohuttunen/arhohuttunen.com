@@ -16,6 +16,10 @@ This tutorial teaches you how to write JUnit 5 parameterized tests. It is struct
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
+If you prefer watching videos, I also made one.
+
+{{< youtube 0xSCbTYAiF0 >}}
+
 {{% toc %}}
 
 ## Overview
