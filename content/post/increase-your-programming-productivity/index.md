@@ -3,7 +3,7 @@ title: "Four No Bullshit Ways to Easily Increase Your Programming Productivity"
 date: 2021-01-17
 authors:
   - arhohuttunen
-summary:  
+summary: 
 categories:
   - Productivity
 image:
@@ -67,7 +67,7 @@ Also, **small pauses can be long enough to get you distracted**, decide to open 
 
 When the feedback loops are too long, you might run them less often and start batching things. Lower frequency, in turn, makes the feedback loop even longer.
 
-Incorporating a code formatter to be run on saving, adding a static analysis plugin to your IDE, or adding a git hook that runs the tests can be effective ways of making sure your feedback loops are frequent. I have also written before about [code quality checks](/code-quality-checks) and shortening the feedback loop.
+Incorporating a code formatter to be run on saving, adding a static analysis plugin to your IDE, or adding a git hook that runs the tests can be effective ways of **making sure your feedback loops are frequent**. I have also written before about [code quality checks](/code-quality-checks) and shortening the feedback loop.
 
 ## :stop_sign: Write less code
 
@@ -80,7 +80,7 @@ Every time we start writing new code, we should **think about whether something 
 
 It's easy to get into the trap of adding functionalities or features that you think might be useful. But, quite frankly, every functionality should have an actual use case before implementing it. 
 
-The same goes for future-proofing something. Just because you _think_ something might be useful later doesn't mean you have to implement it right now. The YAGNI principle applies here: _You Aren't Gonna Need It_.
+The same goes for future-proofing something. Just because you _think_ something might be useful later doesn't mean you have to implement it right now. The YAGNI principle applies here: _**You Aren't Gonna Need It**_.
 
 > Always implement things when you actually need them, never when you just foresee that you need them.
 > -- <cite>Ron Jeffries, Extreme Programming co-founder</cite>
