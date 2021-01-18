@@ -3,7 +3,7 @@ title: "Four No Bullshit Ways to Easily Increase Your Programming Productivity"
 date: 2021-01-17
 authors:
   - arhohuttunen
-summary: 
+summary: Deepen your skills, automate repetitive tasks, shorten your feedback loops, and code less to achieve greater productivity.
 categories:
   - Productivity
 image:
