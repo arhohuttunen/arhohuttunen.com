@@ -61,6 +61,8 @@ Instead of trying to remember everything, you should **build a system where you 
 
 Doing a brain dump can be an excellent way to **reduce anxiety and stress**. Instead of struggling to remember something, you just capture your thoughts in your inbox. It also helps with the mental chatter that keeps on going until you silence it by writing those thoughts down.
 
+If you struggle with prioritization, you can use something like [Eisenhower Matrix](https://www.eisenhower.me/eisenhower-matrix/) to help you. It will help you distinguish between urgent and non-urgent, as well as important and non-important tasks.
+
 Whenever we go through our inboxes, we always choose between four options:
 
 - **Do it**, if it only takes a minute or two
@@ -68,11 +70,11 @@ Whenever we go through our inboxes, we always choose between four options:
 - **Defer it**, which means you are going to do it later
 - **Delegate it**, which just means someone else is going to do it
 
-If you struggle with prioritization, you can use something like [Eisenhower Matrix](https://www.eisenhower.me/eisenhower-matrix/) to help you.
-
 You should write down every task that needs to be done at some point. So if you figure out something is required, quickly write it down and forget about it for now.
 
 The same goes for every idea you come up with. Just write it down without going to the rabbit hole of investigating it further.
+
+The main idea behind this is to stay focused on the task at hand and allocate separate time to go through your inbox.
 
 ## :calendar: Plan and prioritize
 
