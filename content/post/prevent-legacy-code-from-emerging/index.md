@@ -18,7 +18,7 @@ You look at the commit log and curse the person who wrote this big pile of mud. 
 
 ## How does legacy code emerge?
 
-You find out promptly that this code needs a major refactoring. The problem is however that the deadline is approaching and you simply have no time. Refactoring is not accounted for in the estimates. You also feel that the original author should be responsible for the refactoring.-c
+You find out promptly that this code needs a major refactoring. The problem is however that the deadline is approaching and you simply have no time. Refactoring is not accounted for in the estimates. You also feel that the original author should be responsible for the refactoring.
 
 Here is the unpleasant breaking news: **the legacy code is starting to emerge because of your own actions**.
 
