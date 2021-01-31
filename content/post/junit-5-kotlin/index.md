@@ -124,7 +124,13 @@ fun `Square of a number`(input: Int, expected: Int) {
 }
 ```
 
-This is ok but not as convenient as in Java. Another thing to note is that there can be only one companion object per class so all parameter providing methods need to be together.
+If we didn't annotate the method with `@JvmStatic`, we would get the following error:
+
+```bash
+org.junit.platform.commons.JUnitException: Could not find method [squares] in class [com.arhohuttunen.junit5.kotlin.CalculatorParameterizedTest]
+```
+
+Using parameterized tests like this is ok but not as convenient as in Java. Another thing to note is that there can be only one companion object per class so all parameter providing methods need to be together.
 
 ## Dynamic Tests
 
@@ -232,7 +238,6 @@ The same happens with multiple extensions, so we cannot use multiple `@ExtendWit
 )
 class RepeatableAnnotationTest
 ```
-
 
 ## Summary
 
