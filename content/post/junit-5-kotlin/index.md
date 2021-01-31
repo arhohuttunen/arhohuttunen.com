@@ -99,41 +99,6 @@ fun `Square of a number should equal the number multiplied by itself`() {
 
 Compared to Java this is once again a little less verbose and more readable.
 
-## Lifecycle Methods
-
-The [JUnit 5 lifecycle methods](/junit-5-test-lifecycle/) all work in Kotlin as well.
-
-However, by default, the methods annotated with `@BeforeAll` and `@AfterAll` need to be static. This is because JUnit 5 creates a new test instance per test method, and there is no other way to share state between all tests.
-
-Luckily, it is possible to create a test instance per class instead in JUnit 5 by annotating the test class with `@TestInstance(Lifecycle.PER_CLASS)`. This removes the requirement for static methods:
-
-```kotlin
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class LifecycleTest {
-    @BeforeAll
-    fun beforeAll() {
-        println("Before all")
-    }
-
-    @AfterAll
-    fun afterAll() {
-        println("After all")
-    }
-
-    @Test
-    fun firstTest() {
-        println("First test")
-    }
-
-    @Test
-    fun secondTest() {
-        println("Second test")
-    }
-}
-``` 
-
-Since this now shares instance state between tests, you might need to reset state in `@BeforeEach` or `@AfterEach`, if your test methods rely on state stored in instance variables. In general, try to avoid writing tests that rely on such state. 
-
 ## Parameterized Tests
 
 There are several ways to write [JUnit 5 parameterized tests](/junit-5-parameterized-tests/). Most of these approaches work without any changes in Kotlin as well.
@@ -200,6 +165,41 @@ fun `Square of a number`() = listOf(
 ```
 
 This is pretty close to what we did with parameterized tests but with a slightly different syntax.
+
+## Lifecycle Methods
+
+The [JUnit 5 lifecycle methods](/junit-5-test-lifecycle/) all work in Kotlin as well.
+
+However, by default, the methods annotated with `@BeforeAll` and `@AfterAll` need to be static. This is because JUnit 5 creates a new test instance per test method, and there is no other way to share state between all tests.
+
+Luckily, it is possible to create a test instance per class instead in JUnit 5 by annotating the test class with `@TestInstance(Lifecycle.PER_CLASS)`. This removes the requirement for static methods:
+
+```kotlin
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+class LifecycleTest {
+    @BeforeAll
+    fun beforeAll() {
+        println("Before all")
+    }
+
+    @AfterAll
+    fun afterAll() {
+        println("After all")
+    }
+
+    @Test
+    fun firstTest() {
+        println("First test")
+    }
+
+    @Test
+    fun secondTest() {
+        println("Second test")
+    }
+}
+``` 
+
+Since this now shares instance state between tests, you might need to reset state in `@BeforeEach` or `@AfterEach`, if your test methods rely on state stored in instance variables. In general, try to avoid writing tests that rely on such state. 
 
 ## Repeatable Annotations
 
