@@ -278,8 +278,8 @@ The same happens with multiple extensions, so we cannot use multiple `@ExtendWit
 
 ```kotlin
 @Extensions(
-        ExtendWith(FirstExtension::class),
-        ExtendWith(SecondExtension::class)
+        ExtendWith(CoolestEverExtension::class),
+        ExtendWith(SecondBestExtension::class)
 )
 class RepeatableAnnotationTest
 ```
