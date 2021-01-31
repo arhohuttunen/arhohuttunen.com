@@ -17,6 +17,8 @@ In this article, we will learn the differences between writing JUnit 5 tests in 
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
 
+{{% toc %}}
+
 ## Configuration
 
 We write traditional Gradle build scripts as `build.gradle` files using the Groovy DSL. Gradle's Kotlin DSL provides an alternative syntax to this with several improvements such as better content assist and refactoring. The build script written in Kotlin DSL is named `build.gradle.kts`.
