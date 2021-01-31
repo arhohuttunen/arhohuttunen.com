@@ -172,6 +172,51 @@ fun `Square of a number`() = listOf(
 
 This is pretty close to what we did with parameterized tests but with a slightly different syntax.
 
+## Static methods and fields
+
+We already briefly touched static methods and Kotlin. To make a Kotlin method visible as a Java static method, we have to create a companion object and annotate the method with `@JvmStatic`:
+
+```kotlin
+companion object {
+    @JvmStatic
+    fun squares() = listOf(
+            Arguments.of(1, 1),
+            Arguments.of(2, 4),
+            Arguments.of(3, 9)
+    )
+}
+```
+
+Another possible pitfall is when we have to use static fields. In Java, you just make the field `static` so if you are new to Kotlin you would expect something like this to work:
+
+```kotlin
+class RegisterStaticExtensionTest {
+    companion object {
+        @RegisterExtension
+        val jettyExtension: JettyExtension = JettyExtension()
+    }
+}
+``` 
+
+However, if we write code like this, we will see an error about the field being private:
+
+```bash
+org.junit.platform.commons.PreconditionViolationException: Failed to register extension via @RegisterExtension field [private static final com.arhohuttunen.junit5.kotlin.JettyExtension com.arhohuttunen.junit5.kotlin.RegisterStaticExtensionTest.jettyExtension]: field must not be private.
+```
+
+The solution is to annotate the field with `@JvmField`:
+
+```kotlin
+class RegisterStaticExtensionTest {
+    companion object {
+        @JvmField
+        @RegisterExtension
+        val jettyExtension: JettyExtension = JettyExtension()
+    }
+```
+
+This will expose the Kotlin property as a Java field, and JUnit 5 will now be able to see the field. 
+
 ## Lifecycle Methods
 
 The [JUnit 5 lifecycle methods](/junit-5-test-lifecycle/) all work in Kotlin as well.
