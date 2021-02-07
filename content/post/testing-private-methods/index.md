@@ -3,6 +3,7 @@ title: How do I test private methods?
 date: 2021-02-07
 authors:
   - arhohuttunen
+summary: What is the best way to test private methods? Should I use some library or use reflection? Can I just make the method public?
 categories:
   - Testing
 tags:
@@ -13,7 +14,7 @@ image:
 
 > What is the best way to test private methods? Should I use some library or use reflection?
 
-Don't test private methods directly. The best way to test a private method is via another public method. 
+Don't test private methods directly. The best way to test a private method is via another public method. Private methods are an implementation detail of a public method.
 
 > But, but... it might be tough to test the private method through the public method. 
 
@@ -25,11 +26,15 @@ In most cases, adding a new class reduces complexity instead of increasing it. W
 
 > But, but... so you are saying write 10 small classes instead of private methods just to test it?
 
-No. I'm not suggesting that you should create a new class just to test a method. I'm suggesting that if you listen to your tests, you can improve your design. Things like a complex test setup are clues about the implementation complexity.
+I'm not suggesting that you should create a new class just to test a method. I'm suggesting that if you listen to your tests, you can improve your design. Things like a complex test setup are clues about the implementation complexity.
 
-> But, but... surely I can't make everything public, there are cases where I don't want to expose all the methods to the world.
+> But, but... can't I just make the method public?
 
-There are more visibility modifiers than just `public` and `private`. There's also `protected` and `package-private`, and you can use this to your advantage. If your test class is located in the same package as the target class, there is no problem.
+It's not a good idea to expose a method just for testing. It will break encapsulation and leak the internals for everyone to use, which can have harmful side effects. The urge to test a private method might mean that it's part of separate responsibility that belongs to another class.
+
+> But, but... if I can't make the methods public, isn't extracting to a separate class doing the same thing?
+
+If moving something to another class bothers you, there are more visibility modifiers than just `public` and `private`. There's also `protected` and `package-private`, and you can use this to your advantage. If your test class is located in the same package as the target class, there is no problem.
 
 > But, but... I want to test the code in isolation, aren't unit tests supposed to be isolated?
 
