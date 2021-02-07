@@ -35,3 +35,4 @@ Also, if you are already familiar with JUnit 4, you might be interested in:
 ## Frequently Asked Questions
 
 - [How to assert an exception is thrown?](/junit-5-expected-exception/)
+- [How do I test private methods?](/testing-private-methods/)
