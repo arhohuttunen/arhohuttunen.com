@@ -4,11 +4,14 @@ a.navbar-brand {
 .navbar-nav a.nav-link {
   text-transform: uppercase;
 }
-.home-section h1 {
+.home-section.light h1 {
   color: #2c3e50;
 }
 // Recent Posts, Featured Posts, etc.
 .home-section:nth-of-type(even) .section-heading h1 {
+  color: #fff;
+}
+.home-section.light a {
   color: #fff;
 }
 // List view: Items
