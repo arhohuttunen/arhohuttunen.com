@@ -2,7 +2,7 @@
 name = "Coding Revolution"
 
 # Optional Google font URL
-google_fonts = "Open Sans|Nunito|Roboto+Mono"
+google_fonts = "family=Open+Sans&family=Nunito&family=Roboto+Mono"
 
 # Font families
 heading_font = "Nunito"
