@@ -37,15 +37,15 @@ In this example the implementation will throw `NotEnoughFundsException` if we tr
 Now, let's say in our example we forgot to check the balance before the withdrawal. If it doesn't throw an exception, the test will fail with an error message:
 
 ```bash
-Balance must be greater than amount of withdrawal ==> Expected com.codingrevolution.junit5.exception.NotEnoughFundsException to be thrown, but nothing was thrown.
-org.opentest4j.AssertionFailedError: Balance must be greater than amount of withdrawal ==> Expected com.codingrevolution.junit5.exception.NotEnoughFundsException to be thrown, but nothing was thrown.
+Balance must be greater than amount of withdrawal ==> Expected com.arhohuttunen.junit5.exception.NotEnoughFundsException to be thrown, but nothing was thrown.
+org.opentest4j.AssertionFailedError: Balance must be greater than amount of withdrawal ==> Expected com.arhohuttunen.junit5.exception.NotEnoughFundsException to be thrown, but nothing was thrown.
 ```
 
 Furthermore, let's say in our example we forgot to initialize the balance, and our code will throw a `NullPointerException`. If it throws an unexpected exception, the test will fail with a different error message:
 
 ```bash
-Balance must be greater than amount of withdrawal ==> Unexpected exception type thrown ==> expected: <com.codingrevolution.junit5.exception.NotEnoughFundsException> but was: <java.lang.NullPointerException>
-org.opentest4j.AssertionFailedError: Balance must be greater than amount of withdrawal ==> Unexpected exception type thrown ==> expected: <com.codingrevolution.junit5.exception.NotEnoughFundsException> but was: <java.lang.NullPointerException>
+Balance must be greater than amount of withdrawal ==> Unexpected exception type thrown ==> expected: <com.arhohuttunen.junit5.exception.NotEnoughFundsException> but was: <java.lang.NullPointerException>
+org.opentest4j.AssertionFailedError: Balance must be greater than amount of withdrawal ==> Unexpected exception type thrown ==> expected: <com.arhohuttunen.junit5.exception.NotEnoughFundsException> but was: <java.lang.NullPointerException>
 ```
 
 ## Asserting Exception Message

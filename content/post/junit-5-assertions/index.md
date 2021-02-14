@@ -181,8 +181,8 @@ Running the test we can see that it fails with a rather cryptic error message:
 
 ```bash
 org.opentest4j.AssertionFailedError:
-Expected :com.codingrevolution.junit5.assertions.Person@eec5a4a
-Actual   :com.codingrevolution.junit5.assertions.Person@2b2948e2
+Expected :com.arhohuttunen.junit5.assertions.Person@eec5a4a
+Actual   :com.arhohuttunen.junit5.assertions.Person@2b2948e2
 ```
 
 The Java compiler internally calls the `toString()` method to get a string representation of the object.
@@ -203,7 +203,7 @@ public String toString() {
 Re-running the test we can now see the actual fields of the class:
 
 ```bash
-org.opentest4j.AssertionFailedError: expected: com.codingrevolution.junit5.assertions.Person@4b4523f8<Person{firstName='John', lastName='Doe'}> but was: com.codingrevolution.junit5.assertions.Person@731a74c<Person{firstName='John', lastName='Doe'}>
+org.opentest4j.AssertionFailedError: expected: com.arhohuttunen.junit5.assertions.Person@4b4523f8<Person{firstName='John', lastName='Doe'}> but was: com.arhohuttunen.junit5.assertions.Person@731a74c<Person{firstName='John', lastName='Doe'}>
 Expected :Person{firstName='John', lastName='Doe'}
 Actual   :Person{firstName='John', lastName='Doe'}
 ```

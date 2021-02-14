@@ -99,8 +99,8 @@ We should see output similar to this:
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running com.codingrevolution.CalculatorTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.codingrevolution.CalculatorTest
+[INFO] Running com.arhohuttunen.CalculatorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.arhohuttunen.CalculatorTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -123,7 +123,7 @@ We should see output similar to this:
 
 ```
 > Task :test
-com.codingrevolution.CalculatorTest > addNumbers() PASSED
+com.arhohuttunen.CalculatorTest > addNumbers() PASSED
 BUILD SUCCESSFUL in 0s
 ```
 
