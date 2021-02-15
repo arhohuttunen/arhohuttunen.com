@@ -136,7 +136,30 @@ If we move any test steps somewhere else, we will not reuse this knowledge but r
 
 Let's think about the previous `Task` construction example. When we move the construction to `@BeforeEach`, the construction knowledge is not available inside the test.
 
+```java
+public class BadExampleTest {
+    private Task task;
+
+    @BeforeEach
+    void setupTask() {
+        task = new Task();
+        task.setTitle("Do the laundry");
+        task.setStatus(Task.Status.IN_PROGRESS);
+        task.setAssigneeId(1L);
+    }
+    
+    @Test
+    void stopTaskProgress() {
+        task.stopProgress();
+
+        assertThat(task.getStatus()).isEqualTo(Task.Status.OPEN);
+        assertThat(task.getAssigneeId()).isNull();
+    }
+```
+
 Thinking in terms of system knowledge, we would like to apply DRY to _how_ to implement something. Same way, we would like to use DAMP to describe _what_ steps to take.
+
+The construction of an object in the above example is _what_. How to construct that object is _how_. We want to be expressive about the _what_ and remove duplication around the _how_.
 
 Putting DRY and DAMP in this perspective, the two things are not contradictory but complementary.
 
