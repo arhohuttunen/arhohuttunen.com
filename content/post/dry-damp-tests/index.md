@@ -67,10 +67,50 @@ class DuplicationExampleTest {
 }
 ```
 
-Arguably we have quite a bit of duplication going on in the construction. So what would happen if we tried to remove the code duplication by moving it to another method? 
+Arguably we have quite a bit of duplication going on in the construction. Quite often, in an attempt to remove the duplication, you see the following kind of solution.
 
 ```java
-public class BadExampleTest {
+class BadExampleTest {
+    private static final String TASK_TITLE = "Do the laundry";
+    private static final Task.Status TASK_STATUS = Task.Status.IN_PROGRESS;
+    private static final Long TASK_ASSIGNEE = 1L;
+    
+    @Test
+    void stopTaskProgress() {
+        Task task = new Task();
+        task.setTitle(TASK_TITLE);
+        task.setStatus(TASK_STATUS);
+        task.setAssigneeId(TASK_ASSIGNEE);
+
+        task.stopProgress();
+
+        assertThat(task.getStatus()).isEqualTo(Task.Status.OPEN);
+        assertThat(task.getAssigneeId()).isNull();
+    }
+
+    @Test
+    void finishTask() {
+        Task task = new Task();
+        task.setTitle(TASK_TITLE);
+        task.setStatus(TASK_STATUS);
+        task.setAssigneeId(TASK_ASSIGNEE);
+
+        task.finish();
+
+        assertThat(task.getStatus()).isEqualTo(Task.Status.CLOSED);
+        assertThat(task.getAssigneeId()).isEqualTo(TASK_ASSIGNEE);
+    }
+}
+```
+
+The problem with a solution like this is that you now have coupling between tests. Changing something in the setup will affect all the tests.
+
+I believe that code like this is often the result of static analyzers complaining about duplication. Tools like SonarQube will even suggest introducing a constant for the string literal. 
+
+So what would happen if we tried to remove the code duplication by moving it to another method? 
+
+```java
+public class WorseExampleTest {
     private Task task;
 
     @BeforeEach
@@ -100,8 +140,6 @@ public class BadExampleTest {
 ```
 
 Removing duplication like this reduces the readability. Before the change, you had all the details to understand a test inside the test. Now the details are hidden in the setup method.
-
-Another argument against a solution like this is that you now have coupling between tests. Changing something in the setup will affect all the tests.
 
 Also, variation in test data setup now becomes a problem. Let's say we have to add another test for starting the progress on an open task. A very naive implementation would modify the test data locally in the test.
 
@@ -137,7 +175,7 @@ If we move any test steps somewhere else, we will not reuse this knowledge but r
 Let's think about the previous `Task` construction example. When we move the construction to `@BeforeEach`, the construction knowledge is not available inside the test.
 
 ```java
-public class BadExampleTest {
+public class WorseExampleTest {
     private Task task;
 
     @BeforeEach
@@ -289,7 +327,9 @@ public class BetterExampleTest {
 
 The result is very readable, it's fast to understand, and there is close to no duplication at all. We now follow both the DRY and DAMP principles very well.
 
-You could even argue that if you want to remove the duplication in task construction in the first two tests, assign the other task to another assignee.
+You could argue that there is still a small duplication in the first two tests because both the tasks have the same assignee. Looking back in our first example introducing a constant was not a good idea.
+
+So, what should we do about it? One solution is to use different assignees for the tasks in the two tests.
 
 ## Summary
 
