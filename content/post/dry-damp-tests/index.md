@@ -103,7 +103,7 @@ Removing duplication like this reduces the readability. Before the change, you h
 
 Another argument against a solution like this is that you now have coupling between tests. Changing something in the setup will affect all the tests.
 
-Also, variation in test data setup now becomes a problem. A very naive implementation would modify the test data locally in the test.
+Also, variation in test data setup now becomes a problem. Let's say we have to add another test for starting the progress on an open task. A very naive implementation would modify the test data locally in the test.
 
 ```java
     @Test
@@ -116,7 +116,7 @@ Also, variation in test data setup now becomes a problem. A very naive implement
     }
 ```
 
-The change makes it even worse because now the setup has been partially divided into two places. 
+The change makes it even worse because now the setup has been divided into two places. The construction happens in the test lifecycle method, and we then partially set the data in the test method.
 
 Looking at examples like this, it feels like increasing DRY will reduce DAMP and the other way around. From this perspective, it makes sense to favor DRY in production code and DAMP in test code.
 
@@ -130,11 +130,11 @@ Tests usually follow the arrange, act, assert pattern. You might first construct
 
 On the other hand, what does DAMP mean in the context of tests?
 
-It merely means that you would like to see and understand at one glance what happens in the test. **The most important information is what each step does, not how it's implemented**.
+It merely means that you would like to see and understand at one glance what happens in the test. **The most important information is what each step does, not how it's implemented**. Descriptive can refer to the purpose and meaningful can refer to relevancy.
 
-If we move any test steps somewhere else, we will not reuse this knowledge but remove it from the test.
+If we move any test steps somewhere else, we will not reuse this knowledge but remove it from the test. It still does the same thing, but the knowledge is now indirect.
 
-Let's think about the previous `Task` construction example. When we move the construction to `@BeforeEach`, the construction knowledge is not available inside the test. We still construct the task, but it's indirect.
+Let's think about the previous `Task` construction example. When we move the construction to `@BeforeEach`, the construction knowledge is not available inside the test.
 
 Thinking in terms of system knowledge, we would like to apply DRY to _how_ to implement something. Same way, we would like to use DAMP to describe _what_ steps to take.
 
