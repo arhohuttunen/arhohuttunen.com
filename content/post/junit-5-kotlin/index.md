@@ -25,9 +25,9 @@ I have also made a video about it if you prefer watching.
 
 ## Configuration
 
-We write traditional Gradle build scripts as `build.gradle` files using the Groovy DSL. Gradle's Kotlin DSL provides an alternative syntax to this with several improvements such as better content assist and refactoring. The build script written in Kotlin DSL is named `build.gradle.kts`.
+We write traditional Gradle build scripts as `build.gradle` files using the Groovy DSL. Gradle's Kotlin DSL provides an alternative syntax for several improvements, such as better content assist and refactoring. The build script written in Kotlin DSL is named `build.gradle.kts`.
 
-To be able to write JUnit 5 tests in Kotlin we first need the `junit-jupiter` artifact as a dependency in `build.gradle.kts` file and need to tell to use JUnit platform in the tests:
+To write JUnit 5 tests in Kotlin, we first need the `junit-jupiter` artifact as a dependency in `build.gradle.kts` file and need to tell to use JUnit platform in the tests.
 
 ```gradle
 dependencies {
@@ -43,9 +43,9 @@ tasks.withType<Test> {
 
 Most of the JUnit 5 functionality works in Kotlin just like it would in Java. Everything works out of the box.
 
-One notable difference is how we can customize the display names of methods that will be displayed in test reports or IDEs.
+One notable difference is how we can customize the display names of methods displayed in test reports or IDEs.
 
-In Java, we could use the `@DisplayName` annotation to make the method name readable. However, in Kotlin we can use backtick identifiers for variables and methods:
+In Java, we could use the `@DisplayName` annotation to make the method name readable. However, in Kotlin, we can use backtick identifiers for variables and methods.
 
 ```kotlin
 @Test
@@ -54,13 +54,13 @@ fun `1 + 2 = 3`() {
 }
 ```
 
-This makes both the code and the test results more readable. Normally this is not recommended but for this purpose it is quite handy.
+Using backticks makes both the code and the test results more readable. Usually, we should not use such method names, but it is quite handy for this purpose.
 
 ## Lazy Evaluation
 
-One thing that was added in JUnit 5 was lazy evaluation of error messages using lambdas. This avoids constructing expensive error messages unnecessarily.
+JUnit 5 added lazy evaluation of error message using lambdas. Using lambdas avoids constructing expensive error messages unnecessarily.
 
-In Kotlin, there is a convention that if the last parameter of a function accepts a function, a lambda expression that is passed as the corresponding argument can be placed outside the parentheses:
+In Kotlin, if the last parameter of a function accepts a function, it can be rewritten as a lambda expression outside the parentheses.
 
 ```kotlin
 @Test
@@ -77,7 +77,7 @@ Compared to Java, this makes the syntax even cleaner when writing assertions in 
 
 Any JUnit 5 assertions in Java work in Kotlin as well. However, there are a couple of Kotlin specific assertion methods that are more suitable for the language. These assertion methods are top-level functions in the `org.junit.jupiter.api` package.
 
-Here is an example of asserting an exception is thrown. In Java, we would pass a lambda inside of the `assertThrows()` call. In Kotlin we can once again make this more readable by adding a block after the assertion call:
+Here is an example of asserting that the code throws an exception. In Java, we would pass a lambda inside of the `assertThrows()` call. In Kotlin, we can again make this more readable by adding a lambda after the assertion call.
 
 ```kotlin
 @Test
@@ -88,9 +88,9 @@ fun `Divide by zero should throw ArithmeticException`() {
 }
 ```
 
-This applies to grouped assertions as well. Grouped assertions make it possible to perform multiple assertions at a time and report failures together.
+The simpler lambda syntax applies to grouped assertions as well. Grouped assertions make it possible to perform multiple assertions at a time and report failures together.
 
-In Java, we would write lambdas inside the `assertAll()` call, but in Kotlin it is enough to use blocks:
+Like in Java, we can write lambdas inside the `assertAll()` call in Kotlin, but the syntax is less verbose.
 
 ```kotlin
 @Test
@@ -109,9 +109,9 @@ Compared to Java this is once again a little less verbose and more readable.
 
 There are several ways to write [JUnit 5 parameterized tests](/junit-5-parameterized-tests/). Most of these approaches work without any changes in Kotlin as well.
 
-That being said, there is a difference when using the `@MethodSource` annotation. The annotation expects a static method inside the class as the source of the parameters.
+With that in mind, there is a difference when using the `@MethodSource` annotation. The annotation expects a static method inside the class as the source of the parameters.
 
-To achieve the same in Kotlin, we have to create a companion object and annotate the method with `@JvmStatic`. This will make the method exist as a Java static method:
+To achieve the same in Kotlin, we have to create a companion object and annotate the method with `@JvmStatic`. The annotation will make the method exist as a Java static method.
 
 ```kotlin
 companion object {
@@ -130,19 +130,19 @@ fun `Square of a number`(input: Int, expected: Int) {
 }
 ```
 
-If we didn't annotate the method with `@JvmStatic`, we would get the following error:
+If we didn't annotate the method with `@JvmStatic`, we would get the following error.
 
 ```bash
 org.junit.platform.commons.JUnitException: Could not find method [squares] in class [com.arhohuttunen.junit5.kotlin.CalculatorParameterizedTest]
 ```
 
-Using parameterized tests like this is ok but not as convenient as in Java. Another thing to note is that there can be only one companion object per class so all parameter providing methods need to be together.
+Using parameterized tests like this is ok but not as convenient as in Java. Another thing to note is that there can be only one companion object per class, so all parameter-providing methods need to be together.
 
 ## Dynamic Tests
 
 JUnit 5 introduces a new programming model that allows us to generate _dynamic tests_ at runtime by a factory method annotated by the `@TestFactory` annotation.
 
-Normally we would provide a list of `DynamicTest` instances. Using the calculator from previous examples:
+Typically we would provide a list of `DynamicTest` instances. Let's use the calculator from previous examples.
 
 ```kotlin
 @TestFactory
@@ -161,7 +161,7 @@ fun `Square of a number`() = listOf(
 
 Each of the dynamic tests would appear as their own tests. However, this is not very clean and has some duplication.
 
-Yet again there is a way to make this more readable. We can use some functional mapping to remove the duplication:
+Yet again, there is a way to make this more readable. We can use some functional mapping to remove the duplication.
 
 ```kotlin
 @TestFactory
@@ -176,11 +176,55 @@ fun `Square of a number`() = listOf(
 }
 ```
 
-This is pretty close to what we did with parameterized tests but with a slightly different syntax.
+The functional approach is pretty close to what we did with parameterized tests but with a slightly different syntax.
+
+## Nested tests
+
+Nested tests in JUnit 5 allow us to define a hierarchical structure for the tests. Coming from Java, we might expect the following example to work.
+
+```kotlin
+class NestedTest {
+    @Nested
+    class GetRequest {
+        @Test
+        fun `return existing entity`() {}
+    }
+
+    @Nested
+    class PostRequest {
+        @Test
+        fun `create new entity`() {}
+    }
+}
+```
+
+Such an example will give us a warning _Only non-static nested classes can serve as @Nested test classes_. JUnit 5 will not discover any tests for execution.
+
+By default, a nested class in Kotlin is similar to a static class in Java. Only non-static nested classes (i.e. inner classes) can serve as `@Nested` test classes.
+
+The solution is to mark the class as an `inner class` in Kotlin.
+
+```kotlin
+class NestedTest {
+    @Nested
+    inner class GetRequest {
+        @Test
+        fun `return existing entity`() {}
+    }
+
+    @Nested
+    inner class PostRequest {
+        @Test
+        fun `create new entity`() {}
+    }
+}
+```
+
+Now JUnit 5 will discover the inner nested test classes and their tests.
 
 ## Static methods and fields
 
-We already briefly touched static methods and Kotlin. To make a Kotlin method visible as a Java static method, we have to create a companion object and annotate the method with `@JvmStatic`:
+We already briefly touched on static methods and Kotlin. To make a Kotlin method visible as a Java static method, we have to create a companion object and annotate the method with `@JvmStatic`.
 
 ```kotlin
 companion object {
@@ -193,7 +237,7 @@ companion object {
 }
 ```
 
-Another possible pitfall is when we have to use static fields. In Java, you just make the field `static` so if you are new to Kotlin you would expect something like this to work:
+Another possible pitfall is when we have to use static fields. In Java, you make the field `static`, so if you are new to Kotlin, you would expect something like this to work.
 
 ```kotlin
 class RegisterStaticExtensionTest {
@@ -210,7 +254,7 @@ However, if we write code like this, we will see an error about the field being 
 org.junit.platform.commons.PreconditionViolationException: Failed to register extension via @RegisterExtension field [private static final com.arhohuttunen.junit5.kotlin.JettyExtension com.arhohuttunen.junit5.kotlin.RegisterStaticExtensionTest.jettyExtension]: field must not be private.
 ```
 
-The solution is to annotate the field with `@JvmField`:
+The solution is to annotate the field with `@JvmField`.
 
 ```kotlin
 class RegisterStaticExtensionTest {
@@ -221,15 +265,15 @@ class RegisterStaticExtensionTest {
     }
 ```
 
-This will expose the Kotlin property as a Java field, and JUnit 5 will now be able to see the field. 
+Adding the annotation will expose the Kotlin property as a Java field, and JUnit 5 will now see the field.
 
 ## Lifecycle Methods
 
 The [JUnit 5 lifecycle methods](/junit-5-test-lifecycle/) all work in Kotlin as well.
 
-However, by default, the methods annotated with `@BeforeAll` and `@AfterAll` need to be static. This is because JUnit 5 creates a new test instance per test method, and there is no other way to share state between all tests.
+However, the methods annotated with `@BeforeAll` and `@AfterAll` need to be static by default. The reason is that JUnit 5 creates a new test instance per test method, and there is no other way to share state between all tests.
 
-Luckily, it is possible to create a test instance per class instead in JUnit 5 by annotating the test class with `@TestInstance(Lifecycle.PER_CLASS)`. This removes the requirement for static methods:
+Luckily, it is possible to create a test instance per class instead in JUnit 5 by annotating the test class with `@TestInstance(Lifecycle.PER_CLASS)`. The lifecycle change removes the requirement for static methods.
 
 ```kotlin
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -256,13 +300,13 @@ class LifecycleTest {
 }
 ``` 
 
-Since this now shares instance state between tests, you might need to reset state in `@BeforeEach` or `@AfterEach`, if your test methods rely on state stored in instance variables. In general, try to avoid writing tests that rely on such state. 
+Since this now shares instance state between tests, you might need to reset state in `@BeforeEach` or `@AfterEach`, if your test methods rely on state stored in instance variables. In general, try to avoid writing tests that depend on such state. 
 
 ## Repeatable Annotations
 
-Currently, Kotlin does not support repeatable annotations. This means that using multiple extensions or tags for a test is slightly more complex than in Java.
+Currently, Kotlin does not support repeatable annotations. Consequently, using multiple extensions or tags for a test is slightly more complicated than in Java.
 
-For example, in Java we can just repeat the `@Tag` annotation to give multiple tags to a test:
+For example, in Java we can repeat the `@Tag` annotation to give multiple tags to a test.
 
 ```java
 @Tag("first")
@@ -270,7 +314,7 @@ For example, in Java we can just repeat the `@Tag` annotation to give multiple t
 class RepeatableAnnotationTest {}
 ```
 
-In Kotlin, however, we cannot have multiple `@Tag` annotations. Instead, we have to use a `@Tags` annotation to wrap the repeated tags:
+In Kotlin, however, we cannot have multiple `@Tag` annotations. Instead, we have to use a `@Tags` annotation to wrap the repeated tags.
 
 ```kotlin
 @Tags(
@@ -280,7 +324,7 @@ In Kotlin, however, we cannot have multiple `@Tag` annotations. Instead, we have
 class RepeatableAnnotationTest
 ```
 
-The same happens with multiple extensions, so we cannot use multiple `@ExtendWith` annotations directly. Instead, we need to wrap the extensions with an `@Extensions` annotation:
+The same happens with multiple extensions, so we cannot use multiple `@ExtendWith` annotations directly. Instead, we need to wrap the extensions with an `@Extensions` annotation.
 
 ```kotlin
 @Extensions(
@@ -292,6 +336,6 @@ class RepeatableAnnotationTest
 
 ## Summary
 
-Most of the JUnit 5 features work perfectly well in Kotlin although there are some cases where the syntax is somewhat different than in Java. However, due to the way Kotlin language works we can often make the code more readable.
+Most of the JUnit 5 features work perfectly well in Kotlin, although there are some cases where the syntax is somewhat different than in Java. However, due to the way Kotlin language works, we can often make the code more readable.
 
 The example code for this guide can be found on [GitHub](https://github.com/arhohuttunen/junit5-examples/tree/master/junit5-gradle-kotlin).
