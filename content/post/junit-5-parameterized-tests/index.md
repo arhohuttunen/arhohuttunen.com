@@ -10,15 +10,15 @@ tags:
 featured: true
 image:
   focal_point: center
+  preview_only: true
 ---
+
+{{< youtube 0xSCbTYAiF0 >}}
+<br/>
 
 This tutorial teaches you how to write JUnit 5 parameterized tests. It is structured so that it also answers most asked questions about parameterized tests.
 
 This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
-If you prefer watching videos, I also made one.
-
-{{< youtube 0xSCbTYAiF0 >}}
 
 {{% toc %}}
 

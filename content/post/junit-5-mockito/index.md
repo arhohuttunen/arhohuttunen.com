@@ -10,7 +10,11 @@ tags:
   - Mockito
 image:
   focal_point: top
+  preview_only: true
 ---
+
+{{< youtube p7_cTAF39A8 >}}
+<br/>
 
 In this article, we will learn how to use the Mockito mocking framework with JUnit 5. We will learn a test framework independent way, and how to use the Mockito JUnit 5 extension.
 

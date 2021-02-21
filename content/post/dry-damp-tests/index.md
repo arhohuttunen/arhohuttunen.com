@@ -8,8 +8,12 @@ summary: What are the DRY and DAMP principles? Why do people consider DRY and DA
 categories:
   - Testing
 image:
-    focal_point: bottom
+  focal_point: bottom
+  preview_only: true
 ---
+
+{{< youtube cD4ThqhnAp0 >}}
+<br/>
 
 In this article, we will look at the DRY and DAMP principles in the context of testing. We will see why people consider these principles contradicting when writing tests and how you can achieve both.
 
