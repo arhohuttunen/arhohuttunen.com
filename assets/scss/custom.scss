@@ -44,3 +44,26 @@ a.navbar-brand {
 .site-footer a {
   color: #1abc9c;
 }
+
+// Callouts
+div.alert.alert-warning {
+  border-color: #cd0930;
+
+  code {
+    background-color: #fff5f7;
+  }
+
+  div:first-child::before {
+    color: #e54867;
+  }
+}
+
+div.alert.alert-note {
+  border-color: #12537e;
+}
+
+div.alert {
+  div:first-child::before {
+    color: #55779a;
+  }
+}
