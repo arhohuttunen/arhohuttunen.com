@@ -14,7 +14,7 @@ such as Callout, without the HTML being rendered as a Markdown code block. */}}
 <div class="figure-img-wrap" {{ with .Get "max_width" }}style="max-width: {{.}}"{{end}}>
 <object type="image/svg+xml"
         data="{{ $img.RelPermalink }}"
-        width="100%"></object>
+        width="100%" height="100%"></object>
 </div>
 
 {{- if $caption -}}
