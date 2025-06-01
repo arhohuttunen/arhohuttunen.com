@@ -28,20 +28,6 @@ sections:
         <p></p>
       cta_note:
         label: Check out my YouTube channel if you prefer video tutorials.
-  - block: markdown
-    content:
-      text: |-
-        <div style="text-align: center; margin: auto;" class="col-8">
-        <h2>Clean Code Corner</h2>
-        
-        Short, simple, and actionable tips on developing quality software.
-        
-        <script async data-uid="c5699c15a9" src="https://arhohuttunen.ck.page/c5699c15a9/index.js"></script>
-        
-        <small>Join for free. No spam. Unsubscribe at any time.</small>
-        </div>
-    design:
-      columns: '1'
   - block: testimonials
     content:
       title: Wall of Love
