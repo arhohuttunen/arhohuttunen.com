@@ -1,7 +1,7 @@
 ---
 title: Privacy Policy
 date: 2022-11-07
-draft: false
+draft: true
 share: false
 commentable: false
 editable: false
