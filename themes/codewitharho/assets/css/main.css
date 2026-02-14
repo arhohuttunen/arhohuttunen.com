@@ -16,6 +16,10 @@ footer {
   margin-top: 1rem;
 }
 
+img {
+  max-width: 768px;
+}
+
 a {
   color: #57A0FF;
   text-decoration: underline;
