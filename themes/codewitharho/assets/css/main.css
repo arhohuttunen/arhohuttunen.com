@@ -21,6 +21,11 @@ a {
   text-decoration: none;
 }
 
+.highlight pre {
+  padding: 16px;
+  border-radius: 8px;
+}
+
 .callout {
   padding: 12px;
   border-radius: 8px;
