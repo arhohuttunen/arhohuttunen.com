@@ -20,3 +20,117 @@ a {
   color: #00e;
   text-decoration: none;
 }
+
+.callout {
+  padding: 12px;
+  border-radius: 8px;
+
+  .callout-heading {
+    font-weight: bold;
+  }
+}
+
+.callout[data-callout="note"] {
+  background-color: #E8F1FF;
+  .callout-heading {
+    color: #047AFF;
+  }
+}
+
+.callout[data-callout="abstract"],
+.callout[data-callout="summary"],
+.callout[data-callout="tldr"] {
+  background-color: #EBF9F8;
+  .callout-heading {
+    color: #04C7BE;
+  }
+}
+
+.callout[data-callout="info"] {
+  background-color: #E8F1FF;
+  .callout-heading {
+    color: #047AFF;
+  }
+}
+
+.callout[data-callout="todo"] {
+  background-color: #E8F1FF;
+  .callout-heading {
+    color: #047AFF;
+  }
+}
+
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-callout="important"] {
+  background-color: #EBF9F8;
+  .callout-heading {
+    color: #04C7BE;
+  }
+}
+
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"] {
+  background-color: #ECFAED;
+  .callout-heading {
+    color: #2ACD41;
+  }
+}
+
+.callout[data-callout="question"],
+.callout[data-callout="help"],
+.callout[data-callout="faq"] {
+  background-color: #FFF5EA;
+  .callout-heading {
+    color: #FF9502;
+  }
+}
+
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  background-color: #FFF5EA;
+  .callout-heading {
+    color: #FF9502;
+  }
+}
+
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="missing"] {
+  background-color: #FFECEA;
+  .callout-heading {
+    color: #FF3C31;
+  }
+}
+
+.callout[data-callout="danger"],
+.callout[data-callout="error"] {
+  background-color: #FFECEA;
+  .callout-heading {
+    color: #FF3C31;
+  }
+}
+
+.callout[data-callout="bug"] {
+  background-color: #FFECEA;
+  .callout-heading {
+    color: #FF3C31;
+  }
+}
+
+.callout[data-callout="example"] {
+  background-color: #F8EEFC;
+  .callout-heading {
+    color: #B051DE;
+  }
+}
+
+.callout[data-callout="quote"],
+.callout[data-callout="cite"] {
+  background-color: #F5F5F5;
+  .callout-heading {
+    color: #9E9E9E;
+  }
+}

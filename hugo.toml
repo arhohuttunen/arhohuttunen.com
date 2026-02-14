@@ -2,3 +2,4 @@ baseURL = 'https://www.arhohuttunen.com/'
 languageCode = 'en-us'
 title = 'Code With Arho'
 theme = 'codewitharho'
+enableEmoji = true
