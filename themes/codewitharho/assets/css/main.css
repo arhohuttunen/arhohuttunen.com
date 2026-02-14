@@ -17,8 +17,12 @@ footer {
 }
 
 a {
-  color: #00e;
-  text-decoration: none;
+  color: #57A0FF;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #2E86FA;
 }
 
 .highlight pre {
