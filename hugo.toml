@@ -3,3 +3,5 @@ languageCode = 'en-us'
 title = 'Code With Arho'
 theme = 'codewitharho'
 enableEmoji = true
+[markup.highlight]
+    style = "monokailight"
