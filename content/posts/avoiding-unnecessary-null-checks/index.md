@@ -12,8 +12,9 @@ The problem is that you are not probably handling null in every single method ca
 
 Null pointer exceptions are bad. Would it not be better if you did not have to check for nulls at all?
 
-> I call it my <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">billion-dollar mistake</a>. It was the invention of the null reference in 1965. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.
-> -- <cite>Sir Tony Hoare, 2009</cite>
+> I call it my [billion-dollar mistake](https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions). It was the invention of the null reference in 1965. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.
+>  
+> — Sir Tony Hoare, 2009
 
 ## Try not to return null
 

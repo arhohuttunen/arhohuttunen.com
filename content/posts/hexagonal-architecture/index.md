@@ -10,8 +10,9 @@ Hexagonal architecture is an architectural pattern introduced by Alistair Cockbu
 
 This is how Cockburn himself describes the architecture in one sentence:
 
->Allow an application to equally be driven by users, programs, automated test or batch scripts, and to be developed and tested in isolation from its eventual run-time devices and databases.
->-- <cite>Alistair Cockburn, 2005</cite>
+> Allow an application to equally be driven by users, programs, automated test or batch scripts, and to be developed and tested in isolation from its eventual run-time devices and databases.
+> 
+> — Alistair Cockburn, 2005
 
 In this article, we will look at some problems faced with traditional software projects. We will then learn about hexagonal architecture and how it tries to address those problems. We will also look at some implementation details and options for testing.
 
@@ -98,7 +99,8 @@ When we implement a secondary adapter on the driven side, **the flow of control 
 To achieve this, we have to apply the [dependency inversion principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle).
 
 > High-level modules should not depend on low-level modules. Both should depend on abstractions (e.g. interfaces). Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
-> -- <cite>Robert C. Martin, 2003</cite>
+> 
+> — Robert C. Martin, 2003
 
 In our case, this is a fancy way of saying the application should not directly depend on the database adapter. Instead, the application should use a port, and the adapter should then implement that port.
 

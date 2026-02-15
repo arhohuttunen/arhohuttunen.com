@@ -36,7 +36,8 @@ So, learn to say no. **You don't have to do everything you are asked for**. You 
 We live in a world where we are bombarded with new information. We have constant interruptions from various sources. We seem to be in a continuous reactive mode where anything can trigger us to lose our focus.
 
 > What information consumes is the attention of its recipients. Hence a wealth of information creates a poverty of attention.
-> -- <cite>Social scientist Herbert Simon, 1971</cite>
+> 
+> — Social scientist Herbert Simon, 1971
 
 How can we stop reacting?
 

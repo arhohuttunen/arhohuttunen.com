@@ -71,7 +71,8 @@ Incorporating a code formatter to be run on saving, adding a static analysis plu
 Being aware **less code is better** is probably the step where you can save the most time. We have the best of intentions to do a good job, which can also turn against us.
 
 > It's painful for most software developers to acknowledge this, because they love code so much, but the best code is no code at all.
-> -- <cite>Jeff Atwood, Stack Overflow co-founder</cite>
+> 
+> — Jeff Atwood, Stack Overflow co-founder
 
 Every time we start writing new code, we should **think about whether something is required at all**. Can you get away with it without writing it? Is this feature truly needed?
 
@@ -80,7 +81,8 @@ It's easy to get into the trap of adding functionalities or features that you th
 The same goes for future-proofing something. Just because you _think_ something might be useful later doesn't mean you have to implement it right now. The YAGNI principle applies here: _**You Aren't Gonna Need It**_.
 
 > Always implement things when you actually need them, never when you just foresee that you need them.
-> -- <cite>Ron Jeffries, Extreme Programming co-founder</cite>
+> 
+> — Ron Jeffries, Extreme Programming co-founder
 
 **Premature use of design patterns** can result in over-engineering. Don't get me wrong; sometimes, you might know beforehand that you need to use a specific pattern. However, there are times when you need to recognize multiple occurrences of something in the code before you can decide. Deferring decisions can save a lot of time. 
 
