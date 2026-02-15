@@ -1,27 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @source "hugo_stats.json";
-
-@layer base {
-  h1 {
-    @apply text-4xl font-bold leading-tight;
-  }
-
-  h2 {
-    @apply text-3xl font-semibold leading-snug;
-  }
-
-  h3 {
-    @apply text-2xl font-semibold leading-snug;
-  }
-
-  a {
-    @apply text-blue-400 underline;
-  }
-
-  a:hover {
-    @apply text-blue-500;
-  }
-}
 
 body {
   font-family: Nunito, sans-serif;
@@ -41,14 +20,6 @@ footer {
 
 img {
   max-width: 768px;
-}
-
-:not(pre) > code {
-  @apply bg-gray-100 rounded-sm pl-1.5 pr-1.5 pt-0.5 pb-0.5;
-}
-
-.highlight pre {
-  @apply p-4 rounded-md;
 }
 
 .callout[data-callout="note"] {
