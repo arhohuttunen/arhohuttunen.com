@@ -24,3 +24,6 @@ enableEmoji = true
     disableWatch = true
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
+
+[permalinks]
+  posts = "/:slugorfilename"
