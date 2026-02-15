@@ -1,0 +1,10 @@
+workspace.json
+plugins/obsidian-excalidraw-plugin/*
+plugins/obsidian-front-matter-title-plugin/*
+plugins/obsidian-git/*
+plugins/obsidian-icon-shortcodes/*
+plugins/obsidian-minimal-settings/*
+plugins/obsidian-style-settings/*
+plugins/permalink-opener/*
+themes/
+!data.json
