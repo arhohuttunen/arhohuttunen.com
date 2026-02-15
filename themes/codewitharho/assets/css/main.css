@@ -1,3 +1,28 @@
+@import "tailwindcss";
+@source "hugo_stats.json";
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold leading-snug;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold leading-snug;
+  }
+
+  a {
+    @apply text-blue-400 underline;
+  }
+
+  a:hover {
+    @apply text-blue-500;
+  }
+}
+
 body {
   font-family: Nunito, sans-serif;
   margin: auto;
@@ -19,135 +44,114 @@ img {
 }
 
 :not(pre) > code {
-  background-color: #F0F0F0;
-  border-radius: 4px;
-  padding: 2px 4px;
-}
-
-a {
-  color: #57A0FF;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #2E86FA;
+  @apply bg-gray-100 rounded-sm pl-1.5 pr-1.5 pt-0.5 pb-0.5;
 }
 
 .highlight pre {
-  padding: 16px;
-  border-radius: 8px;
-}
-
-.callout {
-  padding: 12px;
-  border-radius: 8px;
-
-  .callout-heading {
-    font-weight: bold;
-  }
+  @apply p-4 rounded-md;
 }
 
 .callout[data-callout="note"] {
-  background-color: #E8F1FF;
+  @apply bg-blue-50 border border-blue-100;
   .callout-heading {
-    color: #047AFF;
+    @apply text-blue-500;
   }
 }
 
 .callout[data-callout="abstract"],
 .callout[data-callout="summary"],
 .callout[data-callout="tldr"] {
-  background-color: #EBF9F8;
+  @apply bg-teal-50 border border-teal-100;
   .callout-heading {
-    color: #04C7BE;
+    @apply text-teal-500;
   }
 }
 
 .callout[data-callout="info"] {
-  background-color: #E8F1FF;
+  @apply bg-blue-50 border border-blue-100;
   .callout-heading {
-    color: #047AFF;
+    @apply text-blue-500;
   }
 }
 
 .callout[data-callout="todo"] {
-  background-color: #E8F1FF;
+  @apply bg-blue-50 border border-blue-100;
   .callout-heading {
-    color: #047AFF;
+    @apply text-blue-500;
   }
 }
 
 .callout[data-callout="tip"],
 .callout[data-callout="hint"],
 .callout[data-callout="important"] {
-  background-color: #EBF9F8;
+  @apply bg-teal-50 border border-teal-100;
   .callout-heading {
-    color: #04C7BE;
+    @apply text-teal-500;
   }
 }
 
 .callout[data-callout="success"],
 .callout[data-callout="check"],
 .callout[data-callout="done"] {
-  background-color: #ECFAED;
+  @apply bg-green-50 border border-green-100;
   .callout-heading {
-    color: #2ACD41;
+    @apply text-green-500;
   }
 }
 
 .callout[data-callout="question"],
 .callout[data-callout="help"],
 .callout[data-callout="faq"] {
-  background-color: #FFF5EA;
+  @apply bg-orange-50 border border-orange-100;
   .callout-heading {
-    color: #FF9502;
+    @apply text-orange-500;
   }
 }
 
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
 .callout[data-callout="attention"] {
-  background-color: #FFF5EA;
+  @apply bg-orange-50 border border-orange-100;
   .callout-heading {
-    color: #FF9502;
+    @apply text-orange-500;
   }
 }
 
 .callout[data-callout="failure"],
 .callout[data-callout="fail"],
 .callout[data-callout="missing"] {
-  background-color: #FFECEA;
+  @apply bg-red-50 border border-red-100;
   .callout-heading {
-    color: #FF3C31;
+    @apply text-red-500;
   }
 }
 
 .callout[data-callout="danger"],
 .callout[data-callout="error"] {
-  background-color: #FFECEA;
+  @apply bg-red-50 border border-red-100;
   .callout-heading {
-    color: #FF3C31;
+    @apply text-red-500;
   }
 }
 
 .callout[data-callout="bug"] {
-  background-color: #FFECEA;
+  @apply bg-red-50 border border-red-100;
   .callout-heading {
-    color: #FF3C31;
+    @apply text-red-500;
   }
 }
 
 .callout[data-callout="example"] {
-  background-color: #F8EEFC;
+  @apply bg-purple-50 border border-purple-100;
   .callout-heading {
-    color: #B051DE;
+    @apply text-purple-500;
   }
 }
 
 .callout[data-callout="quote"],
 .callout[data-callout="cite"] {
-  background-color: #F5F5F5;
+  @apply bg-gray-50 border border-gray-100;
   .callout-heading {
-    color: #9E9E9E;
+    @apply text-gray-500;
   }
 }
