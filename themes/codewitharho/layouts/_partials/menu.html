@@ -11,10 +11,15 @@ Renders a menu for the given menu ID.
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-  <nav>
-    <ul>
+  <nav class="fixed top-0 left-0 w-full bg-white shadow z-50 transition-transform duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-start px-2 py-0 space-x-8">
+      <div class="logo mr-8">
+        <a href="/" class="font-bold text-xl no-underline">Code With Arho</a>
+      </div>
+    <ul class="flex space-x-6 list-none m-0 p-0">
       {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
     </ul>
+    </div>
   </nav>
 {{- end }}
 
@@ -34,7 +39,7 @@ Renders a menu for the given menu ID.
       {{- end }}
     {{- end }}
     <li>
-      <a
+      <a class="no-underline"
         {{- range $k, $v := $attrs }}
           {{- with $v }}
             {{- printf " %s=%q" $k $v | safeHTMLAttr }}
