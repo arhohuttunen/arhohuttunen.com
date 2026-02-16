@@ -4,6 +4,7 @@ title = 'Code With Arho'
 theme = 'codewitharho'
 enableEmoji = true
 ignoreFiles = [
+  "\\.obsidian",
   "\\.excalidraw\\.md$"
 ]
 
