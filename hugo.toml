@@ -3,6 +3,9 @@ languageCode = 'en-us'
 title = 'Code With Arho'
 theme = 'codewitharho'
 enableEmoji = true
+ignoreFiles = [
+  "\\.excalidraw\\.md$"
+]
 
 [markup.highlight]
     style = "monokailight"
