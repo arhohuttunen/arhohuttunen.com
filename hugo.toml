@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'Code With Arho'
 theme = 'codewitharho'
 enableEmoji = true
+enableGitInfo = true
 ignoreFiles = [
   "\\.obsidian",
   "\\.excalidraw\\.md$"

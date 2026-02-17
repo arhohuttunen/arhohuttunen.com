@@ -12,6 +12,10 @@ img {
   max-width: 768px;
 }
 
+.middot:after {
+  content: '\00B7';
+}
+
 .callout[data-callout="note"] {
   @apply bg-blue-50 border border-blue-100;
   .callout-heading {
