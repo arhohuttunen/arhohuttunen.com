@@ -31,3 +31,10 @@ ignoreFiles = [
 
 [permalinks]
   posts = "/:slugorfilename"
+
+[params]
+  [params.giscus]
+    repo = "arhohuttunen/arhohuttunen.com"
+    repo_id = "MDEwOlJlcG9zaXRvcnkzMTQ3OTgyMzk"
+    category = "Blog"
+    category_id = "DIC_kwDOEsNwn84CPtYU"
