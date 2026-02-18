@@ -4,12 +4,10 @@
 
 body {
   font-family: Nunito, sans-serif;
-  margin: auto;
-  max-width: 768px;
 }
 
 img {
-  max-width: 768px;
+  @apply w-sm md:w-md lg:w-lg xl:w-xl;
 }
 
 .middot:after {
