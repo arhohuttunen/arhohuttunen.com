@@ -1,5 +1,12 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="mt-2 text-xl text-gray-500 dark:text-gray-400">
+      {{ . }}
+    </p>
+    {{ end }}
+  </header>
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
