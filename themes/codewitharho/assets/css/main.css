@@ -1,120 +1,134 @@
 @import "tailwindcss";
+
 @plugin "@tailwindcss/typography";
 @source "hugo_stats.json";
 
 body {
-  font-family: Nunito, sans-serif;
+    font-family: Nunito, sans-serif;
 }
 
 img {
-  @apply w-sm md:w-md lg:w-lg xl:w-xl;
+    @apply w-sm md:w-md lg:w-lg xl:w-xl;
 }
 
 .middot:after {
-  content: '\00B7';
+    content: '\00B7';
 }
 
 .callout[data-callout="note"] {
-  @apply bg-blue-50 border border-blue-100;
-  .callout-heading {
-    @apply text-blue-500;
-  }
+    @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
+
+    .callout-heading {
+        @apply text-blue-500;
+    }
 }
 
 .callout[data-callout="abstract"],
 .callout[data-callout="summary"],
 .callout[data-callout="tldr"] {
-  @apply bg-teal-50 border border-teal-100;
-  .callout-heading {
-    @apply text-teal-500;
-  }
+    @apply bg-teal-50 border border-teal-100 dark:bg-teal-950 dark:border-teal-900;
+
+    .callout-heading {
+        @apply text-teal-500;
+    }
 }
 
 .callout[data-callout="info"] {
-  @apply bg-blue-50 border border-blue-100;
-  .callout-heading {
-    @apply text-blue-500;
-  }
+    @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
+
+    .callout-heading {
+        @apply text-blue-500;
+    }
 }
 
 .callout[data-callout="todo"] {
-  @apply bg-blue-50 border border-blue-100;
-  .callout-heading {
-    @apply text-blue-500;
-  }
+    @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
+
+    .callout-heading {
+        @apply text-blue-500;
+    }
 }
 
 .callout[data-callout="tip"],
 .callout[data-callout="hint"],
 .callout[data-callout="important"] {
-  @apply bg-teal-50 border border-teal-100;
-  .callout-heading {
-    @apply text-teal-500;
-  }
+    @apply bg-teal-50 border border-teal-100 dark:bg-teal-950 dark:border-teal-900;
+
+    .callout-heading {
+        @apply text-teal-500;
+    }
 }
 
 .callout[data-callout="success"],
 .callout[data-callout="check"],
 .callout[data-callout="done"] {
-  @apply bg-green-50 border border-green-100;
-  .callout-heading {
-    @apply text-green-500;
-  }
+    @apply bg-green-50 border border-green-100 dark:bg-green-950 dark:border-green-900;
+
+    .callout-heading {
+        @apply text-green-500;
+    }
 }
 
 .callout[data-callout="question"],
 .callout[data-callout="help"],
 .callout[data-callout="faq"] {
-  @apply bg-orange-50 border border-orange-100;
-  .callout-heading {
-    @apply text-orange-500;
-  }
+    @apply bg-orange-50 border border-orange-100 dark:bg-orange-950 dark:border-orange-900;
+
+    .callout-heading {
+        @apply text-orange-500;
+    }
 }
 
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
 .callout[data-callout="attention"] {
-  @apply bg-orange-50 border border-orange-100;
-  .callout-heading {
-    @apply text-orange-500;
-  }
+    @apply bg-orange-50 border border-orange-100 dark:bg-orange-950 dark:border-orange-900;
+
+    .callout-heading {
+        @apply text-orange-500;
+    }
 }
 
 .callout[data-callout="failure"],
 .callout[data-callout="fail"],
 .callout[data-callout="missing"] {
-  @apply bg-red-50 border border-red-100;
-  .callout-heading {
-    @apply text-red-500;
-  }
+    @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
+
+    .callout-heading {
+        @apply text-red-500;
+    }
 }
 
 .callout[data-callout="danger"],
 .callout[data-callout="error"] {
-  @apply bg-red-50 border border-red-100;
-  .callout-heading {
-    @apply text-red-500;
-  }
+    @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
+
+    .callout-heading {
+        @apply text-red-500;
+    }
 }
 
 .callout[data-callout="bug"] {
-  @apply bg-red-50 border border-red-100;
-  .callout-heading {
-    @apply text-red-500;
-  }
+    @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
+
+    .callout-heading {
+        @apply text-red-500;
+    }
 }
 
 .callout[data-callout="example"] {
-  @apply bg-purple-50 border border-purple-100;
-  .callout-heading {
-    @apply text-purple-500;
-  }
+    @apply bg-purple-50 border border-purple-100 dark:bg-purple-950 dark:border-purple-900;
+
+    .callout-heading {
+        @apply text-purple-500;
+    }
 }
 
 .callout[data-callout="quote"],
 .callout[data-callout="cite"] {
-  @apply bg-gray-50 border border-gray-100;
-  .callout-heading {
-    @apply text-gray-500;
-  }
+    @apply bg-gray-50 border border-gray-100 dark:bg-gray-950 dark:border-gray-900;
+
+    .callout-heading {
+        @apply text-gray-500;
+    }
 }
