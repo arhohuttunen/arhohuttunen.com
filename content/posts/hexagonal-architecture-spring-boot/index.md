@@ -34,7 +34,7 @@ One advantage of the hexagonal architecture is that it can encourage the preferr
 
 We can identify two primary actors: a customer making the order and a barista preparing the order. Knowing that the ports in hexagonal architecture are a natural fit for describing use cases of the application, this leads to introducing two primary ports: `OrderingCoffee` and `PreparingCoffee`. On the other side of the application, we need a couple of secondary ports for storing the orders and payments.
 
-![Coffee shop use cases](coffee-shop-use-cases.svg)
+![Coffee shop use cases](coffee-shop-use-cases.excalidraw.light.svg)
 
 The `OrderingCoffee` and `PreparingCoffee` ports need to fulfill the requirements we have related to making an order and preparing coffee.
 
@@ -108,7 +108,7 @@ public record Receipt(BigDecimal amount, LocalDate paid) { }
 
 Next, we need to implement the use cases inside our application. We are going to create a `CoffeeShop` class that implements the `OrderingCoffee` primary port. This class will also call the secondary ports `Orders` and `Payments`.
 
-![Ordering coffee use case](ordering-coffee-use-case-with-ports.svg)
+![Ordering coffee use case](ordering-coffee-use-case-with-ports.excalidraw.light.svg)
 
 The implementation is pretty straightforward. Here is an example of paying an order that needs both secondary ports.
 
@@ -149,7 +149,7 @@ public class Order {
 
 Now for the second use case, we are going to implement a `CoffeeMachine` service class that implements the `PreparingCoffee` primary port.
 
-![Preparing coffee use case](preparing-coffee-use-case-with-ports.svg)
+![Preparing coffee use case](preparing-coffee-use-case-with-ports.excalidraw.light.svg)
 
 We could have implemented this functionality in the same class, but we have made a design decision here to split the implementation of different cases in their own classes.
 
@@ -206,7 +206,7 @@ Interfaces with a single implementation are useless interfaces. Since our applic
 
 We can also use these in-memory stubs for testing and enable blazing fast tests. We can start by writing some acceptance tests for our use cases. When working in a BDD manner, this would be where we would start even before the implementation.
 
-![Acceptance testing the application in hexagonal architecture](coffee-shop-acceptance-test.svg)
+![Acceptance testing the application in hexagonal architecture](coffee-shop-acceptance-test.excalidraw.light.svg)
 
 These tests treat the application as a black box and execute use cases only through the primary ports. This approach makes these tests more resistant to refactoring since we can refactor the implementation without having to touch the tests.
 
@@ -294,7 +294,7 @@ public record LineItem(Drink drink, int quantity, Milk milk, Size size) {
 
 To test this logic, we can choose to test the `Order` class directly with unit tests.
 
-![Unit testing business logic](order-cost-unit-test.svg)
+![Unit testing business logic](order-cost-unit-test.excalidraw.light.svg)
 
 Here is an example unit test that creates some orders and then verifies that we calculate the cost of the order correctly.
 
@@ -384,7 +384,7 @@ public record OrderResponse(
 
 Note that we have chosen to use separate `OrderRequest` and `OrderResponse` objects. This is because the write and read models don't have to be the same and could have unique properties.
 
-![Mapping of models in order controller](order-controller-model-mapping.svg)
+![Mapping of models in order controller](order-controller-model-mapping.excalidraw.light.svg)
 
 > [!note]
 > Strictly speaking, this kind of mapping strategy does not prevent domain logic leaking into the primary adapters. If we wanted complete isolation, we would define something like a `PlacingOrdersCommand` model to go with the `PlacingOrders` interface and deny direct access to the `Order` from adapters. This would come with the cost of even more mapping code and is not justifiable for all applications.
@@ -440,7 +440,7 @@ First, it forces us to change the tests every time we refactor the interfaces be
 
 We are going to use another approach for testing the primary adapters, where we inject the application as-is and reuse the in-memory stubs previously created. This approach is more resistant to refactoring and exercises the mapping code as part of the flow.
 
-![Testing the order controller with integration tests](order-controller-integration-test.svg)
+![Testing the order controller with integration tests](order-controller-integration-test.excalidraw.light.svg)
 
 In our tests, we need a test configuration that has bean configurations for the in-memory stubs.
 
@@ -503,7 +503,7 @@ With this approach, we have to be careful to not start testing the application b
 
 When we have an entry point to the system ready, it's time to implement secondary adapters. We are going to need persistence of the orders.
 
-![Mapping of models in orders JPA adapter](orders-jpa-adapter-model-mapping.svg)
+![Mapping of models in orders JPA adapter](orders-jpa-adapter-model-mapping.excalidraw.light.svg)
 
 In the example, we are using JPA because it's what most people are familiar with. Here we have the dependency inversion principle in action, where the application does not depend on the adapter directly but depends on a secondary port, which is then implemented by the adapter.
 
@@ -642,7 +642,7 @@ While this is a valid approach, in this example, we have opted to test the secon
 
 First, from the application perspective, it shouldn't matter what adapter is behind a secondary port and we have already tested it using an in-memory stub. Second, we test the mapping code in the secondary adapter against a database container and we don’t need to verify any interactions.
 
-![Testing secondary adapters with integration tests](orders-jpa-adapter-integration-test.svg)
+![Testing secondary adapters with integration tests](orders-jpa-adapter-integration-test.excalidraw.light.svg)
 
 The tests are accessing the adapters only through the secondary ports. This will minimize the coupling of the tests to the implementation. We are also not testing the JPA repositories directly, but through the adapter. This will exercise the mapping code that maps the domain entities to the persistence entities.
 
@@ -684,7 +684,7 @@ In this example, we are using the H2 database, but in a production-ready applica
 
 Although we should rely that most of the functionality is already tested on lower levels, there can be some gaps in the testing that those tests miss. To gain confidence that everything works correctly, we also have to implement a few end-to-end tests or broad integration tests.
 
-![End-to-end testing of the coffee shop system](coffee-shop-end-to-end-test.svg)
+![End-to-end testing of the coffee shop system](coffee-shop-end-to-end-test.excalidraw.light.svg)
 
 Here we have opted for implementing broad integration tests with a mocked environment, but you could also write end-to-end tests with a running server.
 
