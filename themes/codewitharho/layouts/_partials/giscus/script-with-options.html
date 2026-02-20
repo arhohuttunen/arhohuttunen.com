@@ -8,22 +8,19 @@
   {{- $repoId := default .repo_id .repoId }}
   {{- $category := .category }}
   {{- $categoryId := default .category_id .categoryId }}
-  {{- if or (not $repo) (not $category) (not $categoryId) }}
-    {{- errorf "[giscus] both of repo, category and category_id are required." }}
-  {{- end }}
   <script
     src="https://giscus.app/client.js"
     data-repo="{{ $repo }}"
     data-repo-id="{{ $repoId }}"
     data-category="{{ $category }}"
     data-category-id="{{ $categoryId }}"
-    data-mapping="{{ .mapping }}"
+    data-mapping="pathname"
+    data-strict="1"
     data-reactions-enabled="{{ cond .reactions "1" "0" }}"
-    data-input-position="{{ default .input_position .inputPosition }}"
+    data-input-position="top"
     data-theme="{{ .theme }}"
     data-lang="en"
-    {{ if default .lazy_loading .lazyLoading }}data-loading="lazy"{{ end }}
-    {{ if default .strict_matching .strictMatching }}data-strict="1"{{ end }}
+    data-loading="lazy"
     crossorigin="anonymous"
     onload="document.body.dispatchEvent(new Event('giscus-load'))"
     async
