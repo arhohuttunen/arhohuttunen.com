@@ -3,6 +3,8 @@
 @plugin "@tailwindcss/typography";
 @source "hugo_stats.json";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
     font-family: Nunito, sans-serif;
 }

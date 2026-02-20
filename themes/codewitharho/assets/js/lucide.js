@@ -8,8 +8,10 @@ import {
     Flame,
     Info,
     List,
+    Moon,
     Pencil,
     Quote,
+    Sun,
     TriangleAlert,
     X,
     Zap
@@ -26,8 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
             Flame,
             Info,
             List,
+            Moon,
             Pencil,
             Quote,
+            Sun,
             TriangleAlert,
             X,
             Zap

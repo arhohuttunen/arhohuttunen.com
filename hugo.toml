@@ -11,6 +11,7 @@ ignoreFiles = [
 
 [markup.highlight]
     style = "monokailight"
+    noClasses = false
 
 [build]
   [build.buildStats]

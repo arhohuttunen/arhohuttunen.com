@@ -16,9 +16,13 @@ Renders a menu for the given menu ID.
       <div class="logo mr-8">
         <a href="/" class="font-bold text-xl no-underline">Code With Arho</a>
       </div>
-    <ul class="flex space-x-6 list-none m-0 p-0">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
+      <ul class="flex space-x-6 list-none m-0 p-0">
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+      <button id="theme-toggle" class="ml-auto p-2">
+        <i data-lucide="moon" class="dark:hidden w-5 h-5"></i>
+        <i data-lucide="sun" class="hidden dark:inline w-5 h-5"></i>
+      </button>
     </div>
   </nav>
 {{- end }}

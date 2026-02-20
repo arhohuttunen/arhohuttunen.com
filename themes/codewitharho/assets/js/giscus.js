@@ -1,4 +1,4 @@
-function setTheme(theme) {
+function setGiscusTheme(theme) {
     const iframe = document.querySelector('iframe.giscus-frame')
     if (!iframe) return;
 

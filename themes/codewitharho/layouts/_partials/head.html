@@ -1,6 +1,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<script>
+    (function() {
+        const stored = localStorage.getItem("theme");
+        if (
+            stored === "dark" ||
+            (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+            document.documentElement.classList.add("dark");
+        }
+    })();
+</script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,3 +19,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Mono&display=swap" rel="stylesheet">
 {{- $js := resources.Get "js/giscus.js" }}
 <script src="{{ $js.RelPermalink }}"></script>
+{{- $light := resources.Get "css/syntax-light.css" | resources.Minify }}
+{{- $dark := resources.Get "css/syntax-dark.css" | resources.Minify }}
+
+<style>
+    html:not(.dark) {
+        {{ $light.Content | safeCSS }}
+    }
+
+    html.dark {
+        {{ $dark.Content | safeCSS }}
+    }
+</style>
