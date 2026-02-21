@@ -13,9 +13,9 @@
   <footer class="mt-8 py-4">
     {{ partial "footer.html" . }}
   </footer>
-  <div id="search-modal" class="hidden fixed inset-0 z-200 flex items-start justify-center pt-20 px-4">
+  <div id="search-modal" class="hidden fixed inset-0 z-200 flex items-start justify-center sm:pt-20 sm:px-4">
     <div id="search-backdrop" class="absolute inset-0 bg-black/50"></div>
-    <div class="relative w-full max-w-2xl bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 max-h-[80vh] overflow-y-auto">
+    <div class="relative w-full bg-white dark:bg-gray-900 shadow-xl p-4 sm:p-6 overflow-y-auto h-full sm:h-auto sm:max-w-2xl sm:rounded-lg sm:max-h-[80vh]">
       <div id="pagefind-search"></div>
     </div>
   </div>
