@@ -8,28 +8,7 @@
     {{ end }}
   </header>
 
-  <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center space-x-3">
-
-    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $dateHuman := .Date | time.Format ":date_long" }}
-    <time datetime="{{ $dateMachine }}">Last updated on {{ $dateHuman }}</time>
-
-    {{ if .Params.categories }}
-      <span class="middot text-gray-500"></span>
-
-      <span>
-      <i class="fas fa-folder"></i>
-        {{ with .GetTerms "categories" }}
-          {{ range $index, $cat := . }}
-            {{ if $index }}, {{ end }}
-            <a href="{{ $cat.RelPermalink }}" class="no-underline hover:underline text-gray-500 dark:text-gray-400">
-              {{ $cat.LinkTitle }}
-            </a>
-          {{ end }}
-        {{ end }}
-      </span>
-    {{ end }}
-  </div>
+  {{ partial "page-meta.html" . }}
 
   {{ .Content }}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
