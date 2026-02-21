@@ -30,6 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
         setTheme(isDark ? "light" : "dark");
     });
 
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const iconMenuOpen = document.getElementById("icon-menu-open");
+    const iconMenuClose = document.getElementById("icon-menu-close");
+
+    menuToggle?.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        iconMenuOpen.classList.toggle("hidden");
+        iconMenuClose.classList.toggle("hidden");
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    });
+
     swapExcalidrawImages(
         html.classList.contains("dark") ? "dark" : "light"
     );

@@ -29,6 +29,10 @@ img {
     }
 }
 
+#mobile-menu a {
+    @apply block py-2;
+}
+
 .middot:after {
     content: '\00B7';
 }
