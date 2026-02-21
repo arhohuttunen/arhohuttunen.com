@@ -2,11 +2,12 @@
 title: "Accelerate: The Science of Lean Software and DevOps"
 subtitle: Building and Scaling High Performing Technology Organizations
 date: 2019-03-19
+summary: Accelerate by Nicole Forsgren, Jez Humble, and Gene Kim analyzes four years of DevOps research to identify what drives faster, more reliable software delivery. The book highlights how Lean management, continuous delivery, and strong organizational culture improve throughput, quality, and team wellbeing. While it focuses on evidence and analysis rather than hands-on implementation, it’s essential for understanding and advocating for high-performance software practices.
+description: Accelerate reveals research-backed practices and culture factors that drive higher software delivery performance, stability, and quality in organizations.
 categories:
   - Book Reviews
 tags:
   - agile
-summary: Learn how DevOps, Lean practices, and continuous delivery improve software performance, increase quality, and foster a stronger organizational culture.
 ---
 
 [Accelerate: The Science of Lean Software and DevOps](https://amzn.to/38gZPKK) by Nicole Forsgren, Jez Humble, and Gene Kim discusses the factors that impact software delivery performance and describes the capabilities and practices that result in higher levels of throughput, stability, and quality.

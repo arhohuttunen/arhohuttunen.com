@@ -1,11 +1,12 @@
 ---
 title: Spring Boot Integration Testing With @SpringBootTest
 date: 2021-06-14
+summary: This article explores integration testing in Spring Boot, including testing in mock environments, running a real server for end-to-end tests, simulating external dependencies, managing test data, and configuring the test setup for speed and reliability.
+description: Learn how to write Spring Boot integration tests using mock environments, real servers, and simulated external services for reliable, efficient testing.
 categories:
   - Spring Boot
 tags:
   - testing
-summary: Learn how to write Spring Boot integration tests with @SpringBootTest. Learn different options for customizing the application context for the tests.
 ---
 
 In this article, we look at how to write integration tests with `@SpringBootTest`.

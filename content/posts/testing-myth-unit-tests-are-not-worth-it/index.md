@@ -1,11 +1,12 @@
 ---
 title: "Testing Myth #2: Unit Tests Are Not Worth It"
 date: 2016-02-01
+summary: Many developers see unit tests as extra work, but their main purpose is improving design, not just finding bugs. Writing tests while coding encourages loose coupling, high cohesion, and produces a fast regression suite. Adding tests after the fact may require refactoring to gain real benefits.
+description: Unit testing is not just for finding bugs. Writing tests drives better design, looser coupling, and provides a fast regression suite.
 categories:
   - Software Craft
 tags:
   - testing
-summary: Discover why unit testing improves code design, promotes loose coupling, and enables safer refactoring, rather than just catching bugs.
 ---
 
 There are a lot of developers and managers who think that writing unit tests is just extra work. Suggesting that we should write more unit tests seems to receive ill responses. I think there are many people out there who still don't understand the purpose of unit testing.

@@ -1,11 +1,12 @@
 ---
 title: "The Culture Code: The Secrets of Highly Successful Groups"
 date: 2019-03-24
+summary: "In The Culture Code, Daniel Coyle explores the secrets behind highly successful groups, combining stories with scientific insights and actionable strategies. The book identifies three key skills: building safety, sharing vulnerability, and establishing purpose, which drive team cohesion and trust. Packed with compelling examples from diverse organizations, it is a practical guide for anyone looking to strengthen collaboration and improve team performance."
+description: The Culture Code reveals how successful teams build trust, share vulnerability, and create purpose to boost collaboration and performance.
 categories:
   - Book Reviews
 tags:
   - agile
-summary: Discover how building safety, sharing vulnerability, and establishing purpose create trust, collaboration, and stronger team culture.
 ---
 
 [The Culture Code: The Secrets of Highly Successful Groups](https://amzn.to/3rjCzmK) by Daniel Coyle is a mixture of stories about successful organizations backed up with cutting-edge science and complemented with practical ideas for action. It identifies the critical factors behind team cohesion and determines strategies that encourage collaboration and build trust.

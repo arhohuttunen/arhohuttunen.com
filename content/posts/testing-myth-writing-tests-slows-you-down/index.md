@@ -1,11 +1,12 @@
 ---
 title: "Testing Myth #1: Writing Tests Slows You Down"
 date: 2016-01-18
+summary: Skipping tests might speed up short-term development, but it increases long-term maintenance costs and debugging time. Writing high-quality, feature-focused tests improves stability, catches errors early, and makes future changes easier and safer. Investing in tests upfront ultimately accelerates development over the software’s lifecycle.
+description: Writing tests may seem slow initially, but high-quality tests save time, reduce bugs, and make future changes faster and safer.
 categories:
   - Software Craft
 tags:
   - testing
-summary: Learn why writing tests speeds up long-term development, prevents bugs, and makes maintaining and changing code easier even under tight deadlines.
 ---
 
 Let's assume we have decided to increase the stability of our software. So we decide to write tests for our code. The problem is that the customer is requesting new features and deadlines are approaching. Testing will slow us down. We can skip them now and write them later, right?

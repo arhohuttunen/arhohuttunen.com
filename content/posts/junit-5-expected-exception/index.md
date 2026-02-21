@@ -1,11 +1,12 @@
 ---
 title: "JUnit 5 Expected Exception: How to assert an exception is thrown?"
 date: 2019-10-01
+summary: This tutorial explains how to confirm that a specific exception is thrown in JUnit 5 tests and how to inspect the exception message. It covers handling unexpected or missing exceptions and shows how capturing the exception allows for more detailed assertions. Following these practices ensures reliable and precise error-handling tests.
+description: Learn how to verify that code throws expected exceptions in JUnit 5 and how to check the exception’s message for precise error handling.
 categories:
   - Java
 tags:
   - testing
-summary: Learn how to assert an exception is thrown using JUnit 5. Also, learn how to check the error message of the thrown exception.
 ---
 
 In this article, we will learn how to assert an exception is thrown using JUnit 5. In addition, we will learn how to check the error message of the thrown exception.

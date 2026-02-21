@@ -1,11 +1,12 @@
 ---
 title: How Do I Test Private Methods?
 date: 2021-02-07
+summary: This article explains why private methods should be tested indirectly through public methods. It discusses how complex private logic can indicate design issues and how refactoring into smaller classes or using appropriate visibility can improve testability. Following this approach keeps tests maintainable and allows refactoring without breaking them.
+description: Testing private methods directly is discouraged. Focus on public methods to guide design, improve testability, and maintain encapsulation.
 categories:
   - Software Craft
 tags:
   - testing
-summary: What is the best way to test private methods? Should I use some library or use reflection? Can I just make the method public?
 ---
 
 > What is the best way to test private methods? Should I use some library or use reflection?

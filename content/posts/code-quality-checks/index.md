@@ -1,9 +1,10 @@
 ---
 title: Code Quality Checks
 date: 2016-06-13
+summary: Code quality often deteriorates over time, especially in legacy projects, slowing development and introducing bugs. Using code reviews, static analysis, and dynamic analysis helps detect issues early, while fast feedback loops prevent problems from accumulating. Combining these practices with continuous monitoring ensures cleaner, more maintainable code.
+description: Improving code quality reduces bugs and speeds delivery. Learn how code reviews, static and dynamic analysis, and fast feedback prevent software rot.
 categories:
   - Software Craft
-summary: Learn how to boost code quality using code reviews, static and dynamic analysis, and fast feedback loops to prevent software rot and accelerate delivery.
 ---
 
 Code quality is a weak spot in nearly every software project. This is especially true for legacy projects. What once was elegant, over time became rougher and finally incomprehensible.

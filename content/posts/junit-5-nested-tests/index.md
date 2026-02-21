@@ -1,11 +1,12 @@
 ---
 title: "JUnit 5 Nested Tests: Grouping Related Tests Together"
 date: 2021-03-18
+summary: This tutorial demonstrates how to use JUnit 5 nested tests to structure tests hierarchically, making it easier to group related cases and navigate results. It covers simple examples with nested classes, multi-layered nesting for REST controllers, and tips to avoid pitfalls like excessive duplication. Using nested tests improves readability and helps maintain clean, organized test code.
+description: Learn how to use JUnit 5 nested tests to create a hierarchical structure, improve readability, and organize related test cases effectively.
 categories:
   - Java
 tags:
   - testing
-summary: Learn how to write JUnit 5 nested tests. Learn how to provide a hierarchical structure to describe relationships between the tests.
 ---
 
 In this tutorial, we will learn how to write JUnit 5 nested tests. We will learn how to provide a hierarchical structure to the tests that describe relationships between the tests.

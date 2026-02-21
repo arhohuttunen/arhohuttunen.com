@@ -2,11 +2,12 @@
 title: JUnit 5 With Kotlin for Java Developers
 subtitle: Crash course for converting your JUnit 5 Java Tests into Kotlin
 date: 2019-04-14
+summary: This article explores writing JUnit 5 tests in Kotlin and configuring them with Gradle Kotlin DSL. It covers Kotlin-specific syntax for assertions, parameterized tests, dynamic and nested tests, lifecycle methods, and handling static fields. Readers will learn how Kotlin’s features can make test code more readable while fully supporting JUnit 5 functionality.
+description: Learn how to write JUnit 5 tests in Kotlin, configure Gradle Kotlin DSL, and handle Kotlin-specific differences in assertions, lifecycle, and nested tests.
 categories:
   - Kotlin
 tags:
   - testing
-summary: Learn the differences between writing JUnit 5 tests in Kotlin and Java. Learn to configure JUnit 5 in the build script using Gradle Kotlin DSL.
 ---
 
 In this article, we will learn the differences between writing JUnit 5 tests in Kotlin and Java. We will also learn how to configure JUnit 5 in our build script using the Gradle Kotlin DSL.

@@ -1,11 +1,12 @@
 ---
 title: Using Mockito With JUnit 5
 date: 2020-11-28
+summary: "This guide explains how to integrate Mockito with JUnit 5 for effective unit testing. It covers three approaches: manual mock creation, annotation-based initialization, and using the Mockito JUnit 5 extension for automatic mock injection. By following these methods, you can simplify test setup, improve readability, and validate mock usage efficiently."
+description: Learn how to use Mockito with JUnit 5, including manual mocks, annotation-based initialization, and the Mockito JUnit 5 extension for cleaner tests.
 categories:
   - Java
 tags:
   - testing
-summary: Learn how to use the Mockito mocking framework with JUnit 5. Learn both the test framework independent way, and using the Mockito JUnit 5 extension.
 ---
 
 In this article, we will learn how to use the Mockito mocking framework with JUnit 5. We will learn a test framework independent way, and how to use the Mockito JUnit 5 extension.

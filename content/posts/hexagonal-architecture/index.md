@@ -2,7 +2,8 @@
 title: Hexagonal Architecture Explained
 subtitle: Separating Business Logic From Infrastructure With Ports and Adapters
 date: 2023-01-17
-summary: Hexagonal Architecture is a way to structure the application so that it can be developed and tested in isolation from external technologies.
+summary: Hexagonal architecture, introduced by Alistair Cockburn, separates business logic from infrastructure using ports and adapters. This article explores the limitations of traditional layered architecture, explains how hexagonal architecture applies dependency inversion, and shows how to implement and test applications in isolation for better maintainability, flexibility, and long term code quality.
+description: Hexagonal Architecture is a way to structure the application so that it can be developed and tested in isolation from external technologies.
 categories:
   - Software Craft
 ---

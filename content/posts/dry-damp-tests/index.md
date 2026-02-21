@@ -2,11 +2,12 @@
 title: DRY and DAMP in Tests
 subtitle: Achieving two different aspects of maintainability at the same time
 date: 2021-02-14
+summary: This article explores how to apply DRY and DAMP principles in tests without sacrificing readability. It demonstrates using test data builders to centralize object construction and custom assertions to simplify verification. These patterns help keep tests both maintainable and expressive.
+description: Learn how to balance DRY and DAMP in tests using test data builders and custom assertions to reduce duplication while keeping tests readable.
 categories:
   - Software Craft
 tags:
   - testing
-summary: What are the DRY and DAMP principles? Why do people consider DRY and DAMP in tests contradictory and how can we achieve both?
 ---
 
 In this article, we will look at the DRY and DAMP principles in the context of testing. Our aim is to remove duplication in the tests while at the same time making them readable. We will see why people consider these principles contradicting when writing tests and how you can achieve both.

@@ -1,11 +1,12 @@
 ---
 title: Testing Spring Boot WebClient With MockWebServer
 date: 2021-05-22
+summary: This article explains why mocking WebClient directly can be brittle and complex. It demonstrates how to write integration tests using a mock server to verify requests, responses, and error handling. The approach ensures reliable testing of request serialization, response deserialization, and behavior under errors.
+description: Learn how to test REST calls with Spring WebClient using integration tests and a mock server for reliable, maintainable tests.
 categories:
   - Spring Boot
 tags:
   - testing
-summary: Mocking the Spring Boot WebClient can be difficult. Learn how to replace the remote service with a mock service using MockWebServer.
 ---
 
 In this article, we look at how to write tests for WebClient REST calls.

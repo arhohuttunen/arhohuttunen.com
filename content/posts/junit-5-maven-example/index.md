@@ -1,11 +1,12 @@
 ---
 title: "JUnit 5 Maven Example: Running Tests with Surefire"
 date: 2018-01-03
+summary: This guide demonstrates how to configure Maven for JUnit 5 testing, including adding dependencies and setting up the Surefire plugin. It covers both current Maven versions with native support and older versions requiring extra configuration. By following this example, you can run JUnit 5 tests seamlessly in your Maven projects.
+description: Learn how to set up JUnit 5 with Maven, add dependencies, configure the Surefire plugin, and run tests on both modern and older Maven versions.
 categories:
   - Java
 tags:
   - testing
-summary: Learn how to get the required dependencies for writing JUnit 5 tests with Maven. Also, learn how to configure the Maven Surefire plugin to run the tests.
 ---
 
 In this JUnit 5 Maven example, we will learn how to get the required dependencies for writing JUnit 5 tests with Maven. Also, we will learn how to configure the Maven Surefire plugin to run the tests.

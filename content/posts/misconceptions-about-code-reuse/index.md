@@ -1,9 +1,10 @@
 ---
 title: Misconceptions About Code Reuse
 date: 2015-06-29
+summary: Reusing code is important, but inheritance and static utility classes are often misapplied. Inheritance should focus on modeling hierarchies, not sharing methods, while utility classes can violate object-oriented principles. This article explains how to use composition and meaningful class responsibilities to create cleaner, more flexible, and maintainable code.
+description: Learn why inheritance and utility classes are often misused for code reuse and how composition and proper class design lead to better, maintainable code.
 categories:
   - Software Craft
-summary: Discover why inheritance and utility classes fail at code reuse and how composition and clear class design create maintainable, reusable code.
 ---
 
 We all have been taught that reusable code is good. We all know why we should do it but there are some misconceptions about how to do it.

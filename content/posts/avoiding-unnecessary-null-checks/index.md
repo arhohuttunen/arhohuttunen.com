@@ -1,9 +1,10 @@
 ---
 title: Avoiding Unnecessary Null Checks
 date: 2015-09-21
+summary: Null checks are a common source of bugs and clutter in code. This article explores ways to avoid returning or passing nulls, including using the Null Object pattern, throwing exceptions, and designing objects that encapsulate behavior. By eliminating nulls, you simplify code, reduce errors, and encourage cleaner design.
+description: Learn strategies to avoid nulls in code, using null objects, exceptions, and better design to reduce checks and prevent errors.
 categories:
   - Software Craft
-summary: Learn how to avoid null checks using null objects, exceptions, and better object design for cleaner, safer, and more maintainable code.
 ---
 
 The most common reason for writing null checks is that you run into a null pointer exception. The second most common reason is that you happened to think about it at some certain case.

@@ -1,11 +1,12 @@
 ---
 title: Introduction to Testing Spring Boot Applications
 date: 2022-09-20
+summary: This article provides an introduction to testing Spring Boot applications. It covers the basics of unit testing with JUnit and Mockito, testing slices of the application, and full integration tests. It offers a starting point for writing effective, maintainable tests and understanding the tools and strategies available in Spring Boot.
+description: Get started with testing Spring Boot applications, covering unit and integration tests, test slices, and tools like JUnit and Mockito.
 categories:
   - Spring Boot
 tags:
   - testing
-summary: Find out where to start learning to test your Spring Boot applications.
 ---
 
 When learning to test Spring Boot applications it can be a difficult task to know where to begin. The easiest way to get started is the Spring Boot Starter Test which allows us to start writing tests right away. The starter includes a number of utilities and libraries to help with testing applications. 

@@ -1,9 +1,10 @@
 ---
 title: How to Prevent Legacy Code From Emerging
 date: 2015-05-22
+summary: "Legacy code does not appear out of nowhere. It often grows from small shortcuts, missing tests, and neglected refactoring. This article explains how developers unintentionally create messy, unmaintainable code and offers practical strategies to prevent it. By maintaining code, refactoring while adding features, and writing tests, you can keep your codebase clean and easier to work with over time."
+description: Learn why legacy code emerges, how your actions contribute to it, and practical strategies to keep code clean, maintainable, and easy to change.
 categories:
   - Software Craft
-summary: Learn why legacy code emerges, how everyday coding habits contribute to it, and practical strategies to prevent your codebase from turning into a mess.
 ---
 
 Every software developer has faced the situation. You have been assigned a task to add or change a feature. You know nothing about the particular feature but it does not sound too complex.

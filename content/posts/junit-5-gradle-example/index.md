@@ -2,11 +2,12 @@
 title: JUnit 5 Gradle Example
 subtitle: Running Tests with Gradle
 date: 2018-01-01
+summary: This guide shows how to configure Gradle for JUnit 5, including adding dependencies and enabling the JUnit platform for running tests. It covers both modern Gradle versions with native support and older versions using the JUnit Gradle plugin. By the end, you'll be able to run JUnit 5 tests successfully in your Gradle projects.
+description: Learn how to set up JUnit 5 with Gradle, add required dependencies, configure the plugin, and run tests on both new and older Gradle versions.
 categories:
   - Java
 tags:
   - testing
-summary: Learn how to get the required dependencies for writing JUnit 5 tests with Gradle. Also, learn how to configure the JUnit Gradle plugin to run the tests.
 ---
 
 In this JUnit 5 Gradle example, we will learn how to get the required dependencies for writing JUnit 5 tests with Gradle. Also, we will learn how to configure the JUnit Gradle plugin to run the tests.

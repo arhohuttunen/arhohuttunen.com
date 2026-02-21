@@ -1,9 +1,10 @@
 ---
 title: "Four No Bullshit Ways to Easily Increase Your Programming Productivity"
 date: 2021-01-17
+summary: This post explores practical ways to save time and reduce friction in programming. It covers mastering your IDE, automating repetitive tasks, optimizing feedback loops, and focusing on writing only necessary code. By applying these principles, you can streamline development, avoid unnecessary work, and make coding more efficient.
+description: Boost programming productivity by mastering your tools, automating tasks, shortening feedback loops, and writing only the code you truly need.
 categories:
   - Productivity
-summary: Deepen your skills, automate repetitive tasks, shorten your feedback loops, and code less to achieve greater productivity.
 ---
 
 Programming can be quite repetitive at times. We end up typing the same commands over and over, or we copy paste-stuff from one place to another.
