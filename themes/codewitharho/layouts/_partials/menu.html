@@ -27,10 +27,15 @@ Renders a menu for the given menu ID.
         {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
       </ul>
 
-      <button id="theme-toggle" class="ml-auto p-2 text-gray-800 dark:text-gray-200">
-        <i data-lucide="moon" class="dark:hidden w-5 h-5"></i>
-        <i data-lucide="sun" class="hidden dark:inline w-5 h-5"></i>
-      </button>
+      <div class="ml-auto flex items-center">
+        <button id="search-toggle" class="p-2 text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 transition-colors" aria-label="Open search">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+        <button id="theme-toggle" class="p-2 text-gray-800 dark:text-gray-200">
+          <i data-lucide="moon" class="dark:hidden w-5 h-5"></i>
+          <i data-lucide="sun" class="hidden dark:inline w-5 h-5"></i>
+        </button>
+      </div>
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">

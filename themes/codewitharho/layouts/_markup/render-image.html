@@ -1,5 +1,9 @@
+{{- $src := .Destination | safeURL -}}
+{{- with .Page.Resources.GetMatch .Destination -}}
+  {{- $src = .RelPermalink -}}
+{{- end -}}
 <figure class="image-figure not-prose">
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
+  <img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }}>
   {{ if or .Title .Text }}
   <figcaption>
     {{ with .Title }}{{ . }}{{ else }}{{ .Text }}{{ end }}

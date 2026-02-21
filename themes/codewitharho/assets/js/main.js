@@ -46,6 +46,37 @@ document.addEventListener("DOMContentLoaded", () => {
     swapThemedImages(
         html.classList.contains("dark") ? "dark" : "light"
     );
+
+    const searchToggle = document.getElementById("search-toggle");
+    const searchModal  = document.getElementById("search-modal");
+    const searchBackdrop = document.getElementById("search-backdrop");
+
+    let pagefindLoaded = false;
+
+    function openSearch() {
+        searchModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+        if (!pagefindLoaded) {
+            pagefindLoaded = true;
+            const script = document.createElement("script");
+            script.src = "/pagefind/pagefind-ui.js";
+            script.onload = () => {
+                new PagefindUI({ element: "#pagefind-search", showSubResults: true });
+            };
+            document.head.appendChild(script);
+        }
+    }
+
+    function closeSearch() {
+        searchModal.classList.add("hidden");
+        document.body.style.overflow = "";
+    }
+
+    searchToggle?.addEventListener("click", openSearch);
+    searchBackdrop?.addEventListener("click", closeSearch);
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeSearch();
+    });
 });
 
 const themedImagePattern = /\.(light|dark)\.(avif|jpg|jpeg|png|svg|webp)$/i;

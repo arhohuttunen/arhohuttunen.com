@@ -5,8 +5,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-body {
-    font-family: Nunito, sans-serif;
+@theme {
+    --font-sans: Nunito, sans-serif;
+}
+
+:root {
+    --pagefind-ui-font: Nunito, sans-serif;
 }
 
 img {
@@ -153,4 +157,12 @@ img {
     .callout-heading {
         @apply text-gray-500;
     }
+}
+
+html.dark [data-pagefind-ui] {
+    --pagefind-ui-primary: #93c5fd;
+    --pagefind-ui-text: #e5e7eb;
+    --pagefind-ui-background: #111827;
+    --pagefind-ui-border: #374151;
+    --pagefind-ui-tag: #1f2937;
 }

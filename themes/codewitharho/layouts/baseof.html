@@ -3,15 +3,21 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="bg-white dark:bg-slate-900 transition-colors max-w-180 mx-auto px-4 sm:px-6">
-  <header>
+<body class="font-sans bg-white dark:bg-slate-900 transition-colors max-w-180 mx-auto px-4 sm:px-6"{{ if not (eq .Kind "page") }} data-pagefind-ignore="all"{{ end }}>
+  <header data-pagefind-ignore>
     {{ partial "header.html" . }}
   </header>
-  <main class="prose dark:prose-invert max-w-none pt-14">
+  <main class="prose dark:prose-invert max-w-none pt-20" data-pagefind-body>
     {{ block "main" . }}{{ end }}
   </main>
   <footer class="mt-8 py-4">
     {{ partial "footer.html" . }}
   </footer>
+  <div id="search-modal" class="hidden fixed inset-0 z-200 flex items-start justify-center pt-20 px-4">
+    <div id="search-backdrop" class="absolute inset-0 bg-black/50"></div>
+    <div class="relative w-full max-w-2xl bg-white dark:bg-gray-900 rounded-lg shadow-xl p-6 max-h-[80vh] overflow-y-auto">
+      <div id="pagefind-search"></div>
+    </div>
+  </div>
 </body>
 </html>
