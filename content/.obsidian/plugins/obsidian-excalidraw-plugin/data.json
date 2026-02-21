@@ -96,7 +96,7 @@
   "embedMarkdownCommentLinks": false,
   "embedWikiLink": false,
   "syncExcalidraw": false,
-  "experimentalFileType": false,
+  "experimentalFileType": true,
   "experimentalFileTag": "✏️",
   "experimentalLivePreview": true,
   "fadeOutExcalidrawMarkup": false,
