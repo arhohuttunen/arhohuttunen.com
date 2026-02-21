@@ -32,7 +32,7 @@ ignoreFiles = [
     target = 'assets/notwatching/hugo_stats.json'
 
 [permalinks]
-  posts = "/:slugorfilename"
+  posts = "/:slugorcontentbasename"
 
 [params]
   [params.giscus]
