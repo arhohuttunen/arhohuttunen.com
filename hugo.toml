@@ -35,6 +35,8 @@ ignoreFiles = [
   posts = "/:slugorcontentbasename"
 
 [params]
+  author = "Arho Huttunen"
+
   [params.giscus]
     repo = "arhohuttunen/arhohuttunen.com"
     repo_id = "MDEwOlJlcG9zaXRvcnkzMTQ3OTgyMzk"
