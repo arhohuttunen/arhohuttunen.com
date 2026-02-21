@@ -3,11 +3,11 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="bg-white dark:bg-slate-900 prose dark:prose-invert transition-colors max-w-180 m-auto">
+<body class="bg-white dark:bg-slate-900 transition-colors max-w-180 mx-auto px-4 sm:px-6">
   <header>
     {{ partial "header.html" . }}
   </header>
-  <main class="pt-14">
+  <main class="prose dark:prose-invert max-w-none pt-14">
     {{ block "main" . }}{{ end }}
   </main>
   <footer>

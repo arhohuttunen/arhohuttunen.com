@@ -10,7 +10,23 @@ body {
 }
 
 img {
-    @apply w-sm md:w-md lg:w-lg xl:w-xl;
+    @apply max-w-full h-auto;
+}
+
+.image-figure {
+    @apply my-6;
+    text-align: center;
+
+    img {
+        display: block;
+        margin: 0 auto;
+        @apply max-w-full h-auto rounded;
+    }
+
+    figcaption {
+        @apply mt-2 text-sm text-gray-500 dark:text-gray-400;
+        text-align: center;
+    }
 }
 
 .middot:after {
