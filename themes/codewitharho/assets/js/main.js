@@ -10,7 +10,7 @@ function setTheme(theme) {
         html.classList.remove("dark");
     }
     localStorage.setItem("theme", theme);
-    swapExcalidrawImages(theme);
+    swapThemedImages(theme);
     setGiscusTheme(theme);
 }
 
@@ -43,19 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggle.setAttribute("aria-expanded", String(!isOpen));
     });
 
-    swapExcalidrawImages(
+    swapThemedImages(
         html.classList.contains("dark") ? "dark" : "light"
     );
 });
 
-function swapExcalidrawImages(theme) {
+const themedImagePattern = /\.(light|dark)\.(avif|jpg|jpeg|png|svg|webp)$/i;
+
+function swapThemedImages(theme) {
     document.querySelectorAll("img").forEach(img => {
-        if (!img.src.includes(".excalidraw.")) return;
+        if (!themedImagePattern.test(img.src)) return;
 
         if (theme === "dark") {
-            img.src = img.src.replace(".light.svg", ".dark.svg");
+            img.src = img.src.replace(/\.light\.(avif|jpg|jpeg|png|svg|webp)$/i, ".dark.$1");
         } else {
-            img.src = img.src.replace(".dark.svg", ".light.svg");
+            img.src = img.src.replace(/\.dark\.(avif|jpg|jpeg|png|svg|webp)$/i, ".light.$1");
         }
     });
 }
