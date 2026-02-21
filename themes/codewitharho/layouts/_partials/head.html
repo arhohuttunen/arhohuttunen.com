@@ -14,7 +14,7 @@
     })();
 </script>
 <link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-{{ partialCached "head/css.html" . }}
+{{ with (templates.Defer (dict "key" "global")) }}{{ partialCached "head/css.html" . }}{{ end }}
 {{ partialCached "head/js.html" . }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
