@@ -1,5 +1,5 @@
 {{- /*
-For a given taxonomy, renders a list of terms assigned to the page.
+For a given taxonomy, renders a list of terms assigned to the page as badges.
 
 @context {page} page The current page.
 @context {string} taxonomy The taxonomy.
@@ -11,13 +11,11 @@ For a given taxonomy, renders a list of terms assigned to the page.
 {{- $taxonomy := .taxonomy }}
 
 {{- with $page.GetTerms $taxonomy }}
-  {{- $label := (index . 0).Parent.LinkTitle }}
-  <div>
-    <div>{{ $label }}:</div>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
+  <div class="not-prose flex flex-wrap gap-2 mt-8 mb-8">
+    {{- range . }}
+      <a href="{{ .RelPermalink }}" class="px-3 py-1 text-sm rounded-full no-underline bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+        {{- .LinkTitle -}}
+      </a>
+    {{- end }}
   </div>
 {{- end }}
