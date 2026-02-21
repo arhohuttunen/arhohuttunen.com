@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const script = document.createElement("script");
             script.src = "/pagefind/pagefind-ui.js";
             script.onload = () => {
-                new PagefindUI({ element: "#pagefind-search", showSubResults: true });
+                new PagefindUI({ element: "#pagefind-search", showSubResults: true, showImages: false });
             };
             document.head.appendChild(script);
         }
