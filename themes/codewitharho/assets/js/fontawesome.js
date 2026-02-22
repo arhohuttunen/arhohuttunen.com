@@ -1,6 +1,6 @@
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { faFolder } from "@fortawesome/free-solid-svg-icons";
+import { faFolder, faTag } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faFolder);
+library.add(faFolder, faTag);
 
 dom.watch();

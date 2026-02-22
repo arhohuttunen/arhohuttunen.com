@@ -19,4 +19,20 @@
       {{ end }}
     </span>
   {{ end }}
+
+  {{ if .Params.tags }}
+    <span class="middot text-gray-500"></span>
+
+    <span>
+      <i class="fas fa-tag"></i>
+      {{ with .GetTerms "tags" }}
+        {{ range $index, $tag := . }}
+          {{- if $index }}, {{ end -}}
+          <a href="{{ $tag.RelPermalink }}" class="no-underline hover:underline text-gray-500 dark:text-gray-400">
+            {{- $tag.LinkTitle -}}
+          </a>
+        {{- end }}
+      {{ end }}
+    </span>
+  {{ end }}
 </div>
