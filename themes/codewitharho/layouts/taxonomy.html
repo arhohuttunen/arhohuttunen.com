@@ -2,6 +2,9 @@
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <h2>
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      <span class="text-base font-normal text-gray-500 dark:text-gray-400">({{ .Pages.Len }})</span>
+    </h2>
   {{ end }}
 {{ end }}
