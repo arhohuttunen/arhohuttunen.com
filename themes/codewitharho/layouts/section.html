@@ -4,7 +4,8 @@
   {{ range .Pages }}
     <section>
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
+      <p>{{ .Summary }}</p>
+      {{ partial "page-meta.html" . }}
     </section>
   {{ end }}
 {{ end }}

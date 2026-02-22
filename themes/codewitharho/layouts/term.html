@@ -2,6 +2,10 @@
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ range .Pages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <section>
+      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+      <p>{{ .Summary }}</p>
+      {{ partial "page-meta.html" . }}
+    </section>
   {{ end }}
 {{ end }}
