@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ range (where site.RegularPages "Section" "posts").GroupByDate "2006" }}
+    <h2>{{ .Key }}</h2>
+    <ul class="list-none m-0 p-0 space-y-2">
+      {{ range .Pages }}
+        <li class="flex items-baseline gap-4">
+          <time class="text-sm text-gray-500 dark:text-gray-400 shrink-0 w-14" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{- .Date.Format "Jan 02" -}}
+          </time>
+          <a class="no-underline hover:underline" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}

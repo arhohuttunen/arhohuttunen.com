@@ -29,6 +29,11 @@ ignoreFiles = [
     pageRef = '/tags'
     weight = 30
 
+  [[menus.main]]
+    name = 'Archive'
+    pageRef = '/archive'
+    weight = 40
+
 [markup.highlight]
     style = "monokailight"
     noClasses = false
