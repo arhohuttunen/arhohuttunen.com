@@ -13,8 +13,6 @@ In this article, we look at how to write integration tests with `@SpringBootTest
 
 First, we will discuss different types of integration tests. Then, we will discover customization options for `@SpringBootTest` and how to write system tests with an embedded web server running.
 
-{{< youtube N6ZaSNhzsGo >}}
-
 ## What Is an Integration Test?
 
 Before we go any further, let's define what we mean by integration testing. There are two different notions of what constitutes an integration test:

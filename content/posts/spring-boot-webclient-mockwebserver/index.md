@@ -13,8 +13,6 @@ In this article, we look at how to write tests for WebClient REST calls.
 
 First, we will discuss what responsibilities a WebClient has. Then, we will look at what kind of tests we should write to test those responsibilities and how.
 
-{{< youtube GBKY8QyfNDk >}}
-
 ## What is Spring WebClient?
 
 We can use Spring `WebClient` to call remote REST services. It is a non-blocking alternative to the Spring `RestTemplate`. Even though `WebClient` is reactive, it also supports synchronous operations by blocking.

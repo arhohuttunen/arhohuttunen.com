@@ -20,8 +20,6 @@ In this post, we will look at tips that **reduce distractions and the inability 
 
 This post is mainly targeted at developers, but I'm sure others will find value in it as well.
 
-{{< youtube 59xEI24uK6M >}}
-
 ## :no_good_man: Learn to say no
 
 I'm sure we all have been there: your day is filled with meetings, emails with requests, Teams, or Slack messages, someone walking into the room and requesting something else.

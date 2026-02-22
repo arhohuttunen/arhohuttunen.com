@@ -11,10 +11,6 @@ tags:
 
 In this tutorial, we will learn how to write JUnit 5 nested tests. We will learn how to provide a hierarchical structure to the tests that describe relationships between the tests.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
-{{< youtube TsCew_Oq6uE >}}
-
 ## Tests Without Nests
 
 To set the stage for the nested tests, let's first look at an example without nesting. The test contents have been left out for brevity, but the complete examples are in GitHub.

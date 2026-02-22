@@ -14,8 +14,6 @@ tags:
 In this article, we will learn how to verify test results using JUnit 5 assertions.
 We will learn the basic methods for assertions, how to customize our error messages, and how to run multiple assertions as a group.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Assertions
 
 JUnit 5 assertions make it easier to verify that the expected test results match the actual results.

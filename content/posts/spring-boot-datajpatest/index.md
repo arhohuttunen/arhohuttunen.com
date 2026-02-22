@@ -13,8 +13,6 @@ In this article, we look at how to write tests for the persistence layer.
 
 First, we will discuss what we should be testing in the persistence layer. Then, we will look at how to deal with creating the database schema and test data for the tests.
 
-{{< youtube wRpxKDi79mk >}}
-
 ## What To Test?
 
 Let's consider what is needed when we add a database connection to our application.

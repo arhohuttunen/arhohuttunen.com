@@ -11,8 +11,6 @@ tags:
 
 In this JUnit 5 Maven example, we will learn how to get the required dependencies for writing JUnit 5 tests with Maven. Also, we will learn how to configure the Maven Surefire plugin to run the tests.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Required Dependencies
 
 First, to be able to write JUnit 5 tests we need the `junit-jupiter` artifact as a dependency in `pom.xml`:

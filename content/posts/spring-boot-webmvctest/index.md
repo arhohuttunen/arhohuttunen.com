@@ -11,8 +11,6 @@ tags:
 
 In this article, we look at how to test Spring Boot MVC controllers. First, we will discuss if unit testing controllers is enough. Then, we will discover what responsibilities the controllers are dealing with and how to test them.
 
-{{< youtube NW8i2gna4qA >}}
-
 ## Is Unit Testing Enough?
 
 Unit testing is the foundation of a solid test strategy. Unit tests are fast and independent and provide fast and reliable feedback.

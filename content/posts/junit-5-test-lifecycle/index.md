@@ -11,8 +11,6 @@ tags:
 
 In this tutorial, we will learn how to run code before and after each test or all tests in the test class. We will also see what is the execution order when using nested tests or extensions.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Lifecycle Methods
 
 A lifecycle method is any method that is annotated with `@BeforeAll`, `@AfterAll`, `@BeforeEach` or `@AfterEach` annotation. The lifecycle methods execute before or after executing the actual test methods.

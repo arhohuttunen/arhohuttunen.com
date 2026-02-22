@@ -13,13 +13,11 @@ When learning to test Spring Boot applications it can be a difficult task to kno
 
 In this article, we will look at different steps that you could take on your journey to learn Spring Boot testing. It's not a comprehensive guide but rather an overview of what's available and a starting point to look for more information.
 
-This article is part of the [Spring Boot Testing Tutorial](/spring-boot-testing-tutorial).
-
 ## Introduction to JUnit
 
 JUnit is by far the most popular testing framework for Java. If you are not familiar with JUnit, this is where you should start.
 
-We won't be looking into JUnit in detail. There is already a thorough [JUnit 5 Tutorial](/junit-5-tutorial) that you should take a look at.
+We won't be looking into JUnit in detail. There are already some [JUnit 5 tutorials](/tags/junit-5) that you should take a look at.
 
 Here's what a plain JUnit 5 test looks like:
 

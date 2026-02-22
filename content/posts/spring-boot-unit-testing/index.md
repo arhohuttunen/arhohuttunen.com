@@ -13,8 +13,6 @@ Unit tests build the foundation of our testing strategy. It takes time to learn 
 
 In this article, we will learn how to write unit tests for our Spring Boot applications. Most importantly, we will look at the details that make it possible to write good unit tests. In this article, we only discuss unit testing.
 
-{{< youtube Ae5ukd136pc >}}
-
 ## What Is a Unit Test?
 
 Before we start, let's first define what we mean by unit testing. Unfortunately, there is quite a bit of confusion about the size of a unit.

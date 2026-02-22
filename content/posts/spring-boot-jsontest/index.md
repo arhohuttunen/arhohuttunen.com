@@ -13,8 +13,6 @@ In this article, we look at how to write tests for JSON serialization and deseri
 
 First, we will discuss why we might want to test serialization and deserialization separately. Then, we will look at how to write such tests.
 
-{{< youtube NQHQ3YVMWaM >}}
-
 ## Isn't @WebMvcTest Enough?
 
 It's possible to test the deserialization of requests and serialization of responses using `@WebMvcTest`. We can use `MockMvc` to test the correctness of request deserialization and use JSONPath matchers to verify the serialized output of responses.

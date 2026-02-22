@@ -11,8 +11,6 @@ tags:
 
 In this article, we will learn how to write and run a simple JUnit 5 test. We will learn how to setup preconditions, interact with the object we want to test, and verify that it behaves like we expect.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Setup
 
 The accompanying source code example already has configurations for both Maven and Gradle but there are also step by step guides for our convenience:

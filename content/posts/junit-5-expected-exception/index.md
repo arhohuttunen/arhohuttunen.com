@@ -11,8 +11,6 @@ tags:
 
 In this article, we will learn how to assert an exception is thrown using JUnit 5. In addition, we will learn how to check the error message of the thrown exception.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Overview
 
 In order to make sure our error handling works correctly, it can be useful to verify that a piece of code throws a specific exception under certain conditions.

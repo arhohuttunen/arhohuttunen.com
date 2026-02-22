@@ -13,10 +13,6 @@ tags:
 
 In this article, we will learn the differences between writing JUnit 5 tests in Kotlin and Java. We will also learn how to configure JUnit 5 in our build script using the Gradle Kotlin DSL.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
-{{< youtube 94KTm9b00VM >}}
-
 ## Configuration
 
 We write traditional Gradle build scripts as `build.gradle` files using the Groovy DSL. Gradle's Kotlin DSL provides an alternative syntax for several improvements, such as better content assist and refactoring. The build script written in Kotlin DSL is named `build.gradle.kts`.

@@ -12,8 +12,6 @@ tags:
 
 In this article, we will look at the DRY and DAMP principles in the context of testing. Our aim is to remove duplication in the tests while at the same time making them readable. We will see why people consider these principles contradicting when writing tests and how you can achieve both.
 
-{{< youtube cD4ThqhnAp0 >}}
-
 ## :scroll: The DRY and DAMP principles
 
 DRY and DAMP are principles that target two different aspects of maintainability. Both aim at making the code easier to change.

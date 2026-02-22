@@ -11,8 +11,6 @@ tags:
 
 In this article, we will take a look at the steps rexquired for migrating from JUnit 4 to JUnit 5. We will see how to run existing tests along with the new version, and what changes we have to do to migrate the code.
 
-This article is part of the [JUnit 5 Tutorial](/junit-5-tutorial).
-
 ## Overview
 
 JUnit 5 has a modular design unlike the previous versions. The key point of the new architecture is to separate concerns between writing tests, extensions and tools.
