@@ -9,8 +9,7 @@ enableGitInfo = true
   pagerSize = 10
 
 ignoreFiles = [
-  "\\.obsidian",
-  "\\.excalidraw\\.md$"
+  "\\.obsidian"
 ]
 
 [menus]
@@ -51,6 +50,10 @@ ignoreFiles = [
   [[module.mounts]]
     source = 'assets'
     target = 'assets'
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+    excludeFiles = ['**/*.excalidraw.md']
   [[module.mounts]]
     disableWatch = true
     source = 'hugo_stats.json'
