@@ -4,9 +4,9 @@ date: 2019-04-19
 summary: This article covers how to use JUnit 5 assertions to validate test results, including values, booleans, nulls, arrays, objects, exceptions, and timeouts. It explains custom error messages and grouped assertions for clearer reporting. For advanced scenarios, it also introduces third-party libraries like Hamcrest, AssertJ, and Truth to make assertions more readable and expressive.
 description: Learn how to use JUnit 5 assertions to verify values, exceptions, arrays, and objects, customize error messages, and group multiple assertions.
 categories:
-  - Java
+  - Testing
 tags:
-  - testing
+  - junit-5
 ---
 
 ## Overview

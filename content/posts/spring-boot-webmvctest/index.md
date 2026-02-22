@@ -4,9 +4,9 @@ date: 2021-04-07
 summary: This article explains why unit tests alone are not enough to verify Spring Boot controllers. It demonstrates how to use integration tests to check HTTP request mapping, JSON serialization and deserialization, input validation, exception handling, and interaction with business logic. The approach ensures controllers behave correctly in realistic web scenarios.
 description: Learn how to test Spring Boot MVC controllers with integration tests, covering request mapping, validation, serialization, and error handling.
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 In this article, we look at how to test Spring Boot MVC controllers. First, we will discuss if unit testing controllers is enough. Then, we will discover what responsibilities the controllers are dealing with and how to test them.

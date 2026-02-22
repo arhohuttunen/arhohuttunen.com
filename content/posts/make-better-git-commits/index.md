@@ -4,7 +4,9 @@ date: 2016-01-06
 summary: Effective Git commits make tracking changes easier and improve collaboration. This article covers committing frequently, focusing on single logical changes, separating formatting updates, and writing meaningful commit messages. Following these guidelines keeps your project history clear and maintainable.
 description: Learn best practices for Git commits, including committing often, separating logical changes, keeping formatting separate, and writing clear messages.
 categories:
-  - Software Craft
+  - Productivity
+tags:
+  - git
 ---
 
 Version control systems provide a way to track changes between source code versions. Git is most likely the most commonly used one nowadays. Git can be used in different ways and there is no one correct way to do it. However, there are some pitfalls that might make tracking of changes harder than it should be.

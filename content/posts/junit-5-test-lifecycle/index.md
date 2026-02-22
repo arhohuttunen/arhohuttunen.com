@@ -4,9 +4,9 @@ date: 2020-03-15
 summary: This tutorial explores how to run code before and after tests in JUnit 5, both for individual tests and across the entire test class. It explains the differences between per-test and per-class test instances, handling nested tests, and how extensions wrap test execution. Learning these patterns helps manage shared resources and maintain predictable test behavior.
 description: Understand JUnit 5 test lifecycles, including setup and teardown for individual and all tests, nested test behavior, and extension execution order.
 categories:
-  - Java
+  - Testing
 tags:
-  - testing
+  - junit-5
 ---
 
 In this tutorial, we will learn how to run code before and after each test or all tests in the test class. We will also see what is the execution order when using nested tests or extensions.

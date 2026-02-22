@@ -4,9 +4,9 @@ date: 2017-11-20
 summary: Migrating from JUnit 4 to JUnit 5 involves updating dependencies, annotations, and testing classes while running old and new tests together. Custom runners and rules need to be replaced with extensions, and parameterized tests require rework to fit the new model. This guide provides step-by-step instructions for a smooth, gradual migration.
 description: Learn how to migrate from JUnit 4 to JUnit 5, run tests side by side, update annotations, convert rules and runners, and modernize parameterized tests.
 categories:
-  - Java
+  - Testing
 tags:
-  - testing
+  - junit-5
 ---
 
 In this article, we will take a look at the steps rexquired for migrating from JUnit 4 to JUnit 5. We will see how to run existing tests along with the new version, and what changes we have to do to migrate the code.

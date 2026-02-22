@@ -4,9 +4,9 @@ date: 2019-04-19
 summary: This guide walks you through writing a simple JUnit 5 test to ensure your code works as intended. You’ll learn how to set up tests, verify expected results, and run them using an IDE, Maven, or Gradle.
 description: Learn how to write and run simple JUnit 5 tests, verify expected results, and execute tests using an IDE, Maven, or Gradle for reliable software validation.
 categories:
-  - Java
+  - Testing
 tags:
-  - testing
+  - junit-5
 ---
 
 In this article, we will learn how to write and run a simple JUnit 5 test. We will learn how to setup preconditions, interact with the object we want to test, and verify that it behaves like we expect.

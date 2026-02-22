@@ -4,9 +4,9 @@ date: 2019-05-25
 summary: This tutorial explains how to create parameterized tests in JUnit 5, allowing the same test to run with different inputs. It covers single and multiple arguments, using external data sources like CSV files, and custom conversions or aggregations for complex types. Parameterized tests help reduce duplication and make test code more maintainable and readable.
 description: Learn how to run the same test with multiple inputs in JUnit 5, including single and multiple arguments, CSV data, and custom conversions.
 categories:
-  - Java
+  - Testing
 tags:
-  - testing
+  - junit-5
 ---
 
 In this tutorial we will learn how to write JUnit 5 parameterized tests. The tutorial is structured so that it also answers most asked questions about parameterized tests.

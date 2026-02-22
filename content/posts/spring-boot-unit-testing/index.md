@@ -4,9 +4,9 @@ date: 2021-04-05
 summary: This article explains how to write effective unit tests in Spring Boot by testing components in isolation without loading the full application context. It covers why field injection slows tests, how constructor injection makes services testable, and how to use Mockito for fast, reliable tests. The approach ensures unit tests run quickly and focus solely on the behavior of the code under test.
 description: Learn how to write fast, isolated unit tests for Spring Boot applications using constructor injection and Mockito for true unit testing.
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 Unit tests build the foundation of our testing strategy. It takes time to learn how to write them well.

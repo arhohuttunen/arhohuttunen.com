@@ -4,9 +4,9 @@ date: 2021-05-02
 summary: This article explains how to write reliable tests for the persistence layer. It covers creating database schemas, managing test data, and testing queries, constraints, and edge cases. Using the same database for tests and application ensures migrations and native queries behave as expected.
 description: Learn how to test the persistence layer effectively, including schema setup, test data management, and verifying queries and constraints.
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 In this article, we look at how to write tests for the persistence layer.

@@ -5,8 +5,10 @@ date: 2023-03-20
 summary: A practical, hands-on guide to building a Spring Boot application with Hexagonal Architecture. The article walks through separating business logic and infrastructure into modules, implementing ports and adapters, and testing the system with fast acceptance, integration, and end-to-end tests.
 description: Learn how to apply Hexagonal Architecture in Spring Boot, separate business logic from infrastructure, and build a testable, maintainable application.
 categories:
-  - Software Craft
-  - Spring Boot
+  - Software Design
+tags:
+  - architecture
+  - spring-boot
 ---
 
 Hexagonal architecture has become a popular architectural pattern for separating business logic from the infrastructure. This separation allows us to delay decisions about technology or easily replace technologies. It also makes it possible to test the business logic in isolation from external systems.

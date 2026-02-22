@@ -4,9 +4,9 @@ date: 2021-05-07
 summary: This article explains why testing JSON serialization and deserialization separately can improve reliability, especially for custom types or formats. It shows how to use lightweight test setups to verify that objects are correctly converted to and from JSON. Examples cover both serialization and deserialization with practical assertions for expected output and input.
 description: Learn how to test JSON serialization and deserialization for custom types and formats using lightweight, focused integration tests. 
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 In this article, we look at how to write tests for JSON serialization and deserialization.

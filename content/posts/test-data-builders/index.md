@@ -5,9 +5,9 @@ date: 2021-02-27
 summary: This article explains how to build flexible and expressive test data using custom builders. It covers hiding irrelevant details, setting safe defaults, and combining builders with object mothers to simplify test code. Following these patterns makes tests easier to read, maintain, and adapt to changes in object structures.
 description: Learn how test data builders simplify creating test objects, reduce duplication, and make test code more readable and maintainable.
 categories:
-  - Software Craft
+  - Testing
 tags:
-  - testing
+  - best-practices
 ---
 
 In this article, we will learn how to write test data builders that remove duplication in constructing objects and increase the expressiveness of the test code. We will also learn how to use Lombok to reduce boilerplate code around the builders.

@@ -4,9 +4,9 @@ date: 2022-05-07
 summary: This article outlines a practical Spring Boot testing strategy, focusing on writing fast, reliable, and expressive tests. It covers using mocks wisely across architectural boundaries, writing narrow integration tests for external interactions, simulating dependencies locally, and keeping code maintainable through clear separation of logic and infrastructure. The approach balances unit, integration, and broader tests for effective coverage.
 description: Learn a practical Spring Boot testing strategy to write fast, reliable, and maintainable tests while minimizing mocks and simulating external dependencies.
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 In this article, we look at an overall Spring Boot testing strategy and how to organize the application for testability.

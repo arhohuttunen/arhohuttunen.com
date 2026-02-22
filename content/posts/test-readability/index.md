@@ -5,9 +5,9 @@ date: 2021-03-07
 summary: This article explores how to write more readable and maintainable tests. It covers behavior-focused naming, structured test patterns, minimizing irrelevant details, using test data builders, and intent-revealing helpers to make tests easier to understand and maintain.
 description: Learn practical ways to make tests more readable with clear names, structured patterns, and intent-revealing code for easier maintenance.
 categories:
-  - Software Craft
+  - Testing
 tags:
-  - testing
+  - best-practices
 ---
 
 In this article, we will learn different ways to improve test readability. Being able to understand what a test does, increases the maintainability of the test.

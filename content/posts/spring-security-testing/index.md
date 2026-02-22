@@ -4,9 +4,9 @@ date: 2022-11-20
 summary: This article explains how to test authentication and authorization in Spring Boot applications, covering both MVC and reactive WebFlux. It shows how to secure endpoints, simulate different user roles, handle CSRF protection, and verify access for authorized and unauthorized users. It also covers strategies for unit, integration, and end-to-end testing, along with tips for troubleshooting security issues.
 description: Spring Security has good support for MockMvc and WebTestClient. Learn to test authentication and authorization of Spring Boot applications.
 categories:
-  - Spring Boot
+  - Testing
 tags:
-  - testing
+  - spring-boot
 ---
 
 Security plays a major role in software. Eventually, everyone needs to add security to their project. In this article, we look at how to test authentication and authorization of Spring Boot applications. We will cover both MVC servlet applications and reactive WebFlux applications.

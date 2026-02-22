@@ -4,7 +4,7 @@ date: 2022-11-27
 summary: Developers often see interruptions as the enemy of productivity, but this article challenges that assumption. It explores flow state, work in progress, and context switching, then explains how pair programming and mob programming can reduce disruption, improve collaboration, and increase overall team performance despite frequent interruptions.
 description: Collaborative work and appropriate engineering practices can reduce developer interruptions and make them less disruptive. 
 categories:
-  - Software Craft
+  - Productivity
 tags:
   - agile
 ---
