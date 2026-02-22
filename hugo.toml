@@ -4,6 +4,10 @@ title = 'Code With Arho'
 theme = 'codewitharho'
 enableEmoji = true
 enableGitInfo = true
+
+[pagination]
+  pagerSize = 10
+
 ignoreFiles = [
   "\\.obsidian",
   "\\.excalidraw\\.md$"

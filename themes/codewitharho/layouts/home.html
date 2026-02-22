@@ -1,10 +1,12 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ range site.RegularPages }}
+  {{ $paginator := .Paginate site.RegularPages }}
+  {{ range $paginator.Pages }}
     <section>
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       <p>{{ .Summary }}</p>
       {{ partial "page-meta.html" . }}
     </section>
   {{ end }}
+  {{ partial "pagination.html" $paginator }}
 {{ end }}
