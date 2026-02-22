@@ -3,7 +3,7 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="font-sans bg-white dark:bg-slate-900 transition-colors max-w-180 mx-auto px-4 sm:px-6"{{ if not (eq .Kind "page") }} data-pagefind-ignore="all"{{ end }}>
+<body class="font-sans bg-white dark:bg-slate-900 transition-colors max-w-180 mx-auto px-4 sm:px-6"{{ if or (not (eq .Kind "page")) (eq .Layout "archive") }} data-pagefind-ignore="all"{{ end }}>
   <header data-pagefind-ignore>
     {{ partial "header.html" . }}
   </header>
