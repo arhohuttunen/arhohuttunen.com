@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "hugo && rm -rf public/pagefind && npx pagefind --site public"
+    "build": "hugo --gc --minify -b $URL && rm -rf public/pagefind && npx pagefind --site public"
   },
   "keywords": [],
   "author": "",
   "license": "CC-BY 4.0",
   "type": "commonjs",
   "devDependencies": {
+    "netlify-plugin-hugo-cache-resources": "^0.2.1",
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@tailwindcss/cli": "^4.1.18",
