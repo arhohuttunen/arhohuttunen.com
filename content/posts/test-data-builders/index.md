@@ -18,7 +18,7 @@ In a [previous article](/dry-damp-tests), we talked about how to remove duplicat
 
 Let's imagine we have an `Order` class with a `Customer` and a customer has an `Address`. Also, an `Order` has one or more `OrderItem`s. Furthermore, the `Order` might involve a `discountRate` or some `couponCode`.
 
-![Orders, order items, customers and addresses](order-uml.svg)
+![Orders, order items, customers and addresses](order-uml.excalidraw.light.svg)
 
 We might want to test a lot of business logic around these objects:
 

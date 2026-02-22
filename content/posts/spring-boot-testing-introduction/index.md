@@ -37,7 +37,7 @@ At the bare minimum, you should know how to write [JUnit 5 Assertions](/junit-5-
 
 Mockito is the most popular mocking framework for unit tests in Java. Simply put, mock objects simulate the behavior of real objects. When we want to test a part of an application in isolation we can replace some parts with mock objects.
 
-![Replacing real objects with mock objects](mock-objects.svg)
+![Replacing real objects with mock objects](mock-objects.excalidraw.light.svg)
 
 There are basically two ways to use Mockito: stubbing responses and verification of interactions.
 

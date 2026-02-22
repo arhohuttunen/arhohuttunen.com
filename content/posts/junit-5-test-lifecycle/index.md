@@ -69,7 +69,7 @@ Notice how the methods annotated with `@BeforeAll` and `@AfterAll` are static me
 
 The following illustration makes it easier to understand.
 
-![Per method lifecycle](junit-5-per-method-lifecycle.svg)
+![Per method lifecycle](junit-5-per-method-lifecycle.excalidraw.light.svg)
 
 Executing the tests in the test class gives us the following output (actually, the output has been formatted to make it more obvious):
 
@@ -113,7 +113,7 @@ public class PerClassLifecycleTest {
 
 Again, the following illustration helps to understand what is happening.
 
-![Per class lifecycle](junit-5-per-class-lifecycle.svg)
+![Per class lifecycle](junit-5-per-class-lifecycle.excalidraw.light.svg)
 
 Consequently, the output of the test execution is now a little different:
 

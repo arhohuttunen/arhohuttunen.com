@@ -29,7 +29,7 @@ On the back-end, **business logic ends up being coupled to a database or externa
 
 To remediate the problem of business logic and technological details mixing up, people often introduce a layered architecture. By putting different concerns on their own layer, the promise is that we can keep them nicely separated.
 
-![Layered architecture](layered-architecture.svg)
+![Layered architecture](layered-architecture.excalidraw.light.svg)
 
 From one layer, we only allow components to access other components on the same layer or below. In theory, this should protect us from different concerns mixing up. The problem is that there is no clear mechanism to detect violations of this promise, and over time, we usually end up in the same situation we tried to avoid.
 
@@ -39,7 +39,7 @@ These entities easily leak to the upper layers, which ends up **requiring change
 
 The above is a very simplistic view and rarely stays like that. In reality, we need to communicate with external services or libraries, and it's not always clear where these things belong.
 
-![Layered architecture with more components](layered-architecture-complex.svg)
+![Layered architecture with more components](layered-architecture-complex.excalidraw.light.svg)
 
 When we need to add new components, the architectural layers need updating. This is prone to shortcuts, and **technical details leak into the business logic**, e.g. by directly referencing 3rd party APIs.
 
@@ -57,13 +57,13 @@ To make the separation of business logic and the outside world happen, the appli
 
 **Adapters** provide connection to the outside world. They **translate the signals of the outside world** to a form understood by the application. The adapters only communicate with the application through the ports.
 
-![Separation of business logic and infrastructure in Hexagonal Architecture](hexagonal-architecture-external-dependencies.svg)
+![Separation of business logic and infrastructure in Hexagonal Architecture](external-dependencies.excalidraw.light.svg)
 
 Any port could have multiple adapters behind it. The adapters are interchangeable on both sides without having to touch the business logic. This makes it easy to grow the solution to use new interfaces or technologies.
 
 For example, in a coffee shop application, there could be a point of sale UI which handles taking orders for coffee. When the barista submits an order, a REST adapter takes the HTTP POST request and translates it to the form understood by a port. Calling the port triggers the business logic related to placing the order inside the application. The application itself doesn't know that it is being operated through a REST API.
 
-![Adapters translate signals of the outside world to the application](hexagonal-architecture-flow-of-control.svg)
+![Adapters translate signals of the outside world to the application](flow-of-control.excalidraw.light.svg)
 
 On the other side of the application, the application communicates with a port that allows persisting orders. If we wanted to use a relational database as the persistence solution, a database adapter would implement the connection to the database. The adapter takes the information coming from the port and translates it into SQL for storing the order in the database. The application itself is unaware of how this is implemented or what technologies the implementation uses.
 
@@ -74,7 +74,7 @@ On the other side of the application, the application communicates with a port t
 
 As we have seen, some adapters invoke use cases of the application, while some others react to actions triggered by the application. The adapters that **control** the application are called **primary or driving adapters**, usually drawn to the left side of the diagram. The adapters that are **controlled** by the application are called **secondary or driven adapters**, usually drawn to the right of the diagram.
 
-![Primary and secondary adapters with use cases on the application boundary](hexagonal-architecture-primary-and-secondary-adapters.svg)
+![Primary and secondary adapters with use cases on the application boundary](primary-and-secondary-adapters.excalidraw.light.svg)
 
 The distinction between primary and secondary is based on **who triggers the conversation**. This relates to the idea from use cases of primary actors and secondary actors.
 
@@ -93,7 +93,7 @@ So far, we have only stated that the technical details should stay outside the a
 
 When we implement a primary adapter on the driver side, an adapter has to tell the application to do something. The **flow of control goes from the adapter to the application through ports**. The dependency between the adapter and application points inwards, making the application unaware of who is calling its use cases.
 
-![Implementing primary adapters](hexagonal-architecture-primary-adapter.svg)
+![Implementing primary adapters](primary-adapter.excalidraw.light.svg)
 
 In our coffee shop example, the `OrderController` is an adapter who calls a use case defined by the `PlacingOrders` port. Inside the application, `CoffeeShop` is the class who implements the functionality described by the port. The application is unaware of who is calling its use cases.
 
@@ -107,7 +107,7 @@ To achieve this, we have to apply the [dependency inversion principle](https://e
 
 In our case, this is a fancy way of saying the application should not directly depend on the database adapter. Instead, the application should use a port, and the adapter should then implement that port.
 
-![Implementing secondary adapters](hexagonal-architecture-secondary-adapter.svg)
+![Implementing secondary adapters](secondary-adapter.excalidraw.light.svg)
 
 The `CoffeeShop` implementation should not depend on the `OrdersDatabaseAdapter` implementation directly, but it should use the `Orders` interface and let `OrdersDatabaseAdapter` implement that interface. This inverts the dependency and effectively reverses the relationship.
 
@@ -119,7 +119,7 @@ Adapters should translate the signals of the outside world to something that the
 
 In our example, to make a distinction between the outer and inner model, we can introduce an `OrderRequest` model which represents the data coming in to the adapter as a REST request. The `OrderController` becomes responsible for mapping the `OrderRequest` into an `Order` model that the application understands. 
 
-![Mapping of models in primary adapters](hexagonal-architecture-primary-adapter-mapping.svg)
+![Mapping of models in primary adapters](primary-adapter-mapping.excalidraw.light.svg)
 
 Similarly, when the adapter needs to respond to the actor calling it, we could introduce an `OrderResponse` model and let the adapter map the `Order` model from the application into a response model.
 
@@ -131,7 +131,7 @@ Second, we are making it **harder to refactor** inside the application, since ou
 
 On the other side of the application in our example, we could introduce an `OrderEntity` model to describe the details needed to persist the data. The technology-specific `OrdersDatabaseAdapter` is now responsible for translating an `Order` model from the application to something that the persistence layer understands.
 
-![Mapping of models in secondary adapters](hexagonal-architecture-secondary-adapter-mapping.svg)
+![Mapping of models in secondary adapters](secondary-adapter-mapping.excalidraw.light.svg)
 
 Again, it can be tempting to use a single model for the database entities and the application, but it comes with a cost. We would need to put **technology specific details inside the application model**. Depending on your technology stack, this could mean that you now have to worry about details like transactions and lazy loading inside your business logic.
 
@@ -143,7 +143,7 @@ One goal of hexagonal architecture mentioned was the ability to test the busines
 
 The first step in implementing a use case would be to start with a test describing it. We begin with the application as a black-box and allow the test only to call the application through its ports. We should also replace any secondary adapters with mock adapters.
 
-![Unit testing the business logic](hexagonal-architecture-unit-test.svg)
+![Unit testing the business logic](unit-test.excalidraw.light.svg)
 
 While it is possible to use a mocking framework here, writing your own mocks or stubs will prove valuable later. For any repository adapters, these mocks could be anything as simple as a map of values.
 
@@ -153,7 +153,7 @@ The next step is to connect some adapters to the application. We would typically
 
 We can keep using the mock adapters from the last step for the secondary adapters. Our narrow integration tests will then call the primary adapter to test it. In fact, we could ship a first version of our solution with the secondary adapters implemented as stubs.
 
-![Testing the primary adapters](hexagonal-architecture-primary-adapter-integration-test.svg)
+![Testing the primary adapters](primary-adapter-integration-test.excalidraw.light.svg)
 
 For example, our integration test could make some HTTP requests to the REST controller and assert that the response matches our expectations. Although the REST controller is calling the application, the application is not the subject under test.
 
@@ -166,7 +166,7 @@ If we use a test double for the application in these tests, we will have to focu
 
 When it's time to implement the right side adapters, we want to test that the integration to the 3rd party technology works correctly. Instead of connecting to a remote database or service, we can containerize the database or service and configure the subject under test to connect to that. 
 
-![Testing the secondary adapters](hexagonal-architecture-secondary-adapter-integration-test.svg)
+![Testing the secondary adapters](secondary-adapter-integration-test.excalidraw.light.svg)
 
 For example, in the Java world, it's possible to use something like Testcontainers or MockWebServer to replace the real remote database or service. This allows us to use the underlying technology locally without having to rely on the availability of external services.
 
@@ -174,7 +174,7 @@ For example, in the Java world, it's possible to use something like Testcontaine
 
 Although we can cover the different parts of the system with unit and integration tests, it's not enough to weed out all problems. This is when end-to-end tests (also known as broad integration tests or system tests) come in handy.
 
-![End-to-end testing the system](hexagonal-architecture-end-to-end-test.svg)
+![End-to-end testing the system](end-to-end-test.excalidraw.light.svg)
 
 We can still isolate the system from external services, but test the system as a whole. These end-to-end tests execute entire slices of the system from primary adapters to the application to the secondary adapters.
 

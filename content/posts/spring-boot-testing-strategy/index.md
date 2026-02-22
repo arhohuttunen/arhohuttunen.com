@@ -64,7 +64,7 @@ class OrderServiceTests {
 
 Such tests are simpler to set up, run faster, and more reliably. Also, failure scenarios are easier to simulate through mocks.
 
-![Sociable versus solitary tests](sociable-solitary.svg)
+![Sociable versus solitary tests](sociable-solitary.excalidraw.light.svg)
 
 The conclusion here is that we should write both solitary and sociable tests. However, to avoid coupling within the architectural boundaries, we should prefer **sociable tests that are allowed to talk to collaborators**. If we extract some code inside our service code into another service, it doesn't mean that we then have to mock that other service.
 
@@ -151,7 +151,7 @@ Examples of separating logic from infrastructure in a Spring Boot application:
 
 Remember the previous `ExchangeRateClient` example? That is separating logic from infrastructure in action. We establish a boundary between the service and the code that needs to call `WebClient`.
 
-![Separating logic from the infrastructure](separate-logic-infrastructure.svg)
+![Separating logic from the infrastructure](separate-logic-infrastructure.excalidraw.light.svg)
 
 The service does not need to know how to make an HTTP request. If it does, we have to fall back to broader tests for the service.
 
