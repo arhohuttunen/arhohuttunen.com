@@ -8,7 +8,7 @@
     <span class="middot text-gray-500"></span>
 
     <span class="inline-flex items-center gap-1">
-      <i data-lucide="folder" class="w-4 h-4"></i>
+      {{ partial "icon.html" (dict "name" "folder" "class" "w-4 h-4") }}
       {{ with .GetTerms "categories" }}
         {{ range $index, $cat := . }}
           {{- if $index }}, {{ end -}}

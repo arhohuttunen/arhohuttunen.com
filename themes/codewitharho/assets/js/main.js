@@ -1,5 +1,3 @@
-import "./lucide"
-
 const html = document.documentElement;
 
 function setTheme(theme) {

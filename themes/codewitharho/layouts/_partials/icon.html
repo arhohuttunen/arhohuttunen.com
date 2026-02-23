@@ -1,0 +1,3 @@
+{{- $name := .name -}}
+{{- $class := .class | default "" -}}
+<svg{{ with $class }} class="{{ . }}"{{ end }} aria-hidden="true"><use href="#icon-{{ $name }}"/></svg>

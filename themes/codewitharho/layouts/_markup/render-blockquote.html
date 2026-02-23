@@ -31,7 +31,7 @@
 {{ if eq .Type "alert" }}
 <div class="callout rounded-lg p-5" data-callout="{{ .AlertType }}">
     <p class="callout-heading flex items-center gap-2">
-        <i data-lucide="{{ index $icons .AlertType }}" class="w-[1em] h-[1em] shrink-0"></i>
+        {{ partial "icon.html" (dict "name" (index $icons .AlertType) "class" "w-[1em] h-[1em] shrink-0") }}
         {{ with .AlertTitle }}
         {{ . }}
         {{ else }}

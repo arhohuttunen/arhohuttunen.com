@@ -9,6 +9,10 @@
     --font-sans: Nunito, sans-serif;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 :root {
     --pagefind-ui-font: Nunito, sans-serif;
 }
