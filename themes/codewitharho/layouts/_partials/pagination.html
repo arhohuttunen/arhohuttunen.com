@@ -4,7 +4,7 @@
       {{- if .HasPrev }}
         <a href="{{ .Prev.URL }}" class="px-3 py-2 no-underline text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100">&larr; Prev</a>
       {{- else }}
-        <span class="px-3 py-2 text-gray-400 dark:text-gray-600">&larr; Prev</span>
+        <span class="px-3 py-2 text-gray-500 dark:text-gray-400">&larr; Prev</span>
       {{- end }}
 
       {{- range .Pagers }}
@@ -18,7 +18,7 @@
       {{- if .HasNext }}
         <a href="{{ .Next.URL }}" class="px-3 py-2 no-underline text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100">Next &rarr;</a>
       {{- else }}
-        <span class="px-3 py-2 text-gray-400 dark:text-gray-600">Next &rarr;</span>
+        <span class="px-3 py-2 text-gray-500 dark:text-gray-400">Next &rarr;</span>
       {{- end }}
     </nav>
   {{- end }}
