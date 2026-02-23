@@ -13,6 +13,9 @@
         }
     })();
 </script>
+<link rel="preload" href="/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/nunito-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/roboto-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 {{ with (templates.Defer (dict "key" "global")) }}{{ partialCached "head/css.html" . }}{{ end }}
 {{ partialCached "head/js.html" . }}
 {{- $js := resources.Get "js/giscus.js" }}
