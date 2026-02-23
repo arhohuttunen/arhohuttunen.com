@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = "hidden";
         if (!pagefindLoaded) {
             pagefindLoaded = true;
+            const link = document.createElement("link");
+            link.rel = "stylesheet";
+            link.href = "/pagefind/pagefind-ui.css";
+            document.head.appendChild(link);
             const script = document.createElement("script");
             script.src = "/pagefind/pagefind-ui.js";
             script.onload = () => {

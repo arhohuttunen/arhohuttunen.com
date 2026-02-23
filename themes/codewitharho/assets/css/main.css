@@ -13,7 +13,7 @@ html {
     scrollbar-gutter: stable;
 }
 
-:root {
+#pagefind-search {
     --pagefind-ui-font: Nunito, sans-serif;
 }
 
