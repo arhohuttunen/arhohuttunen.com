@@ -1,4 +1,4 @@
-{{- $description := or .Description (.Summary | plainify | htmlUnescape) | truncate 160 }}
+{{- $description := or .Description (.Summary | plainify | htmlUnescape) site.Params.description | truncate 160 }}
 {{- $author := or .Params.author site.Params.author }}
 {{- $title := cond .IsHome site.Title .Title }}
 
