@@ -15,10 +15,6 @@
 </script>
 {{ with (templates.Defer (dict "key" "global")) }}{{ partialCached "head/css.html" . }}{{ end }}
 {{ partialCached "head/js.html" . }}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Mono&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Nunito&family=Roboto+Mono&display=swap" rel="stylesheet"></noscript>
 {{- $js := resources.Get "js/giscus.js" }}
 <script src="{{ $js.RelPermalink }}" defer></script>
 {{- $light := resources.Get "css/syntax-light.css" | resources.Minify }}
