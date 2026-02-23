@@ -1,4 +1,3 @@
-import "./fontawesome"
 import "./lucide"
 
 const html = document.documentElement;

@@ -7,8 +7,8 @@
   {{ if .Params.categories }}
     <span class="middot text-gray-500"></span>
 
-    <span>
-      <i class="fas fa-folder"></i>
+    <span class="inline-flex items-center gap-1">
+      <i data-lucide="folder" class="w-4 h-4"></i>
       {{ with .GetTerms "categories" }}
         {{ range $index, $cat := . }}
           {{- if $index }}, {{ end -}}
