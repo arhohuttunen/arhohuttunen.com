@@ -9,7 +9,7 @@
       <script src="{{ .RelPermalink }}" defer></script>
     {{- else }}
       {{- with . | fingerprint }}
-        <link rel="preload" href="{{ .RelPermalink }}" as="script">
+        <link rel="preload" href="{{ .RelPermalink }}" as="script" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
         <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
       {{- end }}
     {{- end }}
