@@ -1,6 +1,6 @@
 baseURL = 'https://www.arhohuttunen.com/'
 languageCode = 'en-us'
-title = 'Code With Arho'
+title = "Shouldn't Be Hard"
 theme = 'codewitharho'
 enableEmoji = true
 enableGitInfo = true
