@@ -73,6 +73,16 @@ img {
     content: '\00B7';
 }
 
+.callout {
+    .callout-heading {
+        @apply mt-0;
+    }
+
+    > *:last-child {
+        @apply mb-0;
+    }
+}
+
 .callout[data-callout="note"],
 .callout[data-callout="info"],
 .callout[data-callout="todo"] {
