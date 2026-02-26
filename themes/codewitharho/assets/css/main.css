@@ -74,6 +74,8 @@ img {
 }
 
 .callout {
+    @apply my-4;
+
     .callout-heading {
         @apply mt-0;
     }
