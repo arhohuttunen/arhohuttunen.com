@@ -191,10 +191,11 @@ img {
     }
 }
 
-html.dark [data-pagefind-ui] {
+html.dark #pagefind-search {
+    color-scheme: dark;
     --pagefind-ui-primary: #93c5fd;
     --pagefind-ui-text: #e5e7eb;
-    --pagefind-ui-background: #111827;
+    --pagefind-ui-background: #1f2937;
     --pagefind-ui-border: #374151;
-    --pagefind-ui-tag: #1f2937;
+    --pagefind-ui-tag: #374151;
 }
