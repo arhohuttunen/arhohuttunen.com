@@ -73,7 +73,9 @@ img {
     content: '\00B7';
 }
 
-.callout[data-callout="note"] {
+.callout[data-callout="note"],
+.callout[data-callout="info"],
+.callout[data-callout="todo"] {
     @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
 
     .callout-heading {
@@ -83,30 +85,7 @@ img {
 
 .callout[data-callout="abstract"],
 .callout[data-callout="summary"],
-.callout[data-callout="tldr"] {
-    @apply bg-teal-50 border border-teal-100 dark:bg-teal-950 dark:border-teal-900;
-
-    .callout-heading {
-        @apply text-teal-500;
-    }
-}
-
-.callout[data-callout="info"] {
-    @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
-
-    .callout-heading {
-        @apply text-blue-500;
-    }
-}
-
-.callout[data-callout="todo"] {
-    @apply bg-blue-50 border border-blue-100 dark:bg-blue-950 dark:border-blue-900;
-
-    .callout-heading {
-        @apply text-blue-500;
-    }
-}
-
+.callout[data-callout="tldr"],
 .callout[data-callout="tip"],
 .callout[data-callout="hint"],
 .callout[data-callout="important"] {
@@ -129,14 +108,7 @@ img {
 
 .callout[data-callout="question"],
 .callout[data-callout="help"],
-.callout[data-callout="faq"] {
-    @apply bg-orange-50 border border-orange-100 dark:bg-orange-950 dark:border-orange-900;
-
-    .callout-heading {
-        @apply text-orange-500;
-    }
-}
-
+.callout[data-callout="faq"],
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
 .callout[data-callout="attention"] {
@@ -149,23 +121,9 @@ img {
 
 .callout[data-callout="failure"],
 .callout[data-callout="fail"],
-.callout[data-callout="missing"] {
-    @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
-
-    .callout-heading {
-        @apply text-red-500;
-    }
-}
-
+.callout[data-callout="missing"],
 .callout[data-callout="danger"],
-.callout[data-callout="error"] {
-    @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
-
-    .callout-heading {
-        @apply text-red-500;
-    }
-}
-
+.callout[data-callout="error"],
 .callout[data-callout="bug"] {
     @apply bg-red-50 border border-red-100 dark:bg-red-950 dark:border-red-900;
 
