@@ -64,7 +64,7 @@ ignoreFiles = [
 
 [params]
   author = "Arho Huttunen"
-  description = "Practical tutorials on software testing, clean code, and developer productivity."
+  description = "On software design, architecture, and writing code that future you won't hate — because technical debt is someone else's problem now."
 
   [params.giscus]
     repo = "arhohuttunen/arhohuttunen.com"
