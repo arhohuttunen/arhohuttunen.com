@@ -87,7 +87,7 @@ org.opentest4j.AssertionFailedError: expected: not <null>
 While we sometimes might need to assert `null` values, we should generally avoid passing and returning `null` values.
 
 > [!note] Additional reading:
-> :pencil2: [Avoiding Unnecessary Null Checks](/avoiding-unnecessary-null-checks)
+> ✏️ [Avoiding Unnecessary Null Checks](/avoiding-unnecessary-null-checks)
 
 ### Iterables
 
@@ -208,7 +208,7 @@ The default implementation of the `equals()` method checks if two object referen
 The assertion fails because of this.
 
 > [!note] Additional reading:
-> :bookmark: [Java hashCode() and equals()](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
+> 🔖 [Java hashCode() and equals()](https://howtodoinjava.com/java/basics/java-hashcode-equals-methods/)
 
 To solve this problem, we need to add our implementation of `equals()` that compares the class fields.
 If we override the `equals()` method, we also have to override `hashCode()`:

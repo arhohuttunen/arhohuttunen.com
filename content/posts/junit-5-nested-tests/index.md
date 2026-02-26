@@ -395,11 +395,11 @@ Readability and removing duplication is a broad subject, and we are not going to
 
 > [!note] Additional reading:
 >
-> :pencil2: [DRY and DAMP in Tests](/dry-damp-tests)
+> ✏️ [DRY and DAMP in Tests](/dry-damp-tests)
 > 
-> :pencil2: [How to Create a Test Data Builder](/test-data-builders)
+> ✏️ [How to Create a Test Data Builder](/test-data-builders)
 > 
-> :pencil2: [How to Make Your Tests Readable](/test-readability)
+> ✏️ [How to Make Your Tests Readable](/test-readability)
 
 ## Summary
 

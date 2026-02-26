@@ -260,7 +260,7 @@ After each happy path
 
 > [!note] Additional reading:
 > 
-> :pencil2: [JUnit 5 Nested Tests](/junit-5-nested-tests)
+> ✏️ [JUnit 5 Nested Tests](/junit-5-nested-tests)
 
 ## Extension Lifecycle
 
@@ -330,7 +330,7 @@ After each from ExtensionOne
 > [!note] Additional reading:
 > JUnit 5 documentation has more in-depth details about the relative execution order of user code and extensions.
 > 
-> :bookmark: [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/#extensions-execution-order)
+> 🔖 [JUnit 5 User Guide](https://junit.org/junit5/docs/current/user-guide/#extensions-execution-order)
 
 ## Summary
 

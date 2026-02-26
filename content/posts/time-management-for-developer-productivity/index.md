@@ -20,7 +20,7 @@ In this post, we will look at tips that **reduce distractions and the inability 
 
 This post is mainly targeted at developers, but I'm sure others will find value in it as well.
 
-## :no_good_man: Learn to say no
+## 🙅‍♂️ Learn to say no
 
 I'm sure we all have been there: your day is filled with meetings, emails with requests, Teams, or Slack messages, someone walking into the room and requesting something else.
 
@@ -30,7 +30,7 @@ The problem with this is that you spend the best part of the day on other people
 
 So, learn to say no. **You don't have to do everything you are asked for**. You can always politely tell you are busy and ask if the task is genuinely urgent, and if you are the only one able to do it.
 
-## :no_mobile_phones: Cut out distractions
+## 📵 Cut out distractions
 
 We live in a world where we are bombarded with new information. We have constant interruptions from various sources. We seem to be in a continuous reactive mode where anything can trigger us to lose our focus.
 
@@ -50,7 +50,7 @@ If you still get interrupted, **tell them you are busy and will get back to them
 
 If they still expect an answer, ask them to wait a few seconds and **write down what you were doing** before that. This will help you remember what you were working on, so it doesn't interrupt your flow.
 
-## :memo: Use a todo list
+## 📝 Use a todo list
 
 One of the reasons we feel overwhelmed can be that there are many things to remember, and we don’t have a system to remember everything. **Trusting our brain is untrustworthy** because our short-term capacity to remember something is limited to approximately seven items.
 
@@ -73,7 +73,7 @@ The same goes for every idea you come up with. Just write it down without going 
 
 The main idea behind this is to stay focused on the task at hand and allocate separate time to go through your inbox.
 
-## :calendar: Plan and prioritize
+## 📅 Plan and prioritize
 
 Before we talk about planning, let's first look at three different types of work.
 
@@ -93,7 +93,7 @@ You should also **book time for your breaks**. How many times has it happened th
 
 Finally, you should also **be prepared that something unexpected happens**. So it's a good idea to make sure your calendar is not 100% full.
 
-## :email: Read email once or twice a day
+## 📧 Read email once or twice a day
 
 Another thing you can do is **start reading email only once or twice a day**. This will get rid of the nagging sensation that you should respond to the incoming email immediately.
 
@@ -115,7 +115,7 @@ We already talked about allocating time for reactive work when planning your day
 
 **The goal is to not lose focus**. This will also stop wasting time on checking useless emails, like some newsletters.
 
-## :tomato: Try the Pomodoro technique
+## 🍅 Try the Pomodoro technique
 
 If you have long periods of concentrated work, you can schedule micro-breaks, for example, every half an hour. One popular way to do this is to use the **Pomodoro technique**.
 
@@ -125,7 +125,7 @@ Doing a Pomodoro doesn't mean you have to finish a task in 25 minutes. It just *
 
 It's really essential to have breaks, as it will **renew your mental capacity**. Be sure not to sit in front of your computer during your breaks. Don't reply to emails. Stand up, stretch, take a walk, or grab a cup of coffee.
 
-## :repeat: Self reflect
+## 🔁 Self reflect
 
 Considering that we work 40 hours a week, spending a couple of hours planning and reflecting is not a huge investment. Self-reflection is something we are seldom taught but can help us to see progress and evaluate if we are improving or not.
 

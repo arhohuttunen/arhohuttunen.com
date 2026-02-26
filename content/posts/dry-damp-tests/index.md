@@ -12,7 +12,7 @@ tags:
 
 In this article, we will look at the DRY and DAMP principles in the context of testing. Our aim is to remove duplication in the tests while at the same time making them readable. We will see why people consider these principles contradicting when writing tests and how you can achieve both.
 
-## :scroll: The DRY and DAMP principles
+## 📜 The DRY and DAMP principles
 
 DRY and DAMP are principles that target two different aspects of maintainability. Both aim at making the code easier to change.
 
@@ -30,7 +30,7 @@ DAMP stands for _Descriptive And Meaningful Phrases_ and promotes the readabilit
 
 The DAMP principle increases maintainability by reducing the time needed to read and understand the code.
 
-## :exclamation: Contradiction in tests
+## ❗ Contradiction in tests
 
 You might have heard people saying that duplication is more acceptable in tests. You might also have heard that tests should be DAMP and not DRY. What does this mean in practice?
 
@@ -157,7 +157,7 @@ The change makes it even worse because now the setup has been divided into two p
 
 Looking at examples like this, it feels like increasing DRY will reduce DAMP and the other way around. From this perspective, it makes sense to favor DRY in production code and DAMP in test code.
 
-## :handshake: Complementary instead of contradictory
+## 🤝 Complementary instead of contradictory
 
 Let's take a small step back and look at the definition of DRY again. What does it mean that any piece of system knowledge should have only one representation?
 
@@ -200,7 +200,7 @@ The construction of an object in the above example is _what_. How to construct t
 
 Putting DRY and DAMP in this perspective, the two things are not contradictory but complementary.
 
-## :hammer: Test Data Builders
+## 🔨 Test Data Builders
 
 The test data builder pattern allows tests to specify only those parts of the objects that need to vary and use sensible defaults for those not relevant to the test.
 
@@ -262,9 +262,9 @@ public class BetterExampleTest {
 You could say that this is much more descriptive than the original version. By moving the object construction knowledge into a builder class, we have achieved both DRY and DAMP.
 
 > [!note] Additional reading:
-> :pencil2: [How to Create a Test Data Builder](/test-data-builders)
+> ✏️ [How to Create a Test Data Builder](/test-data-builders)
 
-## :heavy_check_mark: Custom assertions
+## ✔️ Custom assertions
 
 In our example, there is still some duplication in the way we are asserting results.
 

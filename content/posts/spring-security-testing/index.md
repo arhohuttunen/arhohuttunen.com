@@ -94,7 +94,7 @@ class CustomerControllerTests {
 
 > [!note] Additional reading:
 > 
-> :pencil2: [Testing Web Controllers With @WebMvcTest](/spring-boot-webmvctest)
+> ✏️ [Testing Web Controllers With @WebMvcTest](/spring-boot-webmvctest)
 
 ### Run the Test As a User
 
@@ -229,7 +229,7 @@ Once `MockMvc` has been setup, there is nothing different in using it compared t
 
 > [!note] Additional reading:
 > 
-> :pencil2: [Spring Boot Integration Testing With @SpringBootTest](/spring-boot-integration-testing)
+> ✏️ [Spring Boot Integration Testing With @SpringBootTest](/spring-boot-integration-testing)
 
 ## Set Up MockMvc WebTestClient in @SpringBootTest With Security
 

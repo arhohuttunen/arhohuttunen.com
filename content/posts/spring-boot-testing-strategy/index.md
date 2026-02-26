@@ -29,7 +29,7 @@ These attributes complement each other very well. If we leverage some patterns t
 
 > [!note] Additional reading:
 > 
-> :bookmark: [On the Diverse And Fantastical Shapes of Testing](https://martinfowler.com/articles/2021-test-shapes.html) by Martin Fowler
+> 🔖 [On the Diverse And Fantastical Shapes of Testing](https://martinfowler.com/articles/2021-test-shapes.html) by Martin Fowler
 
 ## Only Mock Across Architectural Boundaries
 
@@ -70,7 +70,7 @@ The conclusion here is that we should write both solitary and sociable tests. Ho
 
 > [!note] Additional reading:
 > 
-> :bookmark: [When to Mock](https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html) by Uncle Bob
+> 🔖 [When to Mock](https://blog.cleancoder.com/uncle-bob/2014/05/10/WhenToMock.html) by Uncle Bob
 
 ## Write Narrow Integration Tests For Outside Interactions
 
@@ -194,9 +194,9 @@ Before, I've written extensively about making your tests more readable, so we ar
 
 > [!note] Additional reading:
 > 
-> :pencil2: [DRY and DAMP in Tests](/dry-damp-tests)
+> ✏️ [DRY and DAMP in Tests](/dry-damp-tests)
 > 
-> :pencil2: [How to Make Your Tests Readable](/test-readability)
+> ✏️ [How to Make Your Tests Readable](/test-readability)
 
 Let's take a quick look at an example.
 

@@ -16,9 +16,9 @@ In this article, we will learn how to write and run a simple JUnit 5 test. We wi
 The accompanying source code example already has configurations for both Maven and Gradle but there are also step by step guides for our convenience:
 
 > [!note] Additional reading:
-> :pencil2: [JUnit 5 Maven Example](/junit-5-maven-example)
+> ✏️ [JUnit 5 Maven Example](/junit-5-maven-example)
 >
-> :pencil2: [JUnit 5 Gradle Example](/junit-5-gradle-example)
+> ✏️ [JUnit 5 Gradle Example](/junit-5-gradle-example)
 
 ## Writing Our First Test
 

@@ -225,7 +225,7 @@ With quite a simple change, we managed to make the test independent of Spring. T
 
 > [!note] Additional reading:
 > 
-> :pencil2: [Using Mockito With JUnit 5](/junit-5-mockito)
+> ✏️ [Using Mockito With JUnit 5](/junit-5-mockito)
 
 ## Summary
 

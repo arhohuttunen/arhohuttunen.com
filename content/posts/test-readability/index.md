@@ -16,7 +16,7 @@ Tests document how the system should behave. They also act as self-verifying exe
 
 In a [previous article](/dry-damp-tests), we talked about how to remove duplication while at the same time making the code more descriptive. This article is a more practical guide concentrating on test readability and expressiveness.
 
-## :walking: Describe Behavior With Test Name
+## 🚶 Describe Behavior With Test Name
 
 Naming is one of the most challenging things in programming. In tests, the name of the test should describe what we test. It should also tell what kind of behavior we expect.
 
@@ -77,7 +77,7 @@ void throwAnExceptionWhenWithdrawalIsMadeExceedingBalance() {
 
 The point of writing names like this is to emphasize what the tested object _does_, not what it _is_. It would not be enough to say that we increase balance, decrease balance, or throw an exception. Notice how we are also describing why.
 
-## :bricks: Use Structure For Readability
+## 🧱 Use Structure For Readability
 
 Each test can be structured in parts to make what we are testing obvious. One common way to do this is the _Arrange, Act, Assert_ pattern and its BDD variant _Given, When, Then_.
 
@@ -122,7 +122,7 @@ void purchaseSucceedsWhenEnoughInventory() {
 
 The change is not significant, but the result is immediately much more readable. It is quite clear what part is doing the setup, what is triggering the behavior, and verifying the expectations.
 
-### :thinking: When Common Sense Outweigh Rules
+### 🤔 When Common Sense Outweigh Rules
 
 Both _Arrange, Act, Assert_ and _Given, When, Then_ are great for setting the stage. However, sometimes it can be hard to justify the presence of such a ceremony.
 
@@ -152,7 +152,7 @@ void returnFullNameOfUser() {
 
 It can help to follow the patterns with longer pieces of code, but it's somewhat unnecessary in simple cases.
 
-## :writing_hand: Provide Just Enough Information
+## ✍️ Provide Just Enough Information
 
 Tests can have either **too much or too little information**. Both cases affect how well we understand what behavior a test verifies.
 
@@ -160,7 +160,7 @@ One cause for too much information is that we just put all the details inline in
 
 On the other hand, too little information makes the test obscure because we **cannot see the cause-and-effect relationship**. Having too little information is usually the result of attempting to remove duplication in the code.
 
-### :heavy_check_mark: Only Verify What You Need
+### ✔️ Only Verify What You Need
 
 Sometimes we see people adding a lot of test conditions into a single test case. We may have attempted to reduce setup overhead or added "just one more little thing" in the test.
 
@@ -223,7 +223,7 @@ void inventoryIsNotRemovedOnFailedPurchase() {
 
 One condition per test will make the test **more readable**. It will also help with defect localization, as it's now easier to **pinpoint the cause of the error**.
 
-### :see_no_evil: Hide Irrelevant Information
+### 🙈 Hide Irrelevant Information
 
 Sometimes, to test behavior, we have to construct objects that require specific data to be present. However, this data may be irrelevant for testing the behavior. We call this the **Irrelevant Information** test smell.
 
@@ -247,7 +247,7 @@ void newPersonIsUnverified() {
 
 Now the essential setup is hidden in the factory method. The only relevant information to the test is that we create a new person.
 
-### :eyes: Don't Hide Cause From Effect
+### 👀 Don't Hide Cause From Effect
 
 So what happens if we have more tests with a similar setup? In the following example, only part of the data is relevant to the test.
 
@@ -285,7 +285,7 @@ void returnFullNameOfUser() {
 
 However, now the setup won't have all the relevant information. It is unclear why the person is underage or why they have the name mentioned in the test. We call this the **Mystery Guest** test smell.
 
-### :compass: Provide Essential Data, Show Relevant Data
+### 🧭 Provide Essential Data, Show Relevant Data
 
 Luckily, it is possible to both provide the essential information and keep the information relevant to the test. We can do that if we create a test data builder.
 
@@ -308,7 +308,7 @@ Neither of the tests now has any irrelevant information. We have hidden the esse
 
 Using this pattern helps with both removing duplication and keeping the data relevant to the tested behavior.
 
-### :no_entry_sign: Don't Catch Exceptions Unnecessarily
+### 🚫 Don't Catch Exceptions Unnecessarily
 
 We should not catch any exceptions in the test unless that is what we want to test. Sometimes you see the following kind of code.
 
@@ -338,7 +338,7 @@ void noNeedToCatch() throws MalformedURLException {
 
 We were able to remove a lot of noise from the test. Now the test tells us precisely what we expect to happen and nothing else.
 
-## :speech_balloon: Reveal Intent
+## 💬 Reveal Intent
 
 Revealing intent by self-describing code makes it easier to comprehend what is going on in the code.
 
@@ -346,7 +346,7 @@ Unfortunately, it's often much neglected in test code. However, test code qualit
 
 Let's take a look at few ways to do this in the tests.
 
-### :abcd: Use Self-Describing Names and Values
+### 🔡 Use Self-Describing Names and Values
 
 Let's take a look at a simple example. Here we are first persisting some objects, making an HTTP request, and verifying that we got the correct results.
 
@@ -397,7 +397,7 @@ We have now replaced a few things with intent-revealing naming:
 
 The test looks better, but it's nothing spectacular yet.
 
-### :man-shrugging: Use Test Helper Methods
+### 🛠️ Use Test Helper Methods
 
 There is still a lot of details about how to perform the behavior in the test. If we are testing that when we request people with a verified status, do we care how we make the HTTP request?
 
@@ -448,7 +448,7 @@ We have named the method `requestVerifiedPeople()`. We are not interested in _ho
 
 We have implemented the method to parse the returned JSON and return a list of people. We don't have to deal with JsonPath matching, and we can use a much more fluent AssertJ assertion for the verification.
 
-### :x: Explain Failure With Assertion Messages
+### ❌ Explain Failure With Assertion Messages
 
 Assertions have an intent too. When the test fails, we are supposed to know what went wrong. Let's take a look at a previous example we had.
 
@@ -492,7 +492,7 @@ Actual   :100
 
 It's much more apparent what the expected value of 200 and the actual value of 100 are. The assertion message provides context.
 
-## :white_check_mark: Summary
+## ✅ Summary
 
 Test readability has a significant impact on the maintainability of the tests. There are a few good practices that make tests easier to read.
 
@@ -507,10 +507,10 @@ Revealing intent by self-describing names makes the code more understandable. It
 You can find the example code for this article on [GitHub](https://github.com/arhohuttunen/write-better-tests/tree/main/test-readability).
 
 > [!note] Additional reading:
-> :pencil2: [DRY and DAMP in Tests](/dry-damp-tests)
+> ✏️ [DRY and DAMP in Tests](/dry-damp-tests)
 > 
-> :pencil2: [How to Create a Test Data Builder](/test-data-builders)
+> ✏️ [How to Create a Test Data Builder](/test-data-builders)
 > 
-> :book: [xUnit Test Patterns: Refactoring Test Code](https://amzn.to/30fANr0) by Gerard Meszaros
+> 📖 [xUnit Test Patterns: Refactoring Test Code](https://amzn.to/30fANr0) by Gerard Meszaros
 > 
-> :book: [Growing Object-Oriented Software, Guided by Tests](https://amzn.to/2O0hHTm) by Steve Freeman, Nat Pryce
+> 📖 [Growing Object-Oriented Software, Guided by Tests](https://amzn.to/2O0hHTm) by Steve Freeman, Nat Pryce

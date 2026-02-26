@@ -130,7 +130,7 @@ Using parameterized tests like this is ok but not as convenient as in Java. Anot
 
 > [!note] Additional reading:
 >
-> :pencil2: [JUnit 5 parameterized tests](/junit-5-parameterized-tests)
+> ✏️ [JUnit 5 parameterized tests](/junit-5-parameterized-tests)
 
 ## Dynamic Tests
 
@@ -218,7 +218,7 @@ Now JUnit 5 will discover the inner nested test classes and their tests.
 
 > [!note] Additional reading:
 >
-> :pencil2: [JUnit 5 Nested Tests](/junit-5-nested-tests)
+> ✏️ [JUnit 5 Nested Tests](/junit-5-nested-tests)
 
 ## Static methods and fields
 
@@ -302,7 +302,7 @@ Since this now shares instance state between tests, you might need to reset stat
 
 > [!note] Additional reading:
 >
-> :pencil2: [JUnit 5 Test Lifecycle](/junit-5-test-lifecycle)
+> ✏️ [JUnit 5 Test Lifecycle](/junit-5-test-lifecycle)
 
 ## Repeatable Annotations
 

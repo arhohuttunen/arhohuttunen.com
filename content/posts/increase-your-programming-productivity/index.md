@@ -17,7 +17,7 @@ However, the machines we are using are pretty good at doing such tedious, repeti
 
 In this post, we will look at four ways to increase programming productivity. I am mentioning some tools, but these tips are by no means tool-specific. The presented principles are more important. 
 
-## :hammer_and_wrench: Learn the tricks of your IDE
+## 🛠️ Learn the tricks of your IDE
 
 IDEs are more than just a code editor. They try to bring together all the tools you need to compile, debugging, and much more. 
 
@@ -31,7 +31,7 @@ It would be best if you also learned how to **use snippets or live templates**. 
 
 What IDE you use is not that important; what is important is that you maximize that IDE's potential.  
 
-## :mechanical_arm: Automate repetitive tasks
+## 🦾 Automate repetitive tasks
 
 If you find yourself doing something over and over again, you should consider automating that. Even if these are not programming-related tasks, you already possess the skills to make the computer do the work for you as a programmer.
 
@@ -45,7 +45,7 @@ Also, when working on the command line, you might find yourself typing the same 
 
 And while you are on the command line, why not use something like Z Shell and [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) that give you [features](https://github.com/hmml/awesome-zsh) like git auto-completion and much more. For Windows users, you could alternatively try [posh-git](https://github.com/dahlbyk/posh-git).
 
-## :leftwards_arrow_with_hook: Shorten your feedback loops
+## ↩️ Shorten your feedback loops
 
 The common thing with all feedback loops is that as the time waiting goes up, so does the cost to fix something. As the feedback gets slower, there is a higher chance you have introduced changes that are already in conflict.
 
@@ -67,7 +67,7 @@ When the feedback loops are too long, you might run them less often and start ba
 
 Incorporating a code formatter to be run on saving, adding a static analysis plugin to your IDE, or adding a git hook that runs the tests can be effective ways of **making sure your feedback loops are frequent**. I have also written before about [code quality checks](/code-quality-checks) and shortening the feedback loop.
 
-## :stop_sign: Write less code
+## 🛑 Write less code
 
 Being aware **less code is better** is probably the step where you can save the most time. We have the best of intentions to do a good job, which can also turn against us.
 

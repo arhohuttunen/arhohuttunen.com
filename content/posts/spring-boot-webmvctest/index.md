@@ -221,7 +221,7 @@ Let's sidestep just for a moment into JSONPath expressions. Let's say we have JS
 
 When we write a JSONPath expression, `$` is the root element, `.` is used as a child operator, and `[]` are used to access elements in an array. So in the above example, `$.books[0].title` means the title field of the first element in the books collection.
 
-That is our 15 seconds introduction to JSONPath. :smile: We can also write more complex expressions, but now we know the basics that cover most of the use cases when writing tests.
+That is our 15 seconds introduction to JSONPath. 😊 We can also write more complex expressions, but now we know the basics that cover most of the use cases when writing tests.
 
 ## Verify Error Handling
 
