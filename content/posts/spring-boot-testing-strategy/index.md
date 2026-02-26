@@ -38,7 +38,7 @@ If we interpret unit testing as something where we only test classes in isolatio
 If we try to avoid the problems of too much mocking by only focusing on broader tests, we will face other problems. Broader tests are **much slower** than narrower tests and they are **more sensitive to faults in other parts of the system**.
 
 > [!warning]
-> Too much mocks can be an actual issue. However, making a conclusion that we should focus most of our efforts on broader tests is incorrect. We should treat this input as an opportunity to improve the design. Some design improvements have the side-effect of reducing mocks.
+> Too many mocks can be an actual issue. However, making a conclusion that we should focus most of our efforts on broader tests is incorrect. We should treat this input as an opportunity to improve the design. Some design improvements have the side-effect of reducing mocks.
 
 Between these two extremes, there is a sweet spot. We **mock across architectural boundaries** but **don't mock inside those boundaries**. These boundaries include things like the database or external services.
 
