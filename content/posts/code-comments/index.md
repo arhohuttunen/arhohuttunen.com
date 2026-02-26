@@ -88,7 +88,7 @@ At first the benefits of removing comments might not worth the while. However, t
 - Complex solutions are broken down to simpler ones.
 - Instead of making assumptions, you are making programming errors visible through assertions.
 
-{{< tweet user="nzkoz" id="538892801941848064" >}}
+{{< x user="nzkoz" id="538892801941848064" >}}
 
 ## Exceptions
 
