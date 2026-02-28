@@ -12,6 +12,7 @@
 
   {{ .Content }}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{ partial "post-nav.html" . }}
 
   <div class="giscus"></div>
   {{ partial "giscus/script-with-options" .Site.Params.giscus }}

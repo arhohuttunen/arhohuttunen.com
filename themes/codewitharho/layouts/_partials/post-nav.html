@@ -1,0 +1,23 @@
+{{ $prev := .PrevInSection }}
+{{ $next := .NextInSection }}
+
+{{ if or $prev $next }}
+<nav class="not-prose flex justify-between gap-4 mt-8 mb-8 border-t border-gray-200 dark:border-gray-700 pt-8">
+  <div class="flex-1">
+    {{ with $prev }}
+    <a href="{{ .RelPermalink }}" class="group flex flex-col gap-1 no-underline">
+      <span class="text-sm text-gray-500 dark:text-gray-400">← Older</span>
+      <span class="font-medium text-gray-900 dark:text-gray-100 group-hover:underline">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+  <div class="flex-1 text-right">
+    {{ with $next }}
+    <a href="{{ .RelPermalink }}" class="group flex flex-col gap-1 items-end no-underline">
+      <span class="text-sm text-gray-500 dark:text-gray-400">Newer →</span>
+      <span class="font-medium text-gray-900 dark:text-gray-100 group-hover:underline">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </div>
+</nav>
+{{ end }}
