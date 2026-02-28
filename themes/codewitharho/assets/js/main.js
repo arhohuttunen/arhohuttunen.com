@@ -6,7 +6,6 @@ function setTheme(theme) {
     } else {
         html.classList.remove("dark");
     }
-    localStorage.setItem("theme", theme);
     swapThemedImages(theme);
     setGiscusTheme(theme);
 }
@@ -20,11 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
         setTheme("dark");
     }
 
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+            setTheme(e.matches ? "dark" : "light");
+        }
+    });
+
     const toggle = document.getElementById("theme-toggle");
 
     toggle?.addEventListener("click", () => {
         const isDark = html.classList.contains("dark");
-        setTheme(isDark ? "light" : "dark");
+        const newTheme = isDark ? "light" : "dark";
+        localStorage.setItem("theme", newTheme);
+        setTheme(newTheme);
     });
 
     const menuToggle = document.getElementById("menu-toggle");
