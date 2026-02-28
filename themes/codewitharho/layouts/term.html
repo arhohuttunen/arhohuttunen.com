@@ -1,12 +1,17 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  {{ if eq .Data.Singular "tag" }}
+    <h1>#{{ .Title | lower }}</h1>
+  {{ else }}
+    <h1>{{ .Title }}</h1>
+  {{ end }}
   {{ .Content }}
+  <p class="text-sm text-gray-500 dark:text-gray-400">{{ .Pages.Len }} {{ if eq .Pages.Len 1 }}article{{ else }}articles{{ end }}</p>
   {{ $paginator := .Paginate .Pages }}
   {{ range $paginator.Pages }}
     <section>
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       <p>{{ .Summary }}</p>
-      {{ partial "page-meta.html" . }}
+      {{ partial "page-meta.html" (dict "page" . "hideCategories" (eq $.Data.Singular "category") "showTags" (eq $.Data.Singular "category")) }}
     </section>
   {{ end }}
   {{ partial "pagination.html" $paginator }}

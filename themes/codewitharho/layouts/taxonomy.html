@@ -1,10 +1,21 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
-  {{ range .Pages }}
-    <h2>
-      <a href="{{ .RelPermalink }}">{{ if eq $.Data.Singular "tag" }}{{ .LinkTitle | lower }}{{ else }}{{ .LinkTitle }}{{ end }}</a>
-      <span class="text-base font-normal text-gray-500 dark:text-gray-400">({{ .Pages.Len }})</span>
-    </h2>
+  {{ if eq .Data.Singular "tag" }}
+    <div class="not-prose flex flex-wrap gap-2 mt-8">
+      {{ range .Data.Terms.ByCount }}
+        <a href="{{ .Page.RelPermalink }}" class="inline-flex items-center gap-2 px-3 py-1 text-sm rounded-full no-underline bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+          {{- .Name | lower -}}
+          <span class="text-xs text-gray-400 dark:text-gray-500">{{ .Count }}</span>
+        </a>
+      {{ end }}
+    </div>
+  {{ else }}
+    {{ range .Pages }}
+      <h2>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        <span class="text-base font-normal text-gray-500 dark:text-gray-400">({{ .Pages.Len }})</span>
+      </h2>
+    {{ end }}
   {{ end }}
 {{ end }}

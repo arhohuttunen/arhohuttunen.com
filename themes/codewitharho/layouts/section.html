@@ -6,7 +6,7 @@
     <section>
       <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
       <p>{{ .Summary }}</p>
-      {{ partial "page-meta.html" . }}
+      {{ partial "page-meta.html" (dict "page" .) }}
     </section>
   {{ end }}
   {{ partial "pagination.html" $paginator }}

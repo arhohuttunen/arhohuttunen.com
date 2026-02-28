@@ -8,7 +8,7 @@
     {{ end }}
   </header>
 
-  {{ partial "page-meta.html" . }}
+  {{ partial "page-meta.html" (dict "page" .) }}
 
   {{ .Content }}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}

@@ -1,15 +1,17 @@
+{{ $page := .page }}
+
 <div class="text-sm text-gray-500 dark:text-gray-400 flex items-center space-x-3">
 
-  {{ $dateMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Lastmod | time.Format ":date_long" }}
+  {{ $dateMachine := $page.Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := $page.Lastmod | time.Format ":date_long" }}
   <time datetime="{{ $dateMachine }}">Last updated on {{ $dateHuman }}</time>
 
-  {{ if .Params.categories }}
+  {{ if and $page.Params.categories (not .hideCategories) }}
     <span class="middot text-gray-500"></span>
 
     <span class="inline-flex items-center gap-1">
       {{ partial "icon.html" (dict "name" "folder" "class" "w-4 h-4") }}
-      {{ with .GetTerms "categories" }}
+      {{ with $page.GetTerms "categories" }}
         {{ range $index, $cat := . }}
           {{- if $index }}, {{ end -}}
           <a href="{{ $cat.RelPermalink }}" class="no-underline hover:underline text-gray-500 dark:text-gray-400">
@@ -18,5 +20,18 @@
         {{- end }}
       {{ end }}
     </span>
+  {{ end }}
+
+  {{ if .showTags }}
+    {{ with $page.GetTerms "tags" }}
+      <span class="middot text-gray-500"></span>
+      <span class="inline-flex items-center gap-1 flex-wrap">
+        {{- range . }}
+        <a href="{{ .RelPermalink }}" class="px-2 py-0.5 text-xs rounded-full no-underline bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700">
+          {{- .LinkTitle | lower -}}
+        </a>
+        {{- end }}
+      </span>
+    {{ end }}
   {{ end }}
 </div>
