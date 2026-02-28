@@ -14,8 +14,8 @@ ignoreFiles = [
 
 [menus]
   [[menus.main]]
-    name = 'Home'
-    pageRef = '/'
+    name = 'Posts'
+    pageRef = '/posts'
     weight = 10
 
   [[menus.main]]
