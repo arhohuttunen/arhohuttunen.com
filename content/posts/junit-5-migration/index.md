@@ -11,7 +11,7 @@ series: JUnit 5 Tutorial
 series_weight: 7
 ---
 
-In this article, we will take a look at the steps rexquired for migrating from JUnit 4 to JUnit 5. We will see how to run existing tests along with the new version, and what changes we have to do to migrate the code.
+In this article, we will take a look at the steps required for migrating from JUnit 4 to JUnit 5. We will see how to run existing tests along with the new version, and what changes we have to do to migrate the code.
 
 ## Overview
 
