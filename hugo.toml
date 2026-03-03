@@ -59,6 +59,11 @@ ignoreFiles = [
     source = 'hugo_stats.json'
     target = 'assets/notwatching/hugo_stats.json'
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
 [permalinks]
   posts = "/:slugorcontentbasename"
 

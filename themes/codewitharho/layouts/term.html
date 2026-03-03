@@ -5,14 +5,26 @@
     <h1>{{ .Title }}</h1>
   {{ end }}
   {{ .Content }}
-  <p class="text-sm text-gray-500 dark:text-gray-400">{{ .Pages.Len }} {{ if eq .Pages.Len 1 }}article{{ else }}articles{{ end }}</p>
-  {{ $paginator := .Paginate .Pages }}
-  {{ range $paginator.Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      <p>{{ .Summary }}</p>
-      {{ partial "page-meta.html" (dict "page" . "hideCategories" (eq $.Data.Singular "category") "showTags" (eq $.Data.Singular "category")) }}
-    </section>
+  {{ if eq .Data.Singular "series" }}
+    {{ $pages := .Pages.ByParam "series_weight" }}
+    <p class="text-sm text-gray-500 dark:text-gray-400">{{ $pages.Len }} {{ if eq $pages.Len 1 }}article{{ else }}articles{{ end }}</p>
+    {{ range $pages }}
+      <section>
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        <p>{{ .Summary }}</p>
+        {{ partial "page-meta.html" (dict "page" .) }}
+      </section>
+    {{ end }}
+  {{ else }}
+    <p class="text-sm text-gray-500 dark:text-gray-400">{{ .Pages.Len }} {{ if eq .Pages.Len 1 }}article{{ else }}articles{{ end }}</p>
+    {{ $paginator := .Paginate .Pages }}
+    {{ range $paginator.Pages }}
+      <section>
+        <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+        <p>{{ .Summary }}</p>
+        {{ partial "page-meta.html" (dict "page" . "hideCategories" (eq $.Data.Singular "category") "showTags" (eq $.Data.Singular "category")) }}
+      </section>
+    {{ end }}
+    {{ partial "pagination.html" $paginator }}
   {{ end }}
-  {{ partial "pagination.html" $paginator }}
 {{ end }}
