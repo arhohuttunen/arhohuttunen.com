@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - spring-boot
+series: Spring Boot Testing Tutorial
+series_weight: 9
 ---
 
 In this article, we look at an overall Spring Boot testing strategy and how to organize the application for testability.

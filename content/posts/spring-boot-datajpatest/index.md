@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - spring-boot
+series: Spring Boot Testing Tutorial
+series_weight: 4
 ---
 
 In this article, we look at how to write tests for the persistence layer.

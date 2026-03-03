@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - junit-5
+series: JUnit 5 Tutorial
+series_weight: 6
 ---
 
 In this article, we will learn how to use the Mockito mocking framework with JUnit 5. We will learn a test framework independent way, and how to use the Mockito JUnit 5 extension.

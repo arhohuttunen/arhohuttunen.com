@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - spring-boot
+series: Spring Boot Testing Tutorial
+series_weight: 2
 ---
 
 Unit tests build the foundation of our testing strategy. It takes time to learn how to write them well.

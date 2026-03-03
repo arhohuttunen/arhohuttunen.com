@@ -19,19 +19,24 @@ ignoreFiles = [
     weight = 10
 
   [[menus.main]]
+    name = 'Series'
+    pageRef = '/series'
+    weight = 20
+
+  [[menus.main]]
     name = 'Categories'
     pageRef = '/categories'
-    weight = 20
+    weight = 30
 
   [[menus.main]]
     name = 'Tags'
     pageRef = '/tags'
-    weight = 30
+    weight = 40
 
   [[menus.main]]
     name = 'Archive'
     pageRef = '/archive'
-    weight = 40
+    weight = 50
 
 [markup.highlight]
     style = "monokailight"

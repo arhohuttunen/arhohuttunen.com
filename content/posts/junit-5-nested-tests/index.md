@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - junit-5
+series: JUnit 5 Tutorial
+series_weight: 4
 ---
 
 In this tutorial, we will learn how to write JUnit 5 nested tests. We will learn how to provide a hierarchical structure to the tests that describe relationships between the tests.

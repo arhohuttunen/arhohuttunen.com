@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - junit-5
+series: JUnit 5 Tutorial
+series_weight: 2
 ---
 
 ## Overview

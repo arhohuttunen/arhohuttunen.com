@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - spring-boot
+series: Spring Boot Testing Tutorial
+series_weight: 7
 ---
 
 In this article, we look at how to write integration tests with `@SpringBootTest`.

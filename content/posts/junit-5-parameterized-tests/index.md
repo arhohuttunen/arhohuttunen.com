@@ -7,6 +7,8 @@ categories:
   - Testing
 tags:
   - junit-5
+series: JUnit 5 Tutorial
+series_weight: 5
 ---
 
 In this tutorial we will learn how to write JUnit 5 parameterized tests. The tutorial is structured so that it also answers most asked questions about parameterized tests.
