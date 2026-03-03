@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="mt-2 text-xl text-gray-500 dark:text-gray-400">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ with .Content }}
+  <div>{{ . }}</div>
+  {{ end }}
+
+  {{ $pages := .Pages.ByParam "series_weight" }}
+  <div class="not-prose mt-8">
+<ol class="space-y-6 list-none p-0 m-0">
+      {{ range $i, $p := $pages }}
+      <li class="flex gap-6">
+        <span class="text-3xl font-light text-gray-400 dark:text-gray-500 shrink-0 w-8 text-right leading-tight">{{ add $i 1 }}</span>
+        <div class="min-w-0">
+          <h2 class="text-lg font-semibold mt-0 mb-1">
+            <a href="{{ $p.RelPermalink }}" class="text-gray-900 dark:text-gray-100 no-underline hover:underline">{{ $p.Title }}</a>
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $p.Summary }}</p>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+{{ end }}
