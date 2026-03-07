@@ -103,8 +103,7 @@ public record Payment(UUID orderId, CreditCard creditCard, LocalDate paid) { }
 public record CreditCard(
         String cardHolderName,
         String cardNumber,
-        Month expiryMonth,
-        Year expiryYear) { }
+        YearMonth expiry) { }
 
 public record Receipt(BigDecimal amount, LocalDate paid) { }
 ```
@@ -288,7 +287,7 @@ public record LineItem(Drink drink, int quantity, Milk milk, Size size) {
     BigDecimal getCost() {  
         var price = BigDecimal.valueOf(4.0);  
         if (size == Size.LARGE) {  
-            price = price.add(BigDecimal.ONE);  
+            price = BigDecimal.valueOf(5.0)
         }  
         return price.multiply(BigDecimal.valueOf(quantity));  
     }  
