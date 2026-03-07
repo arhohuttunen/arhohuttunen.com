@@ -43,8 +43,8 @@ The `OrderingCoffee` and `PreparingCoffee` ports need to fulfill the requirement
 
 ```java
 public interface OrderingCoffee {
-    Order placeOrder(Order order);
-    Order updateOrder(UUID orderId, Order order);
+    Order placeOrder(Location location, List<LineItem> items);
+    Order updateOrder(UUID orderId, Location location, List<LineItem> items);
     void cancelOrder(UUID orderId);
     Payment payOrder(UUID orderId, CreditCard creditCard);
     Receipt readReceipt(UUID orderId);
@@ -356,7 +356,10 @@ public class OrderController {
             @RequestBody OrderRequest request,
             UriComponentsBuilder uriComponentsBuilder) {
 
-        var order = orderingCoffee.placeOrder(request.toDomain());  
+        var order = orderingCoffee.placeOrder(
+            request.location(),
+            request.toDomainItems()
+        );  
         var location = uriComponentsBuilder.path("/order/{id}")
                 .buildAndExpand(order.getId())
                 .toUri();  
