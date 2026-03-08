@@ -831,4 +831,4 @@ In this article, we made a clean separation of business logic and infrastructure
 
 We also saw how to test the application in isolation without framework dependencies. We complimented these tests with integration tests on the infrastructure module level.
 
-You can find the example code for this article on [GitHub](https://github.com/arhohuttunen/spring-boot-hexagonal-architecture).
+You can find the example code for this article on [GitHub](https://github.com/arhohuttunen/hexagonal-architecture-spring-boot).
